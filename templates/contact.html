@@ -1,0 +1,118 @@
+{% extends 'includes/base.html' %}
+{% block head %}
+<title>Tatkal World | Trusted Software Provider </title>
+<meta name="description" content="A powerful and conceptual webapplication for authenticate irctc mobile verification via otp.">
+
+{% endblock %}
+{% block content%}
+
+<!--
+		=====================================================
+			Contact Us
+		=====================================================
+		-->
+		<div class="contact-us border-top mt-130 xl-mt-100 pt-80 lg-pt-60">
+			<div class="container">
+                <div class="row">
+                    <div class="col-xxl-9 col-xl-8 col-lg-10 m-auto">
+                        <div class="title-one text-center wow fadeInUp">
+                            <h3>Questions? Feel Free to Reach Out Via Message.</h3>
+                        </div>
+                        <!-- /.title-one -->
+                    </div>
+                </div>
+			</div>
+            <div class="address-banner wow fadeInUp mt-60 lg-mt-40">
+                <div class="container">
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-between">
+						<div class="block position-relative z-1 mt-25">
+							<div class="d-xl-flex align-items-center">
+								<div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_39.svg" alt="" class="lazy-img"></div>
+								<div class="text">
+									<p class="fs-22">We’r always happy to help.</p>
+									<a href="#" class="tran3s">info@ezstays.in</a>
+								</div>
+								<!-- /.text -->
+							</div>
+						</div>
+						<!-- /.block -->
+						<div class="block position-relative skew-line z-1 mt-25">
+							<div class="d-xl-flex align-items-center">
+								<div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_39.svg" alt="" class="lazy-img"></div>
+								<div class="text">
+									<p class="fs-22">Our hotline number</p>
+									<a href="#" class="tran3s">+91 9000 699 900</a>
+								</div>
+								<!-- /.text -->
+							</div>
+						</div>
+						<!-- /.block -->
+						<div class="block position-relative z-1 mt-25">
+							<div class="d-xl-flex align-items-center">
+								<div class="icon rounded-circle d-flex align-items-center justify-content-center"><img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_39.svg" alt="" class="lazy-img"></div>
+								<div class="text">
+									<p class="fs-22">Live chat</p>
+									<a href="#" class="tran3s">www.chat.ezstays.in</a>
+								</div>
+								<!-- /.text -->
+							</div>
+						</div>
+						<!-- /.block -->
+					</div>
+                </div>
+            </div>
+            <!-- /.address-banner -->
+
+            <div class="mt-150 xl-mt-120 md-mt-80 mb-150">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="form-style-one wow fadeInUp">
+                            <form action="inc/contact.php" id="contact-form" data-toggle="validator">
+                                <h3>Send Message</h3>
+                                <div class="messages"></div>
+                                <div class="row controls">
+                                    <div class="col-12">
+                                        <div class="input-group-meta form-group mb-30">
+                                            <label for="">Name*</label>
+                                            <input type="text" placeholder="Your Name*" name="name" required="required" data-error="Name is required.">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-group-meta form-group mb-40">
+                                            <label for="">Email*</label>
+                                            <input type="email" placeholder="Email Address*" name="email" required="required" data-error="Valid email is required.">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-group-meta form-group mb-35">
+                                            <textarea placeholder="Your message*" name="message" required="required" data-error="Please,leave us a message."></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12"><button class="btn-nine text-uppercase rounded-3 fw-normal w-100">Send Message</button></div>
+                                </div>
+                            </form>
+                        </div> <!-- /.form-style-one -->
+                    </div>
+                    <div class="col-xl-5 col-lg-6 d-flex order-lg-first shadow4 border-20">
+                        <div class="contact-map-banner w-100">
+                            <div class="gmap_canvas h-100 w-100">
+                                <iframe class="gmap_iframe h-100 w-100" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=dhaka collage&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- /.contact-us -->
+
+
+
+
+
+{% endblock %}
+{% block contentScript %}
+{% comment %} my script here {% endcomment %}
+{% endblock%}

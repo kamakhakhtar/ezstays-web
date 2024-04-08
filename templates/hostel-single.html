@@ -1,0 +1,357 @@
+{% extends 'includes/base.html' %}
+{% block head %}
+<title>{{ hostel.seo.title }}</title>
+<meta name="description" content="{{ hostel.seo.description }}">
+<meta name="keywords" content="{{ hostel.seo.keywords }}">
+
+{% endblock %}
+{% block content%}
+{% load my_custom_tags %}
+<!--
+		=====================================================
+			Room Listing Details
+		=====================================================
+		-->
+		<div class="listing-details-one theme-details-one bg-pink pt-180 lg-pt-150 pb-150 xl-pb-120">
+			<div class="container">
+				<div class="row">
+                    <div class="col-lg-6">
+                        <h3 class="property-titlee">{{ hostel.name }}</h3>
+                        <div class="d-flex flex-wrap mt-10">
+                            <div class="list-type text-uppercase border-20 mt-15 me-3">FOR {{hostel.hostelType}}</div>
+                            <div class="address mt-15"><i class="bi bi-geo-alt"></i> {{hostel.address}}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-lg-end">
+                        <div class="d-inline-block md-mt-40">
+                            <div class="price color-dark fw-500">Price: &#8377;{{ hostel.price | round }}*</div>
+                            <div class="est-price fs-20 mt-25 mb-35 md-mb-30">Est. Payment <span class="fw-500 color-dark">&#8377;{{hostel.price | monthly}}/mo*</span></div>
+                            <ul class="style-none d-flex align-items-center action-btns">
+                                <li class="me-auto fw-500 color-dark"><i class="fa-sharp fa-regular fa-share-nodes me-2"></i> Share</li>
+                                <li><a href="#" class="d-flex align-items-center justify-content-center rounded-circle tran3s"><i class="fa-light fa-heart"></i></a></li>
+                                <li><a href="#" class="d-flex align-items-center justify-content-center rounded-circle tran3s"><i class="fa-light fa-bookmark"></i></a></li>
+                                <li><a href="#" class="d-flex align-items-center justify-content-center rounded-circle tran3s"><i class="fa-light fa-circle-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% comment %} <div class="media-gallery mt-100 xl-mt-80 lg-mt-60">
+                    <div id="media_slider" class="carousel slide row">
+                        <div class="col-lg-10">
+                            <div class="bg-white shadow4 border-20 p-30 md-mb-20">
+                                <div class="position-relative z-1 overflow-hidden border-20">
+                                    <div class="img-fancy-btn border-10 fw-500 fs-16 color-dark">
+                                        Sell all 37 Photos
+                                        <a href="/static/images/listing/img_large_01.jpg" class="d-block" data-fancybox="mainImg" data-caption="Duplex orkit villa."></a>
+                                        <a href="/static/images/listing/img_large_02.jpg" class="d-block" data-fancybox="mainImg" data-caption="Duplex orkit villa."></a>
+                                        <a href="/static/images/listing/img_large_03.jpg" class="d-block" data-fancybox="mainImg" data-caption="Duplex orkit villa."></a>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="/static/images/listing/img_43.jpg" alt="" class="border-20 w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/static/images/listing/img_44.jpg" alt="" class="border-20 w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/static/images/listing/img_45.jpg" alt="" class="border-20 w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/static/images/listing/img_46.jpg" alt="" class="border-20 w-100">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#media_slider" data-bs-slide="prev">
+                                        <i class="bi bi-chevron-left"></i>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#media_slider" data-bs-slide="next">
+                                        <i class="bi bi-chevron-right"></i>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="carousel-indicators position-relative border-15 bg-white shadow4 p-15 w-100 h-100">
+                                <button type="button" data-bs-target="#media_slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                                    <img src="/static/images/listing/img_43_s.jpg" alt="" class="border-10 w-100">
+                                </button>
+                                <button type="button" data-bs-target="#media_slider" data-bs-slide-to="1" aria-label="Slide 2">
+                                    <img src="/static/images/listing/img_44_s.jpg" alt="" class="border-10 w-100">
+                                </button>
+                                <button type="button" data-bs-target="#media_slider" data-bs-slide-to="2" aria-label="Slide 3">
+                                    <img src="/static/images/listing/img_45_s.jpg" alt="" class="border-10 w-100">
+                                </button>
+                                <button type="button" data-bs-target="#media_slider" data-bs-slide-to="3" aria-label="Slide 4">
+                                    <img src="/static/images/listing/img_46_s.jpg" alt="" class="border-10 w-100">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+				
+				<div class="media-gallery mt-100 xl-mt-80 lg-mt-60">
+					<div id="media_slider" class="carousel slide row">
+						<div class="col-lg-10">
+							<div class="bg-white shadow4 border-20 p-30 md-mb-20">
+								<div class="position-relative z-1 overflow-hidden border-20">
+									<!-- Assuming we want to keep the "Sell all 37 Photos" as static. Adjust if necessary. -->
+									<div class="img-fancy-btn border-10 fw-500 fs-16 color-dark">
+										Sell all {{hostel.images.count}} Photos
+										{% for image in hostel.images.all %}
+											<a href="{{ image.image.url }}" class="d-block" data-fancybox="mainImg" data-caption="{{ hostel.name }}"></a>
+										{% endfor %}
+									</div>
+									<div class="carousel-inner">
+										{% for image in hostel.images.all %}
+										<div class="carousel-item {% if forloop.first %}active{% endif %}">
+											<img src="{{ image.image.url }}" alt="" class="border-20 w-100">
+										</div>
+										{% endfor %}
+									</div>
+									<!-- Carousel controls -->
+									<button class="carousel-control-prev" type="button" data-bs-target="#media_slider" data-bs-slide="prev">
+										<i class="bi bi-chevron-left"></i>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#media_slider" data-bs-slide="next">
+										<i class="bi bi-chevron-right"></i>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="carousel-indicators position-relative border-15 bg-white shadow4 p-15 w-100 h-100">
+								{% for image in hostel.images.all %}
+								<button type="button" data-bs-target="#media_slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}">
+									<img src="{{ image.image.url }}" alt="" class="border-10 w-100">
+								</button>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
+
+				<!-- /.media-gallery -->
+				<div class="property-feature-list bg-white shadow4 border-20 p-40 mt-50 mb-60">
+					<h4 class="sub-title-one mb-40 lg-mb-20">Room Overview</h4>
+					<ul class="style-none d-flex flex-wrap align-items-center justify-content-between">
+						
+						<li>
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_48.svg" alt="" class="lazy-img icon">
+							<span class="fs-20 color-dark">Bed : {{hostel.bed}}</span>
+						</li>
+						<li>
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_49.svg" alt="" class="lazy-img icon">
+							<span class="fs-20 color-dark">Bath : {{hostel.bath}}</span>
+						</li>
+						<li>
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_50.svg" alt="" class="lazy-img icon">
+							<span class="fs-20 color-dark">Hostel Type : {{hostel.hostelType}}</span>
+						</li>
+						<li>
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_51.svg" alt="" class="lazy-img icon">
+							<span class="fs-20 color-dark">Cafeteria : Yes</span>
+						</li>
+					</ul>
+				</div>
+				<!-- /.property-feature-list -->
+				<div class="row">
+					<div class="col-xl-8">
+						
+					
+						<!-- /.property-feature-accordion -->
+						<div class="property-amenities bg-white shadow4 border-20 p-40 mb-50">
+							<h4 class="mb-20">Amenities</h4>
+							<p class="fs-20 lh-lg pb-25">Risk management & compliance, when approached strategically, have the potential</p>
+							<ul class="style-none d-flex flex-wrap justify-content-between list-style-two">
+								{% for amenity in hostel.amenities.all %}
+								<li>{{ amenity.name }}</li>
+								{% endfor %}
+							<!-- /.list-style-two -->
+						</div>
+						<!-- /.property-amenities -->
+
+						<div class="property-video-tour mb-50">
+							<h4 class="mb-40">Video Tour</h4>
+							<div class="bg-white shadow4 border-20 p-15">
+								<div class="position-relative border-15 image-bg overflow-hidden z-1">
+									{% if hostel.video_thumbnail %}
+										<img src="/static/images/lazy.svg" data-src="{{ hostel.video_thumbnail.url }}" alt="" class="lazy-img w-100">
+									
+        							{% endif %}
+									{% if hostel.video %}
+									<a class="video-icon tran3s rounded-circle d-flex align-items-center justify-content-center" data-fancybox href="{{ hostel.video.url }}">
+
+										<i class="fa-thin fa-play"></i>
+									</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+						<!-- /.property-video-tour -->
+
+						
+
+						<div class="property-nearby bg-white shadow4 border-20 p-40 mb-50">
+							<h4 class="mb-20">What’s Nearby</h4>
+							<p class="fs-20 lh-lg pb-30">Risk management and compliance, when approached strategically, have th potential to go beyond mitigating threats.</p>
+							<ul class="style-none d-flex flex-wrap justify-content-between nearby-list-item">
+								{% for place, distance in nearby_context %}
+									<li>{{ place }}: <span class="fw-500 color-dark">{{ distance }}</span></li>
+								{% endfor %}
+							</ul>
+							<!-- /.nearby-list-item -->
+						</div>
+						<!-- /.property-nearby -->
+
+
+						
+
+						<div class="similar-property">
+							<h4 class="mb-40">Similar Homes You May Like</h4>
+							<div class="similar-listing-slider-one">
+								
+								{% for hostel in similar %}
+									<div class="item">
+										<div class="listing-card-one shadow4 style-three border-30 mb-50">
+											<div class="img-gallery p-15">
+												<div class="position-relative border-20 overflow-hidden">
+													<!-- Example tag, adjust if you have a condition to display something similar -->
+													<div class="tag bg-white text-dark fw-500 border-20">FOR {{hostel.hostelType}}</div>
+													
+													<!-- Assuming the first image is the cover; adjust according to your logic -->
+													{% if hostel.images.all %}
+														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20" alt="...">
+													{% endif %}
+													
+													<a href="/hostel/{{hostel.slug}}/" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-arrow-up-right"></i></a>
+													
+													<div class="img-slider-btn">
+														{{ hostel.images.count }} <i class="fa-regular fa-image"></i>
+														<!-- Display links to all images for fancybox -->
+														{% for image in hostel.images.all %}
+															<a href="{{ image.image.url }}" class="d-block" data-fancybox="img{{ hostel.id }}" data-caption="{{ hostel.name }}"></a>
+														{% endfor %}
+													</div>
+												</div>
+											</div>
+											<!-- /.img-gallery -->
+											
+											<div class="property-info pe-4 ps-4">
+												<a href="/hostel/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
+												<div class="address m0 pb-5">{{ hostel.address }}</div>
+												<div class="pl-footer m0 d-flex align-items-center justify-content-between">
+													<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | round }}*</strong>
+													<ul class="style-none d-flex action-icons">
+														<li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+														<li><a href="#"><i class="fa-light fa-bookmark"></i></a></li>
+														<li><a href="#"><i class="fa-light fa-circle-plus"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<!-- /.property-info -->
+										</div>
+										<!-- /.listing-card-one -->
+									</div>
+								{% endfor %}
+
+							</div>
+						</div>
+						<!-- /.similar-property -->
+
+						
+						<!-- /.property-score -->
+
+
+						<div class="property-location mb-50">
+							<h4 class="mb-40">Location</h4>
+							<div class="bg-white shadow4 border-20 p-30">
+								<div class="map-banner overflow-hidden border-15">
+									<div class="gmap_canvas h-100 w-100">
+										{% if hostel.google_map_location %}
+											{{ hostel.google_map_location|safe }}
+										{% endif %}
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.property-location -->
+
+
+					
+					</div>
+					<div class="col-xl-4 col-lg-8 me-auto ms-auto">
+						<div class="theme-sidebar-one dot-bg p-30 ms-xxl-3 lg-mt-80">
+							
+							<!-- /.agent-info -->
+
+							<div class="tour-schedule bg-white border-20 p-30 mb-40">
+								<h5 class="mb-40">Schedule a Visit</h5>
+								<form action="#">
+									<div class="input-box-three mb-25">
+										<div class="label">Your Name*</div>
+										<input type="text" placeholder="Your full name" class="type-input">
+									</div>
+									
+									<!-- /.input-box-three -->
+									<div class="input-box-three mb-25">
+										<div class="label">Your Phone*</div>
+										<input type="tel" placeholder="Your phone number" class="type-input">
+									</div>
+									
+									<!-- /.input-box-three -->
+									<button class="btn-nine text-uppercase rounded-3 w-100 mb-10">Schedule</button>
+								</form>
+							</div>
+							<!-- /.tour-schedule -->
+
+						
+						</div>
+						<!-- /.theme-sidebar-one -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.listing-details-one -->
+
+
+
+		<!--
+		=====================================================
+			Fancy Banner Two
+		=====================================================
+		-->
+		<div class="fancy-banner-two position-relative z-1 pt-90 lg-pt-50 pb-90 lg-pb-50">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="title-one text-center text-lg-start md-mb-40 pe-xl-5">
+							<h3 class="text-white m0">Start your <span>Journey<img src="/static/images/lazy.svg" data-src="/static/images/shape/title_shape_06.svg" alt="" class="lazy-img"></span> with EzLiving.</h3>
+						</div>
+						<!-- /.title-one -->
+					</div>
+					<div class="col-lg-6">
+						<div class="form-wrapper me-auto ms-auto me-lg-0">
+							<form action="#">
+								<input type="email" placeholder="Email address">
+								<button>Get Started</button>
+							</form>
+							<div class="fs-16 mt-10 text-white">Already registered? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Sign in.</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.fancy-banner-two -->
+
+
+
+{% endblock %}
+{% block contentScript %}
+{% comment %} my script here {% endcomment %}
+{% endblock%}

@@ -1,0 +1,659 @@
+{% extends 'includes/base.html' %}
+{% block head %}
+<title>Tatkal World | Trusted Software Provider </title>
+<meta name="description" content="A powerful and conceptual webapplication for authenticate irctc mobile verification via otp.">
+
+{% endblock %}
+{% load my_custom_tags %}
+{% block content%}
+
+		<!-- 
+		=============================================
+			Hero Banner
+		============================================== 
+		-->
+		<div class="hero-banner-one bg-pink z-1 pt-225 xl-pt-200 pb-250 xl-pb-150 lg-pb-100 position-relative">
+			<div class="container position-relative">
+				<div class="row">
+					<div class="col-xxl-10 col-xl-9 col-lg-10 col-md-10 m-auto">
+						<h1 class="hero-heading text-center wow fadeInUp">The Next-Gen  <span class="d-inline-block position-relative">Student Living <img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_01.svg" alt="" class="lazy-img"></span></h1>
+						<p class="fs-24 color-dark text-center pt-35 pb-35 wow fadeInUp" data-wow-delay="0.1s">Student Housing - PG And Hostels in Greater Noida | Delhi | Bhopal | Ghaziabad</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xxl-10 m-auto">
+						<div class="search-wrapper-one layout-one bg position-relative">
+							<div class="bg-wrapper">
+								<form action="listing_01.html">
+									<div class="row gx-0 align-items-center">
+										
+										<div class="col-xl-10 col-lg-10">
+											<div class="input-box-one border-left">
+												<div class="label">Location</div>
+												<select class="nice-select location">
+													<option value="1">Greater Noida</option>
+													<option value="2">Bhopal</option>
+													<option value="3">Dehradun</option>
+													<option value="4">Ambala</option>
+													<option value="5">Delhi</option>
+													<option value="6">Ghaziabad </option>
+												</select>
+											</div>
+											<!-- /.input-box-one -->
+										</div>
+										
+										<div class="col-xl-2">
+											<div class="input-box-one lg-mt-10">
+												<button class="fw-500 text-uppercase tran3s search-btn">Search</button>
+											</div>
+											<!-- /.input-box-one -->
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- /.search-wrapper-one -->
+					</div>
+				</div>
+			</div>
+			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_01.svg" alt="" class="lazy-img shapes w-100 illustration">
+		</div>
+		<!-- /.hero-banner-one -->
+
+
+		<!-- 
+		=============================================
+			Feedback Section One
+		============================================== 
+		-->
+		<div class="feedback-section-one position-relative z-1 pt-70 md-pt-50 pb-80 md-pb-60">
+			<div class="main-content m-auto">
+				<div class="feedback-slider-one position-static">
+                    <div class="item">
+						<div class="feedback-block-one text-center">
+							<div class="row align-items-center">
+								<div class="col-md-3">
+									<img src="/static/images/media/img_03.jpg" alt="" class="rounded-circle m-auto avatar">
+									<h6 class="fs-20 m0 pt-10">Rashed Kabir</h6>
+									<span class="fs-16">Delhi, IN</span>
+								</div>
+								<div class="col-md-6">
+									<blockquote>They are very strict about themselves and their work, and do not have a carefree attitude to anything in life.</blockquote>
+								</div>
+								<div class="col-md-3">
+									<img src="/static/images/lazy.svg"  data-src="/static/images/assets/rating_01.png" alt="" class="lazy-img m-auto">
+									<p class="text-center m0 pt-10"><span class="fw-500 color-dark">11k rating</span> (4.8 Rating)</p>
+								</div>
+							</div>
+						</div>
+						<!-- /.feedback-block-one -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-one text-center">
+							<div class="row align-items-center">
+								<div class="col-md-3">
+									<img src="/static/images/media/img_01.jpg" alt="" class="rounded-circle m-auto avatar">
+									<h6 class="fs-20 m0 pt-10">Jonathan Harry</h6>
+									<span class="fs-16">Gr. Noida, UP</span>
+								</div>
+								<div class="col-md-6">
+									<blockquote>Efficient, knowledgeable, & made our home search a smooth experience. Highly recommended agency!</blockquote>
+								</div>
+								<div class="col-md-3">
+									<img src="/static/images/lazy.svg"  data-src="/static/images/assets/rating_01.png" alt="" class="lazy-img m-auto">
+									<p class="text-center m0 pt-10"><span class="fw-500 color-dark">13k rating</span> (4.7 Rating)</p>
+								</div>
+							</div>
+						</div>
+						<!-- /.feedback-block-one -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-one text-center">
+							<div class="row align-items-center">
+								<div class="col-md-3">
+									<img src="/static/images/media/img_02.jpg" alt="" class="rounded-circle m-auto avatar">
+									<h6 class="fs-20 m0 pt-10">Sofia Rena</h6>
+									<span class="fs-16">Ambala, Punjab</span>
+								</div>
+								<div class="col-md-6">
+									<blockquote>People who are sentinels are definitely the working very hard now, so that they can enjoy the fruits.</blockquote>
+								</div>
+								<div class="col-md-3">
+									<img src="/static/images/lazy.svg"  data-src="/static/images/assets/rating_01.png" alt="" class="lazy-img m-auto">
+									<p class="text-center m0 pt-10"><span class="fw-500 color-dark">10k rating</span> (4.5 Rating)</p>
+								</div>
+							</div>
+						</div>
+						<!-- /.feedback-block-one -->
+					</div>
+					
+				</div>
+				<!-- /.feedback-slider-one -->
+			</div>
+		</div>
+		<!-- /.feedback-section-one -->
+		
+
+ <!--
+		=====================================================
+			Property Listing Four
+		=====================================================
+		-->
+		<div class="property-listing-four bg-pink-three position-relative z-1  pt-120 xl-pt-80 pb-110 xl-pb-60 mt-170 xl-mt-140 lg-mt-120">
+			<div class="container container-large">
+				<div class="position-relative z-1">
+					<div class="title-one mb-60 lg-mb-40 wow fadeInUp">
+						<h3>Our <span>Residences <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-img"></span></h3>
+						<p class="fs-22 mt-xs">EzStays offers good, safe places to stay with great features. <br> Enjoy student life with expert guidance, meeting others, and easy app use.</p>
+					</div>
+					<!-- /.title-one -->
+					<div class="listing-slider-one vw-100">
+						{% for hostel in hostels %}
+						<div class="item">
+							<div class="listing-card-one style-three border-30 mb-50">
+								<div class="img-gallery p-15">
+									<div class="position-relative border-20 overflow-hidden">
+										<div class="tag bg-white text-dark fw-500 border-20">FOR {{hostel.hostelType}}</div>
+										{% if hostel.images.all %}
+														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20" alt="...">
+													{% endif %}
+													
+													<a href="/hostel/{{hostel.slug}}/" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-arrow-up-right"></i></a>
+													
+													<div class="img-slider-btn">
+														{{ hostel.images.count }} <i class="fa-regular fa-image"></i>
+														<!-- Display links to all images for fancybox -->
+														{% for image in hostel.images.all %}
+															<a href="{{ image.image.url }}" class="d-block" data-fancybox="img{{ hostel.id }}" data-caption="{{ hostel.name }}"></a>
+														{% endfor %}
+													</div>
+									</div>
+								</div>
+								<!-- /.img-gallery -->
+								<div class="property-info pe-4 ps-4">
+									<a href="listing_details_04.html" class="title tran3s">{{ hostel.name }}</a>
+									<div class="address">{{ hostel.address }}</div>
+									<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+										<li class="d-flex align-items-center">
+											<span class="fs-16"><strong class="fw-500 color-dark">{{ hostel.bed }}</strong> bed</span>
+										</li>
+									</ul>
+									<div class="pl-footer top-border d-flex align-items-center justify-content-between">
+										<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | round }}*</strong>
+										<ul class="style-none d-flex action-icons">
+											<li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+											<li><a href="#"><i class="fa-light fa-bookmark"></i></a></li>
+											<li><a href="#"><i class="fa-light fa-circle-plus"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-one -->
+						</div>
+						
+						{% endfor %}
+					</div>
+					<div class="section-btn text-center">
+						<a href="listing_04.html" class="btn-eleven fst-italic"><span>See all properties</span></a>
+					</div>
+					<ul class="slider-arrows slick-arrow-two d-flex justify-content-center style-none md-mt-30">
+						<li class="prev_b slick-arrow"><i class="bi bi-arrow-left"></i></li>
+						<li class="next_b slick-arrow"><i class="bi bi-arrow-right"></i></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /.property-listing-four -->
+
+
+
+
+		<!--
+		=====================================================
+			BLock Feature One
+		=====================================================
+		-->
+		<div class="block-feature-one mt-150 xl-mt-120">
+			<div class="container">
+				<div class="title-one text-center mb-50 xl-mb-30 lg-mb-20 wow fadeInUp">
+					<h3>The EzStays <span>Advantages <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_01.svg" alt="" class="lazy-img"></span></h3>
+					<p class="fs-24">We provide a variety of affordable living accommodations, as well as networking opportunities, recreational activities, and social events in an effort to provide our residents with a productive environment that thrives on success.</p>
+				</div>
+				<!-- /.title-one -->
+				
+				<div class="row gx-xl-5">
+					<div class="col-md-4">
+						<div class="card-style-one text-center wow fadeInUp mt-40">
+							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/mentor.png" alt="" class="lazy-img m-auto icon">
+							<div class="fs-16 text-uppercase fw-500 fs-text mt-35 md-mt-30 mb-20">Ezmentor</div>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">Support and tips to help kickstart your career.</p>
+						</div>
+						<!-- /.card-style-one -->
+					</div>
+					<div class="col-md-4">
+						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.1s">
+							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/connect.png" alt="" class="lazy-img m-auto icon">
+							<div class="fs-16 text-uppercase fw-500 fs-text mt-35 md-mt-30 mb-20">Ezconnect</div>
+							<p class="fs-24 ps-xxl-3 pe-xxl-3">Programs & events to help you achieve greater success.</p>
+						</div>
+						<!-- /.card-style-one -->
+					</div>
+					<div class="col-md-4">
+						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.2s">
+							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/technology.png" alt="" class="lazy-img m-auto icon">
+							<div class="fs-16 text-uppercase fw-500 fs-text mt-35 md-mt-30 mb-20">Eztechnology</div>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">Get round-the-clock access to our world class facilities</p>
+						</div>
+						<!-- /.card-style-one -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.block-feature-one -->
+
+
+
+		<!--
+		=====================================================
+			BLock Feature Two
+		=====================================================
+		-->
+		<div class="block-feature-two  mt-150 xl-mt-110 lg-pt-80 pb-140 xl-pb-120 lg-pb-100">
+			<div class="wrapper">
+				<div class="row gx-xl-5">
+					<div class="col-xxl-7 col-md-6 d-flex wow fadeInLeft">
+						<div class="block-one w-100 h-100">
+							<div class="position-relative z-1 h-100">
+								<h3 class="mb-55">Easy Living, Unforgettable Memories - Your Home Away!</h3>
+								<a class="fancybox video-icon d-flex align-items-center justify-content-center rounded-circle ms-3" data-fancybox="" href="/hostel_videos/vecteezy_night-view-of-house-with-family-on-the-balcony-greece_28747326.mp4" tabindex="-1">
+									<i class="fa-solid fa-play"></i>
+								</a>
+								<div class="card-box text-center">
+									<h3 class="main-count fw-500">1<span class="counter">0</span>+</h3>
+									<p class="fs-20">Years Experience <br>with proud.</p>
+								</div>
+								<!-- /.card-box -->
+								<img src="/static/images/lazy.svg"  data-src="/static/images/assets/screen_01.png" alt="" class="lazy-img shapes screen_01">
+							</div>
+						</div>
+						<!-- /.block-one -->
+					</div>
+					<div class="col-xxl-5 col-md-6 wow fadeInRight">
+						<div class="block-two">
+							<div class="bg-wrapper">
+								<h4>Who we are?</h4>
+								<p class="fs-22 mt-20">Ezstays is one of the leading student-life network ,<br> providing hostels and PG accommodation with top-tier living facilities at the affordable prices.</p>
+								<div class="counter-wrapper ps-xl-3 pb-30 mt-45 mb-50">
+									<div class="row">
+										<div class="col-6">
+											<div class="counter-block-one mt-20">
+												<div class="main-count fw-500 color-dark"><span class="counter">5</span>+</div>
+												<span>Cities in Hostel</span>
+											</div>
+											<!-- /.counter-block-one -->
+										</div>
+										<div class="col-6">
+											<div class="counter-block-one mt-20">
+												<div class="main-count fw-500 color-dark"><span class="counter">13</span>K+</div>
+												<span>Happy Students</span>
+											</div>
+											<!-- /.counter-block-one -->
+										</div>
+									</div>
+								</div>
+								<ul class="list-style-one fs-22 color-dark style-none">
+									<li>World class amenities</li>
+									<li>EzMentor provides best mentorship</li>
+									<li>Safe and Secure environment</li>
+								</ul>
+								<div class="d-inline-flex flex-wrap align-items-center mt-15 md-mt-10">
+									<a href="/about-us/" class="btn-two mt-20 me-4"><span>More Details</span></a>
+									<a href="/contact/" class="btn-three mt-20"><span>Request a Callback</span> <i class="fa-light fa-arrow-right-long"></i></a>
+								</div>
+							</div>
+							<!-- /.bg-wrapper -->
+						</div>
+						<!-- /.block-two -->
+					</div>
+				</div>
+
+			</div>
+			<!-- /.wrapper -->
+		</div>
+		<!-- /.block-feature-two -->
+		
+
+			<!--
+		=====================================================
+			BLock Feature Two
+		=====================================================
+		-->
+		<div class="block-feature-two bg-pink-three pt-150 lg-pt-120 pb-110 lg-pb-80">
+			<div class="wrapper">
+				
+
+				<div class="row gx-lg-5 align-items-center ">
+						<div class="col-lg-3">
+							<!-- <div class="col-lg-3 title-one">
+								<h3>EzStays  <span>Experience <img src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-img" style=""></span></h3>
+							</div> -->
+							<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+								<div class="bg-wrapper text-center">
+									<h3>12+</h3>
+									<p>World-class amenities <br>for everything you need <br> to succeed in college-life.</p>
+								</div>
+							</div>
+							<!-- /.card-style-three -->
+						</div>
+						<div class="col-lg-9 ps-xl-5">
+							<div class="row gx-xl-5">
+								<div class="col-md-4">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon"><img src="/static/images/icon/meal.png" alt="" class="lazy-img" style=""></div>
+										<h5 class="mt-35 mb-15">Hygienic Meal</h5>
+										<p>Delicious meals cooked in a neat and clean kitchen.</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								<div class="col-md-4">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/wifi.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">High Speed WiFi</h5>
+										<p>Dedicated leased line internet.</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								<div class="col-md-4">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/power.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Power Backup</h5>
+										<p>24x7 Power Backup without interrupt.</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+
+							
+
+								
+							</div>
+						</div>
+						<div class="col-lg-12 ps-xl-5">
+							<div class="row gx-xl-5">
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon">
+											<img src="/static/images/icon/cctv.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">24x7 Security</h5>
+										<p>Round the clock professional security guards</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/library.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Tech Enable Library</h5>
+										<p>Kindle machines powered Library in select hostels</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/clean.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">House Keeping</h5>
+										<p>Professional housekeeping team deployed at each hostel</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/game.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Indoor Games</h5>
+										<p>Pool, table tennis,Foosball, Carrom, Playstation and much more</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="col-lg-12 ps-xl-5">
+							<div class="row gx-xl-5">
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/gym.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Gymnasium</h5>
+										<p>Well-equipped gymnasium</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/machine.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Snack Machine</h5>
+										<p>Special round the clock online payment vending machine.</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/biometric.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Biometric Entry</h5>
+										<p>To ensure ease and security on entry</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+
+								<div class="col-md-3">
+									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+										<div class="icon ">
+											<img src="/static/images/icon/doctor.png" alt="" class="lazy-img" style="">
+										</div>
+										<h5 class="mt-35 mb-15">Doctor on call</h5>
+										<p>General physician available on call.</p>
+									</div>
+									<!-- /.card-style-four -->
+								</div>
+								
+							</div>
+						</div>
+					</div>
+			</div>
+			<!-- /.wrapper -->
+		</div>
+		<!-- /.block-feature-two -->
+		
+
+	
+
+		
+
+
+	<!--
+		=====================================================
+			Feedback Section Four
+		=====================================================
+		-->
+		<div class="feedback-section-four position-relative overflow-hidden z-1 pt-150 lg-pt-120 pb-110 lg-pb-80">
+			<div class="container container-large">
+				<div class="position-relative z-1">
+					<div class="row">
+						<div class="col-xl-6 col-lg-8">
+							<div class="title-one pe-xxl-5 mb-75 xl-mb-50 wow fadeInUp">
+								<h2 class="font-garamond">Don’t Trust Us, Trust <em>our Students</em> <span class="star-shape"><img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_37.svg" alt="" class="lazy-img"></span></h2>
+								<p class="fs-20 m0">Student satisfaction speaks louder than our words. Hear from them.</p>
+							</div>
+							<!-- /.title-one -->
+						</div>
+					</div>
+	
+					<div class="feedback-slider-two">
+						{% for testimony in testimonials %}
+						<div class="item">
+							<div class="feedback-block-four">
+								<div class="d-flex align-items-center">
+									<img src="{{testimony.image.url}}" alt="" class="rounded-circle avatar">
+									<div class="ps-3">
+										<h6 class="fs-20 m0">{{testimony.student_name}}</h6>
+										<span class="fs-16">{{testimony.student_addr}}</span>
+									</div>
+								</div>
+								<blockquote>"{{testimony.review}}"</blockquote>
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="/static/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<!-- /.feedback-block-four -->
+						</div>
+						{%endfor%}
+					</div>
+					<ul class="slider-arrows slick-arrow-two d-flex justify-content-center style-none md-mt-30">
+						<li class="prev_c slick-arrow"><i class="bi bi-arrow-left"></i></li>
+						<li class="next_c slick-arrow"><i class="bi bi-arrow-right"></i></li>
+					</ul>
+					<div class="section-btn text-center md-mt-30">
+						<a href="#" class="btn-eleven fst-italic"><span>See all Feedback</span></a>
+					</div>
+				</div>
+			</div>
+			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_42.svg" alt="" class="lazy-img shapes shape_01 wow fadeInDown" data-wow-delay="0.2s">
+			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_43.svg" alt="" class="lazy-img shapes shape_02 wow fadeInUp">
+		</div>
+		<!-- /.feedback-section-four -->
+
+
+
+		
+
+
+		<!--
+		=====================================================
+			BLock Feature Five
+		=====================================================
+		-->
+		<div class="block-feature-five position-relative z-1 bg-pink pt-100 lg-pt-80 pb-130 xl-pb-100 lg-pb-80 mt-225 xl-mt-200 lg-mt-150">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-8 m-auto">
+						<div class="title-one text-center mb-35 lg-mb-20">
+							<h3>We’r here to help <br> you get your <span>dream hostel<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_07.svg" alt="" class="lazy-img"></span></h3>
+							<p class="fs-24 color-dark">It’s easy to start with us with these simple steps</p>
+						</div>
+						<!-- /.title-one -->
+					</div>
+				</div>
+				<div class="row justify-content-between">
+					<div class="col-xxl-11 m-auto">
+						<div class="row gx-xl-5 justify-content-center">
+							<div class="col-lg-4 col-sm-6">
+								<div class="card-style-one text-center wow fadeInUp mt-40">
+									<img src="/static/images/lazy.svg"  data-src="/static/images/icon/icon_07.svg" alt="" class="lazy-img m-auto icon">
+									<h5 class="mt-50 lg-mt-30 mb-15">Create Account</h5>
+									<p class="pe-xxl-4 ps-xxl-4">It’s very easy to open an account and start your journey.</p>
+								</div>
+								<!-- /.card-style-one -->
+							</div>
+							<div class="col-lg-4 col-sm-6">
+								<div class="card-style-one text-center wow fadeInUp mt-40 arrow position-relative" data-wow-delay="0.1s">
+									<img src="/static/images/lazy.svg"  data-src="/static/images/icon/icon_08.svg" alt="" class="lazy-img m-auto icon">
+									<h5 class="mt-50 lg-mt-30 mb-15">Find Hostel</h5>
+									<p class="pe-xxl-4 ps-xxl-4">Complete your profile with all the info to get Hostel according to you.</p>
+								</div>
+								<!-- /.card-style-one -->
+							</div>
+							<div class="col-lg-4 col-sm-6">
+								<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.2s">
+									<img src="/static/images/lazy.svg"  data-src="/static/images/icon/icon_09.svg" alt="" class="lazy-img m-auto icon">
+									<h5 class="mt-50 lg-mt-30 mb-15">Quick Process</h5>
+									<p class="pe-xxl-4 ps-xxl-4">Book & get your preferable bed.</p>
+								</div>
+								<!-- /.card-style-one -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_07.svg" alt="" class="lazy-img shapes shape_01">
+			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_08.svg" alt="" class="lazy-img shapes shape_02">
+		</div>
+		<!-- /.block-feature-five -->
+
+
+		<!--
+		=====================================================
+			Fancy Banner Two
+		=====================================================
+		-->
+		<div class="fancy-banner-two position-relative z-1 pt-90 lg-pt-50 pb-90 lg-pb-50">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="title-one text-center text-lg-start md-mb-40 pe-xl-5">
+							<h3 class="text-white m0">Start your <span>Journey<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_06.svg" alt="" class="lazy-img"></span> with EzLiving.</h3>
+						</div>
+						<!-- /.title-one -->
+					</div>
+					<div class="col-lg-6">
+						<div class="form-wrapper me-auto ms-auto me-lg-0">
+							<form action="#">
+								<input type="email" placeholder="Email address">
+								<button>Get Started</button>
+							</form>
+							<div class="fs-16 mt-10 text-white">Already registered? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Sign in.</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.fancy-banner-two -->
+
+
+
+		<!--
+		=====================================================
+			Fancy Banner Three
+		=====================================================
+		-->
+		<div class="fancy-banner-three position-relative text-center z-1 pt-200 xl-pt-150 lg-pt-100 pb-250 xl-pb-200 lg-pb-120">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-7 col-md-8 m-auto">
+						<div class="title-one mb-45 md-mb-30">
+							<h2>Any Inquiry? <span>Feel free<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_08.svg" alt="" class="lazy-img"></span> To contact Us.</h2>
+						</div>
+						<!-- /.title-one -->
+						<a href="contact.html" class="btn-five text-uppercase">SEND MESSAGE</a>
+					</div>
+				</div>
+			</div>
+			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_02.svg" alt="" class="lazy-img shapes w-100 illustration">
+		</div>
+		<!-- /.fancy-banner-three -->
+
+{% endblock %}
+{% block contentScript %}
+{% comment %} my script here {% endcomment %}
+{% endblock%}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %} {% endblock %} {% include "./head.html" %}
+  </head>
+
+  <body>
+    <div class="main-page-wrapper">
+      <!-- ===================================================
+			Loading Transition
+		==================================================== -->
+      <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+          <div class="icon">
+            <img
+              src="/static/images/loader.gif"
+              alt=""
+              class="m-auto d-block"
+              width="64"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+		=============================================
+			Theme Main Menu
+		============================================== 
+		-->
+      {% include "./header.html" %}
+
+      <!-- /.theme-main-menu -->
+
+      {% block content %} {% endblock %}
+
+      <!--
+            =====================================================
+			Footer One
+            =====================================================
+		-->
+
+      {% include "./footer.html" %}
+
+      <!-- /.footer-one -->
+
+      <!-- ################### Login Modal ####################### -->
+      <!-- Modal -->
+
+      {% include "./modal.html" %}
+
+      <button class="scroll-top">
+        <i class="bi bi-arrow-up-short"></i>
+      </button>
+
+      {% include "./script.html" %} {% block contentScript %} {% endblock %}
+    </div>
+    <!-- /.main-page-wrapper -->
+  </body>
+</html>
