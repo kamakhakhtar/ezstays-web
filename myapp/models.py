@@ -2,12 +2,12 @@ from django.db import models
 
 class SEO(models.Model):
     name = models.CharField(max_length=255, default='home')
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=550)
     description = models.TextField()
-    keywords = models.CharField(max_length=255)
+    keywords = models.TextField(null=True)
     
     def __str__(self):
-        return self.title
+        return self.name
 
 class City(models.Model):
     city = models.CharField(max_length=55)
@@ -49,7 +49,16 @@ class Amenity(models.Model):
     def __str__(self):
         return self.name
 
+class BedType(models.Model):
+    OCCUPANCY = (
+        ('Single', 'Single'),
+        ('Double', 'Double'),
+        ('Triple', 'Triple'),
+    )
+    type = models.CharField(max_length=50, choices=OCCUPANCY, unique=True)
 
+    def __str__(self):
+        return self.type
 
 class Hostel(models.Model):
     seo = models.OneToOneField(SEO, on_delete=models.CASCADE, related_name='hostel')
@@ -61,8 +70,9 @@ class Hostel(models.Model):
     image = models.ImageField(upload_to='hostels/', blank=True)
     google_map_location = models.TextField(max_length=2000, default="")
     amenities = models.ManyToManyField(Amenity, related_name='hostels', blank=True)  # Added blank=True for optional amenities
+    beds = models.ManyToManyField(BedType, blank=True)  # 'null=True' is not needed on ManyToMany fields
+
     
-    bed = models.CharField(max_length=255 , default='Single/Double/Triple')
     bath = models.TextField(max_length=255 , default='Atachedt/Common')
     TYPE = (
         ('Boys', 'Boys'),

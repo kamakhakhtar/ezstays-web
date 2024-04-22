@@ -1,7 +1,14 @@
 {% extends 'includes/base.html' %}
 {% block head %}
-<title>Tatkal World | Trusted Software Provider </title>
-<meta name="description" content="A powerful and conceptual webapplication for authenticate irctc mobile verification via otp.">
+
+<title>{{seo.title}}</title>
+<meta name="description" content="{{seo.description}}">
+<meta name="keywords" content="{{seo.keywords}}">
+<meta property="og:site_name" content="ezstays">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{seo.title}}">
+<meta name='og:image' content='/static/images/logo/ezstays-logo.png'>
 
 {% endblock %}
 {% block content%}

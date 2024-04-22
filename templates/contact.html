@@ -1,7 +1,14 @@
 {% extends 'includes/base.html' %}
 {% block head %}
-<title>Tatkal World | Trusted Software Provider </title>
-<meta name="description" content="A powerful and conceptual webapplication for authenticate irctc mobile verification via otp.">
+
+<title>{{seo.title}}</title>
+<meta name="description" content="{{seo.description}}">
+<meta name="keywords" content="{{seo.keywords}}">
+<meta property="og:site_name" content="ezstays">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{seo.title}}">
+<meta name='og:image' content='/static/images/logo/ezstays-logo.png'>
 
 {% endblock %}
 {% block content%}
@@ -67,7 +74,7 @@
                 <div class="row">
                     <div class="col-xl-7 col-lg-6">
                         <div class="form-style-one wow fadeInUp">
-                            <form action="inc/contact.php" id="contact-form" data-toggle="validator">
+                            <form action="" id="contact-form" data-toggle="validator">
                                 <h3>Send Message</h3>
                                 <div class="messages"></div>
                                 <div class="row controls">
@@ -114,5 +121,43 @@
 
 {% endblock %}
 {% block contentScript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        $('#contact-form').on('submit', function(e) {
+            e.preventDefault();  // Prevent the default form submission
+    
+            var message = $('textarea[name="message"]').val();  // Get the message from the textarea
+            var name = $('input[name="name"]').val();  // Get the sender's name
+            var email = $('input[name="email"]').val();  // Get the sender's email
+    
+            // Construct the URL to send the data to
+            // Construct the message in a simple table format
+            var formattedMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+            // Encode the message for URL
+            var encodedMessage = encodeURIComponent(formattedMessage);
+
+            // Construct the URL to send the data to
+            var url = `/send-email/${encodedMessage}`;
+            // Make the AJAX request
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    alert('Email sent successfully!');
+                    // Optionally clear the form or handle other success actions
+                },
+                error: function(xhr, status, error) {
+                    // Handle any errors here
+                    alert('Error sending email: ' + error);
+                }
+            });
+        });
+    });
+    </script>
+    
 {% comment %} my script here {% endcomment %}
 {% endblock%}

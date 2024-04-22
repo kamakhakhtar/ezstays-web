@@ -1,0 +1,50 @@
+	<!--
+		=====================================================
+			Fancy Banner Two
+		=====================================================
+		-->
+		<div class="fancy-banner-two position-relative z-1 pt-90 lg-pt-50 pb-90 lg-pb-50">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="title-one text-center text-lg-start md-mb-40 pe-xl-5">
+							<h3 class="text-white m0">Start your <span>Journey<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_06.svg" alt="" class="lazy-img"></span> with EzLiving.</h3>
+						</div>
+						<!-- /.title-one -->
+					</div>
+					<div class="col-lg-6">
+						
+						<div class="search-wrapper-one ">
+							<div class="bg-wrapper">
+								<form action="{% url 'hostelList' %}">
+									<div class="row gx-0 align-items-center">
+										
+										<div class="col-xl-8 col-lg-8">
+											<div class="input-box-one border-left">
+												<div class="label">Location</div>
+												<select class="nice-select location" name="location">
+													{% for city in citites %}
+													<option value="{{city.pk}}">{{ city.city }}</option>
+													{% endfor%}
+												</select>
+											</div>
+											<!-- /.input-box-one -->
+										</div>
+										
+										<div class="col-xl-4">
+											<div class="input-box-one lg-mt-10">
+												<button class="fw-500 text-uppercase tran3s search-btn">Search</button>
+											</div>
+											<!-- /.input-box-one -->
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.fancy-banner-two -->
+

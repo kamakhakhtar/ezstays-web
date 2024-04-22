@@ -1,9 +1,19 @@
 {% extends 'includes/base.html' %}
 {% block head %}
-<title>Pg and Hostel in Greater Noida – Delhi – Ghaziabad - Bhopal | Students Hostel Accommodations</title>
 
-<meta name="description" content="A powerful and conceptual webapplication for authenticate irctc mobile verification via otp.">
-
+<title>{{seo.title}}</title>
+<meta name="description" content="{{seo.description}}">
+<meta name="keywords" content="{{seo.keywords}}">
+<meta property="og:site_name" content="ezstays">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{seo.title}}">
+<meta name='og:image' content='/static/images/logo/ezstays-logo.png'>
+<style>
+	.bg-pink-three{
+		background : #faf1 !important;
+	}
+</style>
 {% endblock %}
 {% load my_custom_tags %}
 {% block content%}
@@ -25,19 +35,16 @@
 					<div class="col-xxl-10 m-auto">
 						<div class="search-wrapper-one layout-one bg position-relative">
 							<div class="bg-wrapper">
-								<form action="listing_01.html">
+								<form action="{% url 'hostelList' %}">
 									<div class="row gx-0 align-items-center">
 										
 										<div class="col-xl-10 col-lg-10">
 											<div class="input-box-one border-left">
 												<div class="label">Location</div>
-												<select class="nice-select location">
-													<option value="1">Greater Noida</option>
-													<option value="2">Bhopal</option>
-													<option value="3">Dehradun</option>
-													<option value="4">Ambala</option>
-													<option value="5">Delhi</option>
-													<option value="6">Ghaziabad </option>
+												<select class="nice-select location" name="location">
+													{% for city in citites %}
+													<option value="{{city.pk}}">{{ city.city }}</option>
+													{% endfor%}
 												</select>
 											</div>
 											<!-- /.input-box-one -->
@@ -182,7 +189,7 @@
 										</li>
 									</ul>
 									<div class="pl-footer top-border d-flex align-items-center justify-content-between">
-										<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | round }}*</strong>
+										<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
 										<ul class="style-none d-flex action-icons">
 											<li><a href="#"><i class="fa-light fa-heart"></i></a></li>
 											<li><a href="#"><i class="fa-light fa-bookmark"></i></a></li>
@@ -265,51 +272,53 @@
 		<div class="block-feature-two  mt-150 xl-mt-110 lg-pt-80 pb-140 xl-pb-120 lg-pb-100">
 			<div class="wrapper">
 				<div class="row gx-xl-5">
-					<div class="col-xxl-7 col-md-6 d-flex wow fadeInLeft">
-						<div class="block-one w-100 h-100">
-							<div class="position-relative z-1 h-100">
-								<h3 class="mb-55">Easy Living, Unforgettable Memories - Your Home Away!</h3>
-								<a class="fancybox video-icon d-flex align-items-center justify-content-center rounded-circle ms-3" data-fancybox="" href="/hostel_videos/vecteezy_night-view-of-house-with-family-on-the-balcony-greece_28747326.mp4" tabindex="-1">
-									<i class="fa-solid fa-play"></i>
-								</a>
-								<div class="card-box text-center">
-									<h3 class="main-count fw-500">1<span class="counter">0</span>+</h3>
-									<p class="fs-20">Years Experience <br>with proud.</p>
-								</div>
-								<!-- /.card-box -->
-								<img src="/static/images/lazy.svg"  data-src="/static/images/assets/screen_01.png" alt="" class="lazy-img shapes screen_01">
-							</div>
-						</div>
-						<!-- /.block-one -->
-					</div>
-					<div class="col-xxl-5 col-md-6 wow fadeInRight">
+					
+					<div class="col-xxl-6 col-md-6 wow fadeInRight">
 						<div class="block-two">
 							<div class="bg-wrapper">
 								<h4>Who we are?</h4>
-								<p class="fs-22 mt-20">Ezstays is one of the leading student-life network ,<br> providing hostels and PG accommodation with top-tier living facilities at the affordable prices.</p>
+								<p class="fs-22 mt-20">ezstays is a premier hostel network transforming your stay into an experience of unmatched hospitality, luxury and comfort, complemented by our finest amenities.</p>
 								<div class="counter-wrapper ps-xl-3 pb-30 mt-45 mb-50">
 									<div class="row">
 										<div class="col-6">
-											<div class="counter-block-one mt-20">
-												<div class="main-count fw-500 color-dark"><span class="counter">5</span>+</div>
-												<span>Cities in Hostel</span>
+											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+												<div class="bg-wrapper text-center">
+													<h3><span class="counter">5</span>+</h3>
+													<p>Located in citites</p>
+												</div>
 											</div>
 											<!-- /.counter-block-one -->
 										</div>
 										<div class="col-6">
-											<div class="counter-block-one mt-20">
-												<div class="main-count fw-500 color-dark"><span class="counter">13</span>K+</div>
-												<span>Happy Students</span>
+											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+												<div class="bg-wrapper text-center ">
+													<h3><span class="counter">25</span>+</h3>
+													<p>Hostels accross the county</p>
+												</div>
+											</div>
+											<!-- /.counter-block-one -->
+										</div>
+										<div class="col-6">
+											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+												<div class="bg-wrapper text-center">
+													<h3><span class="counter">13</span>k+</h3>
+													<p>Happy Students</p>
+												</div>
+											</div>
+											<!-- /.counter-block-one -->
+										</div>
+										<div class="col-6">
+											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+												<div class="bg-wrapper text-center">
+													<h3>30+</h3>
+													<p>Hostels amenities</p>
+												</div>
 											</div>
 											<!-- /.counter-block-one -->
 										</div>
 									</div>
 								</div>
-								<ul class="list-style-one fs-22 color-dark style-none">
-									<li>World class amenities</li>
-									<li>EzMentor provides best mentorship</li>
-									<li>Safe and Secure environment</li>
-								</ul>
+							
 								<div class="d-inline-flex flex-wrap align-items-center mt-15 md-mt-10">
 									<a href="/about-us/" class="btn-two mt-20 me-4"><span>More Details</span></a>
 									<a href="/contact/" class="btn-three mt-20"><span>Request a Callback</span> <i class="fa-light fa-arrow-right-long"></i></a>
@@ -318,6 +327,26 @@
 							<!-- /.bg-wrapper -->
 						</div>
 						<!-- /.block-two -->
+					</div>
+
+					<div class="col-xxl-6 col-md-6 d-flex wow fadeInLeft">
+						<div class="block-two w-100 h-100">
+							<div class="bg-wrapper">
+							<div class="position-relative z-1 h-100">
+								<h4 class="">Our Mission</h4>
+								<p class="fs-20">To provide affordable, secure and vibrant living spaces. What began as a single property and have grown into a trusted name in student accommodation, with multiple hostels across the country. Each step of our journey has been fueled by our commitment to serving student's needs.</p>
+								<h4 class="">Our History</h4>
+								<p class="fs-20">Founded in 2029, we started with a simple vision: to make student living better. What began as a single proprty and have grown into a trusted name in student accommodation, with multiple hostels accross the country. Each step of our journey has been fueled by our commitment to serving students' needs.</p>
+								<h4>Our Properties</h4>
+								<p class="fs-20">Each of our hostel is designed keeping students in mind, featuring fully furnished rooms, high-speed internet, communal kitchens, and study lounges.</p>
+								<h4>Our Community</h4>
+								<p class="fs-20">Life at ezstays extends beyond just accommodation. We foster a tight-knit community with regular social events, cultural celebrations, and networking opportunities that connect students from diverse backgrounds.</p>
+								<h4>Our Commitment to Quality</h4>
+								<p class="fs-20">We are committed to maintaining the highest standards of living. Our team conducts regular inspections and updates to our facilities to ensure everything is up to date and functioning as expected.</p>
+							</div>
+						</div>
+						</div>
+						<!-- /.block-one -->
 					</div>
 				</div>
 
@@ -342,7 +371,7 @@
 								<h3>EzStays  <span>Experience <img src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-img" style=""></span></h3>
 							</div> -->
 							<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-								<div class="bg-wrapper text-center">
+								<div class="bg-wrapper text-center ">
 									<h3>12+</h3>
 									<p>World-class amenities <br>for everything you need <br> to succeed in college-life.</p>
 								</div>
@@ -552,62 +581,9 @@
 		
 
 
+		{% include "includes/journey.html" %}
+
 	
-
-		<!--
-		=====================================================
-			Fancy Banner Two
-		=====================================================
-		-->
-		<div class="fancy-banner-two position-relative z-1 pt-90 lg-pt-50 pb-90 lg-pb-50">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6">
-						<div class="title-one text-center text-lg-start md-mb-40 pe-xl-5">
-							<h3 class="text-white m0">Start your <span>Journey<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_06.svg" alt="" class="lazy-img"></span> with EzLiving.</h3>
-						</div>
-						<!-- /.title-one -->
-					</div>
-					<div class="col-lg-6">
-						
-						<div class="search-wrapper-one ">
-							<div class="bg-wrapper">
-								<form action="listing_01.html">
-									<div class="row gx-0 align-items-center">
-										
-										<div class="col-xl-8 col-lg-8">
-											<div class="input-box-one border-left">
-												<div class="label">Location</div>
-												<select class="nice-select location">
-													<option value="1">Greater Noida</option>
-													<option value="2">Bhopal</option>
-													<option value="3">Dehradun</option>
-													<option value="4">Ambala</option>
-													<option value="5">Delhi</option>
-													<option value="6">Ghaziabad </option>
-												</select>
-											</div>
-											<!-- /.input-box-one -->
-										</div>
-										
-										<div class="col-xl-4">
-											<div class="input-box-one lg-mt-10">
-												<button class="fw-500 text-uppercase tran3s search-btn">Search</button>
-											</div>
-											<!-- /.input-box-one -->
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.fancy-banner-two -->
-
-
 
 		<!--
 		=====================================================

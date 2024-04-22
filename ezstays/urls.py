@@ -26,12 +26,13 @@ from django.conf.urls import handler404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_page, name='main'),
+    path('send-email/<str:message>', views.send_email_fun, name='send_email_fun'),
     path('about-us/', views.about_us, name='about'),
     path('contact/', views.contact, name='about'),
     path('hostel/<slug:slug>/', views.hostel_single, name='hostel_single'),
     # path('hostel-single/', views.hostel_single, name='hostelSingle'),
     path('our-residences/', views.hostel_list, name='hostelList'),
-    path('blog/', views.blog_list, name='blogList'),
+    path('blogs/', views.blog_list, name='blogList'),
     path('blog/<slug:slug>/', views.blog_detail, name='blogDetail'),
     
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
