@@ -60,6 +60,16 @@ class BedType(models.Model):
     def __str__(self):
         return self.type
 
+class BathType(models.Model):
+    BATH = (
+        ('Attached', 'Attached'),
+        ('Common', 'Common'),
+    )
+    type = models.CharField(max_length=50, choices=BATH, unique=True)
+
+    def __str__(self):
+        return self.type
+
 class Hostel(models.Model):
     seo = models.OneToOneField(SEO, on_delete=models.CASCADE, related_name='hostel')
     slug = models.SlugField(max_length=200, unique=True, null=True)
@@ -70,10 +80,11 @@ class Hostel(models.Model):
     image = models.ImageField(upload_to='hostels/', blank=True)
     google_map_location = models.TextField(max_length=2000, default="")
     amenities = models.ManyToManyField(Amenity, related_name='hostels', blank=True)  # Added blank=True for optional amenities
+    
     beds = models.ManyToManyField(BedType, blank=True)  # 'null=True' is not needed on ManyToMany fields
+    bath = models.ManyToManyField(BathType, blank=True)  # 'null=True' is not needed on ManyToMany fields
 
     
-    bath = models.TextField(max_length=255 , default='Atachedt/Common')
     TYPE = (
         ('Boys', 'Boys'),
         ('Girls', 'Girls'),

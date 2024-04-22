@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import get_object_or_404
-from myapp.models import Hostel,Testimonial, Blog,BlogTag,SEO,City
+from myapp.models import Hostel,Testimonial, Blog,BlogTag,SEO,City, BedType,BathType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import requests
 
@@ -86,11 +86,16 @@ def hostel_list(request):
 
     # Filter by bed type if provided
     if bed_type:
-        hostels_list = hostels_list.filter(beds=bed_type)
+         # Get BedType instance(s) that match the description
+        bed_types = BedType.objects.filter(type=bed_type)
+
+        # Filter hostels by those bed types
+        hostels_list = hostels_list.filter(beds__in=bed_types)
 
     # Filter by bath type if provided
     if bath_type:
-        hostels_list = hostels_list.filter(bath=bath_type)
+        bath_types = BathType.objects.filter(type=bath_type)
+        hostels_list = hostels_list.filter(bath__in=bath_types)
 
     # Set the number of hostels per page
     per_page = 5

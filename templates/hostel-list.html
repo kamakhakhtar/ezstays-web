@@ -96,9 +96,11 @@
                                                     
                                                 </ul>
                                                 
-                                                <ul class="style-none d-flex flex-wrap">
-                                                    <li><div class="tag border-20 sale mt-20">Single</div></li>
-                                                    <li class="pl-10"><div class="tag border-20 sale mt-20">Double</div></li>
+                                                <ul class="style-none d-flex flex-wrap ">
+                                                    {% for bed in hostel.beds.all %}
+                                                    <li><div class="tag border-20 sale mt-20">{{bed.type}}</div></li>
+                                                    {%endfor%}
+
                                                     {% comment %} <li><img src="/static/images/ammenities/balcony3.png" height="40" alt=""> Attached Balcony</li>
                                                     <li><strong>{{hostel.bath}}</strong> bath</li> {% endcomment %}
                                                     
@@ -187,8 +189,8 @@
                                             <div class="input-box-one mb-40">
                                                 <div class="label">Washroom</div>
                                                 <select class="nice-select fw-normal" name="bath">
-                                                    <option value="1">Attached</option>
-                                                    <option value="2">Common</option>
+                                                    <option value="Attached">Attached</option>
+                                                    <option value="Common">Common</option>
                                                 </select>
                                             </div>
                                             <!-- /.input-box-one -->

@@ -24,4 +24,5 @@ admin.site.register(Hostel,HostelAdmin)
 admin.site.register(Testimonial)
 admin.site.register(Comment)
 admin.site.register(BedType)
+admin.site.register(BathType)
 
