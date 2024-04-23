@@ -89,11 +89,11 @@
 						
 						<li>
 							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_48.svg" alt="" class="lazy-img icon">
-							<span class="fs-20 color-dark">Bed : {{hostel.bed}}</span>
+							<span class="fs-20 color-dark">Occupancy : {% for bed in hostel.beds.all %} {{bed}}  {%endfor%}</span>
 						</li>
 						<li>
 							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_49.svg" alt="" class="lazy-img icon">
-							<span class="fs-20 color-dark">Bath : {{hostel.bath}}</span>
+							<span class="fs-20 color-dark">Bath : {% for b in hostel.bath.all %} {{b}}  {%endfor%}</span>
 						</li>
 						<li>
 							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_50.svg" alt="" class="lazy-img icon">
