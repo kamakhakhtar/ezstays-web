@@ -14,6 +14,8 @@ def send_email_fun(request, message):
      send_email_to_client(message)
      return redirect('/')
 
+
+
 def main_page(request):
     #  products = Product.objects.filter(status='Publish').order_by('?')[:10]    
      hostels = Hostel.objects.filter()
@@ -64,6 +66,8 @@ def hostel_single(request, slug):
 
 
 def hostel_list(request):
+    
+
     city_ = City.objects.filter()
     seo = SEO.objects.get(name="residences")
     # Get query parameters from request
