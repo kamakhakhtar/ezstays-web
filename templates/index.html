@@ -184,9 +184,9 @@
 									<a href="listing_details_04.html" class="title tran3s">{{ hostel.name }}</a>
 									<div class="address">{{ hostel.address }}</div>
 									<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
-										<li class="d-flex align-items-center">
+										{% comment %} <li class="d-flex align-items-center">
 											<span class="fs-16"><strong class="fw-500 color-dark">{{ hostel.bed }}</strong> bed</span>
-										</li>
+										</li> {% endcomment %}
 									</ul>
 									<div class="pl-footer top-border d-flex align-items-center justify-content-between">
 										<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
