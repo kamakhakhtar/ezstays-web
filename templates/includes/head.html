@@ -47,6 +47,69 @@
 
 
 
+/* General styles for the floating buttons container */
+.floating-buttons {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1000; /* Ensures the buttons stay above other content */
+}
+
+/* Styles for each button */
+.float-button {
+    background-color: #25D366; /* WhatsApp brand color */
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Circular buttons */
+    text-decoration: none; /* Remove underline from links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Simple shadow for better visibility */
+    transition: background-color 0.3s;
+}
+
+.float-button.phone {
+    background-color: #ff6725; /* A typical 'phone call' blue */
+}
+
+.float-button i {
+    font-size: 20px; /* Adjust icon size */
+}
+
+.float-button:hover {
+    background-color: #1AB273; /* Darker shade on hover for WhatsApp */
+}
+
+.float-button.phone:hover {
+    background-color: #0c0c0c; /* Darker shade on hover for call button */
+}
+
+/* Footer Copyright Style */
+.copyright {
+    text-align: center; /* Centers the text horizontally */
+    color: #ffffff; /* Sets the text color to white */
+    padding: 10px 20px; /* Adds padding around the text */
+    background-color: #000; /* Dark background for the footer */
+    font-size: 14px; /* Sets the font size */
+    margin-top: 20px; /* Adds space above the copyright text */
+    border-top: 1px solid #444444; /* Adds a subtle line above the text */
+}
+
+{% comment %} .footer-urls a{
+    font-size:18spx;
+    
+}
+.footer-one .footer-urls .footer-nav .footer-nav-link a{
+    line-height:22px;
+} {% endcomment %}
+.footer-one .footer-urls .footer-nav{
+    width:50%;
+}
 </style>
 
 
@@ -56,3 +119,22 @@
 		width: 100% !important;
 	}
 </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-83HS8MM5B3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-83HS8MM5B3');
+  </script>
+  
+  <!-- Google tag (gtag.js) --> 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2RBHHMYJZ"></script> 
+  <script> 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); 
+      gtag('config', 'G-Z2RBHHMYJZ');
+  </script>

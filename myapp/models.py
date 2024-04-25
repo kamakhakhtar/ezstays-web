@@ -28,9 +28,9 @@ class Blog(models.Model):
     )
     seo = models.OneToOneField(SEO, on_delete=models.CASCADE, related_name='blog')
     slug = models.SlugField(max_length=200, unique=True, null=True)
-    image = models.ImageField(upload_to='blogs/')
+    image = models.ImageField(upload_to='blogs/' )
     title = models.CharField(max_length=255, null=True )
-    content = models.TextField()
+    content = models.TextField(null=True)
     tags = models.ManyToManyField(BlogTag, related_name='blog', blank=True)  # Added blank=True for optional amenities
     published_date = models.DateField(null=True, blank=True)
     def __str__(self):
@@ -53,7 +53,7 @@ class BedType(models.Model):
     OCCUPANCY = (
         ('Single', 'Single'),
         ('Double', 'Double'),
-        ('Triple', 'Triple'),
+        ('Tripple', 'Tripple'),
     )
     type = models.CharField(max_length=50, choices=OCCUPANCY, unique=True)
 
@@ -73,7 +73,7 @@ class BathType(models.Model):
 class Hostel(models.Model):
     seo = models.OneToOneField(SEO, on_delete=models.CASCADE, related_name='hostel')
     slug = models.SlugField(max_length=200, unique=True, null=True)
-    city = models.OneToOneField(City, on_delete=models.CASCADE, related_name='hostel')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hostels')  # Change to ForeignKey
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255, default="")
     price = models.DecimalField(max_digits=10, decimal_places=2)

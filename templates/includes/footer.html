@@ -17,32 +17,33 @@
                             <h6>EMAIL</h6>
                             <a href="#" class="email fs-24 text-decoration-underline tran3s mb-30 lg-mb-10">info@ezstays.in</a>
                             <ul class="style-none d-flex align-items-center social-icon">
-                                <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-square-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/ezstays"><i class="fa-brands fa-square-facebook"></i></a></li>
+                                <li><a href="http://twitter.com/ezstaysindia"><i class="fa-brands fa-square-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/ezstaysindia"><i class="fa-brands fa-square-instagram"></i></a></li>
+                                <li><a href="http://twitter.com/ezstaysindia"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="d-flex flex-wrap">
-                        <div class="footer-nav mt-100 lg-mt-80 xs-mt-50">
+                        <div class="footer-nav mt-100 lg-mt-30 xs-mt-50">
                             <h5 class="footer-title">Company</h5>
                             <ul class="footer-nav-link style-none">
                                 <li><a href="/about-us/">About us</a></li>
                                 <li><a href="#" target="_blank">Contact us</a></li>
                                 <li><a href="#">Blogs</a></li>
-                                <li><a href="#">Events</a></li>
+                                
                             </ul>
                         </div>
                         <div class="footer-nav mt-100 lg-mt-80 xs-mt-30">
                             <h5 class="footer-title">Legal</h5>
                             <ul class="footer-nav-link style-none">
                                 <li><a href="#">Terms & conditions</a></li>
-                                <li><a href="#">Cookie</a></li>
                                 <li><a href="#">Privacy policy</a></li>
                                 <li><a href="#">Faq’s</a></li>
-                                <li><a href="#">Form MGT-7A 2023 (Annual Return)</a></li>
+                                <li><a href="/static/2023 Form_MGT_7A_Next2Door signed.pdf/" target="_blank">Form MGT-7A 2023 (Annual Return)</a></li>
                             </ul>
                         </div>
                         <div class="footer-nav mt-100 lg-mt-80 xs-mt-30">
@@ -58,44 +59,44 @@
                     </div>
                 </div>
             </div>
-            <hr class="mt-100" />
-            <div class="row justify-content-between">
-               
+             <hr class="mt-100" />
+            <div class="row justify-content-between footer-urls">
+                {% load my_custom_tags %}
                 <div class="col-lg-12">
                     <div class="d-flex flex-wrap">
-                        <div class="footer-nav mt-100 lg-mt-80 xs-mt-50">
-                            <h5 class="footer-title">PG and Hostel</h5>
+                        {% comment %} {% for i in footer_urls|slice:"0:18"|batch:5 %} {% endcomment %}
+                        {% for i in footer_urls|batch_three%}
+                        <div class="footer-nav mt-50 lg-mt-80 xs-mt-30">
                             <ul class="footer-nav-link style-none">
-                                <li><a href="#">PG and Hostel in Greater Noida</a></li>
-                                <li><a href="#" target="_blank">Contact us</a></li>
-                                <li><a href="#">Blogs</a></li>
-                                <li><a href="#">Events</a></li>
+                                {% for url in i %}
+                                    <li><a href="/blog/{{ url.slug }}/">{{ url.title }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
-                        <div class="footer-nav mt-100 lg-mt-80 xs-mt-30">
-                            <h5 class="footer-title">Coliving</h5>
-                            <ul class="footer-nav-link style-none">
-                                <li><a href="#">Terms & conditions</a></li>
-                                <li><a href="#">Cookie</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Faq’s</a></li>
-                                <li><a href="#">Form MGT-7A 2023 (Annual Return)</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-nav mt-100 lg-mt-80 xs-mt-30">
-                            <h5 class="footer-title">Upcomings Residence</h5>
-                            <ul class="footer-nav-link style-none">
-                                <li><a href="listing_01.html">​Monalisa House</a></li>
-                                <li><a href="listing_02.html">Tesla House</a></li>
-                                <li><a href="listing_03.html">Bose Mansion</a></li>
-                            </ul>
-                        </div>
+                        {% endfor %}
+                        
 
                         
                     </div>
                 </div>
             </div>
+
+            
+               
         </div>
         <br>
     </div>
+    <div class="copyright">
+        &copy; Copyright NEXT2 DOOR LIVING PRIVATE LIMITED. All Rights Reserved
+      </div>
+  
 </div> 
+
+<div class="floating-buttons">
+    <a href="https://wa.me/+919000699900" class="float-button whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919000699900" class="float-button phone">
+        <i class="fas fa-phone"></i>
+    </a>
+</div>

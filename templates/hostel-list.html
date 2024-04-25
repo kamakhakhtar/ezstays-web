@@ -29,6 +29,21 @@
     .bg-green{
         background:#34a853 !important;
     }
+    .ammenity li {
+        padding-right : 10px !important;
+    }
+    .btn-ten:hover span{
+        color:white;
+    }
+    .btn-ten-clicked span {
+        color: white;
+    }
+    .btn-ten-black span{
+        color:black;
+    }
+    iframe {
+        min-height:500px;
+    }
 </style>
 
 {% endblock %}
@@ -65,7 +80,8 @@
                                 <div class="listing-card-seven border-20 p-20 mb-50 wow fadeInUp">
                                     <div class="d-flex flex-wrap layout-one">
                                         <div class="img-gallery position-relative z-1 border-20 overflow-hidden" style="background-image: url({{hostel.images.all.0.image.url}});">
-                                            <div class="tag border-20 sale">FOR {{hostel.hostelType}}</div>
+                                            
+                                            <div class="tag border-20 {{hostel.hostelType | gender}}">FOR {{hostel.hostelType}}</div>
                                             <div class="img-slider-btn">
                                                 {{ hostel.images.count }} <i class="fa-regular fa-image"></i>
                                                 <!-- Display links to all images for fancybox -->
@@ -80,11 +96,13 @@
                                             <div class="address">{{hostel.address}}</div>
                                             <hr/>
                                             <div class=" mt-20 mb-20 pb-5">
-                                                <ul class="style-none d-flex flex-wrap pad-left-20">
+                                                <ul class="style-none d-flex flex-wrap pad-left-20 ">
+                                                    
                                                     <li class="d-flex align-items-center">
                                                         <img src="/static/images/ammenities/balcony.png" alt="" class="lazy-img icon me-2" style="">
                                                         <span class="fs-16">Att. Balcony</span>
                                                     </li>
+
                                                     <li class="d-flex align-items-center">
                                                         <img src="/static/images/ammenities/bathroom.png" alt="" class="lazy-img icon me-2" style="">
                                                         <span class="fs-16">Att. Bathroom</span>
@@ -96,9 +114,9 @@
                                                     
                                                 </ul>
                                                 
-                                                <ul class="style-none d-flex flex-wrap ">
+                                                <ul class="style-none d-flex flex-wrap ammenity">
                                                     {% for bed in hostel.beds.all %}
-                                                    <li><div class="tag border-20 sale mt-20">{{bed.type}}</div></li>
+                                                    <li><div class="tag border-20 sale mt-20 ">{{bed.type}}</div></li>
                                                     {%endfor%}
 
                                                     {% comment %} <li><img src="/static/images/ammenities/balcony3.png" height="40" alt=""> Attached Balcony</li>
@@ -111,13 +129,13 @@
                                                 <strong class="price fw-500 color-dark me-auto">&#8377;{{ hostel.price | monthly }}/mo*</strong>
                                                 <ul class="style-none d-flex action-icons me-4 pad-left">
                                                     
-                                                    <li><a href="dashboard/add-property.html" class="btn-ten rounded-0" target="_blank"><span>Schedule a visit</span></a></li>
-                                                    {% comment %} <li><a href="dashboard/add-property.html" class="btn-ten rounded-0" target="_blank"><span>Request a callback</span></a></li> {% endcomment %}
-                                                <a href="listing_details_02.html" class="btn-four rounded-circle"><i class="bi bi-telephone-inbound-fill"></i></a>
+                                                    <li><a href="#" class="btn-ten rounded-0" data-bs-toggle="modal" data-bs-target="#schedule"><span>Schedule a visit</span></a></li>
+                                                    
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four rounded-circle"><i class="bi bi-telephone-inbound-fill"></i></a>
                                                     
                                                     
                                                 </ul>
-                                                <a href="listing_details_02.html" class="btn-four rounded-circle bg-green"><i class="bi bi-geo-alt-fill"></i></a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#map" data-iframe="{{ hostel.google_map_location | iframe_src }}" data-name="{{hostel.name}}" data-address="{{hostel.address | safe}}" class="btn-four rounded-circle bg-green"><i class="bi bi-geo-alt-fill"></i></a>
                                             </div>
                                         </div>
                                         <!-- /.property-info -->
@@ -127,10 +145,11 @@
                             <!-- /.listing-card-seven -->
 
                             {% if hostels.paginator.num_pages > 1 %}
+                            <ul class="pagination-one d-flex align-items-center justify-content-center justify-content-sm-start style-none pt-30">
+                                
                                 <ul class="pagination-one d-flex align-items-center justify-content-center justify-content-sm-start style-none pt-30">
                                     {% if hostels.has_previous %}
                                         <li><a href="?page=1">1</a></li>
-                                        <li><a href="?page={{ hostels.previous_page_number }}">Previous</a></li>
                                     {% endif %}
                                     
                                     <!-- Current Page Indicator -->
@@ -234,5 +253,74 @@
 
 {% endblock %}
 {% block contentScript %}
+<div class="modal fade" id="map" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="container">
+            <div class="user-data-form modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <div class="listing-details-one theme-details-one">
+                    
+                    <div class="bg-white border-20 p-30">
+                        <h4 >Location</h4>
+                        <p class="mb-20"></p>
+                        <iframe src="" width="600" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="map-banner overflow-hidden border-15">
+                            <div class="gmap_canvas h-100 w-100">
+                                
+
+                            </div>
+                        </div>
+                    </div>
+              
+                   
+                </div>
+                <!-- /.form-wrapper -->
+            </div>
+            <!-- /.user-data-form -->
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Listener for click event on buttons that trigger the map modal
+        $('a[data-bs-target="#map"]').click(function() {
+            var mapSrc = $(this).attr('data-iframe');  // Get iframe URL from button data attribute
+            var hostelName = $(this).attr('data-name');  // Get hostel name
+            var hostelAddress = $(this).attr('data-address');  // Get hostel address
+            console.log(hostelAddress);
+            // Set the iframe src attribute
+            $('#map iframe').attr('src', mapSrc);
+            
+            // Update hostel address in the paragraph with class 'addr'
+            $('#map .modal-content p').text(hostelAddress); // This targets the <p class="addr"></p> and updates its text
+        
+            
+            // Update hostel name
+            $('#map .modal-content h4').text(hostelName);
+    
+            // Optional: Update any other information, like address if needed
+            // $('#map .your-address-element').text(hostelAddress); // Uncomment and replace .your-address-element with your actual element to display address
+        });
+    });
+        
+
+    $('.btn-ten').on('mousedown', function() {
+        $(this).removeClass('btn-ten-black');
+        $(this).addClass('btn-ten-clicked');
+
+    }).on('mouseup', function() {
+        $(this).removeClass('btn-ten-clicked');
+        $(this).addClass('btn-ten-black');
+
+    });
+    
+
+   
+    
+    
+    
+</script>
 {% comment %} my script here {% endcomment %}
 {% endblock%}

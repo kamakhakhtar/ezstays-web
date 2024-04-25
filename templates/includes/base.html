@@ -54,6 +54,41 @@
       </button>
 
       {% include "./script.html" %} {% block contentScript %} {% endblock %}
+      <script>
+        $(document).ready(function() {
+          $('.action-form').on('submit', function(e) {
+              e.preventDefault();  // Prevent the default form submission
+              
+              var name = $('input[name="name"]').val();  // Get the sender's name
+              var phone = $('input[name="phone"]').val();  // Get the sender's phone number
+      
+              // Construct the message in a simple text format
+              var formattedMessage = `Name: ${name}\nPhone: ${phone}`;
+      
+              // Encode the message for URL
+              var encodedMessage = encodeURIComponent(formattedMessage);
+      
+              // Construct the URL to send the data to
+              var url = `/send-email/${encodedMessage}`;
+              // Make the AJAX request
+               $.ajax({
+                  url: url,
+                  type: 'GET',
+                  success: function(response) {
+                      // Close all Bootstrap modals
+                      $('.modal').modal('hide');
+  
+                      alert('Email sent successfully!');
+                      // Optionally clear the form or handle other success actions
+                  },
+                  error: function(xhr, status, error) {
+                      // Handle any errors here
+                      alert('Error sending email: ' + error);
+                  }
+              }); 
+          });
+      });
+      </script>
     </div>
     <!-- /.main-page-wrapper -->
   </body>

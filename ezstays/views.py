@@ -19,6 +19,7 @@ def send_email_fun(request, message):
 def main_page(request):
     #  products = Product.objects.filter(status='Publish').order_by('?')[:10]    
      hostels = Hostel.objects.filter()
+     footer_urls = Blog.objects.filter()
      city = City.objects.filter()
      testimonials = Testimonial.objects.filter()
      seo = SEO.objects.get(name="home")
@@ -27,28 +28,75 @@ def main_page(request):
           'citites':city,
           'testimonials':testimonials,
           'seo':seo,
+          'footer_urls':footer_urls
      }
      return render(request, 'index.html', context)
 
 def about_us(request):
      city = City.objects.filter()
+     footer_urls = Blog.objects.filter()
      seo = SEO.objects.get(name="about")
+     testimonials = Testimonial.objects.filter()
      context ={
           'seo':seo,
           'citites':city,
+          'testimonials':testimonials,
+          'footer_urls':footer_urls
      }
      return render(request, 'about-us.html',context)
+
+def why_us(request):
+     city = City.objects.filter()
+     footer_urls = Blog.objects.filter()
+     seo = SEO.objects.get(name="why")
+     testimonials = Testimonial.objects.filter()
+     context ={
+          'seo':seo,
+          'citites':city,
+          'testimonials':testimonials,
+          'footer_urls':footer_urls
+     }
+     return render(request, 'why-ezstays.html',context)
+
+def terms(request):
+     city = City.objects.filter()
+     footer_urls = Blog.objects.filter()
+     seo = SEO.objects.get(name="why")
+     testimonials = Testimonial.objects.filter()
+     context ={
+          'seo':seo,
+          'citites':city,
+          'testimonials':testimonials,
+          'footer_urls':footer_urls
+     }
+     return render(request, 'terms-and-conditions.html',context)
+
+def privacy(request):
+     city = City.objects.filter()
+     footer_urls = Blog.objects.filter()
+     seo = SEO.objects.get(name="why")
+     testimonials = Testimonial.objects.filter()
+     context ={
+          'seo':seo,
+          'citites':city,
+          'testimonials':testimonials,
+          'footer_urls':footer_urls
+     }
+     return render(request, 'privacy-policy.html',context)
 
 
 def contact(request):
      seo = SEO.objects.get(name="contact")
+     footer_urls = Blog.objects.filter()
      context ={
           'seo':seo,
+          'footer_urls':footer_urls
      }
      return render(request, 'contact.html',context)
 
 def hostel_single(request, slug):
     city = City.objects.filter()
+    footer_urls = Blog.objects.filter()
     hostel = get_object_or_404(Hostel, slug=slug)
     nearby_places = hostel.nearby.split('\n')  # Splitting the string into a list by newline
     nearby_context = [place.split(' : ') for place in nearby_places if place]  # Further splitting each place into name and distance
@@ -60,7 +108,8 @@ def hostel_single(request, slug):
           'hostel':hostel,
           'citites':city,
           'nearby_context': nearby_context,
-          'similar' : similarHostel
+          'similar' : similarHostel,
+          'footer_urls':footer_urls
      }
     return render(request, 'hostel-single.html',context)
 
@@ -69,6 +118,7 @@ def hostel_list(request):
     
 
     city_ = City.objects.filter()
+    footer_urls = Blog.objects.filter()
     seo = SEO.objects.get(name="residences")
     # Get query parameters from request
     hostel_type = request.GET.get('hostel_type', '')  # corresponds to 'I’m looking for...' in the form
@@ -117,11 +167,13 @@ def hostel_list(request):
         'hostels': hostels,
         'citites':city_,
         'seo':seo,
+        'footer_urls':footer_urls
     }
     return render(request, 'hostel-list.html', context)
 
 def blog_list(request):
      seo = SEO.objects.get(name="blog")
+     footer_urls = Blog.objects.filter()
      city = City.objects.filter()
      blog_list = Blog.objects.all()
 
@@ -150,16 +202,20 @@ def blog_list(request):
           'citites':city,
           'tags':tags,
           'seo':seo,
+          'footer_urls':footer_urls
      }
      return render(request, 'blog-list.html', context)
 
 def blog_detail(request,slug):
      city = City.objects.filter()
+     footer_urls = Blog.objects.filter()
      blog = get_object_or_404(Blog, slug=slug)
      tags = BlogTag.objects.all()
      context = {
           'blog':blog,
           'citites':city,
           'tags':tags,
+          'footer_urls':footer_urls
      }
+
      return render(request, 'blog-details.html', context)
