@@ -45,8 +45,6 @@
     width: auto; /* Adjust based on the original width of your sidebar */
 }
 
-
-
 /* General styles for the floating buttons container */
 .floating-buttons {
     position: fixed;
@@ -70,7 +68,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Simple shadow for better visibility */
-    transition: background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .float-button.phone {
@@ -81,13 +79,40 @@
     font-size: 20px; /* Adjust icon size */
 }
 
+/* Animation for the WhatsApp button */
+.float-button.whatsapp {
+    animation: pulse 2s infinite;
+}
+.boys {
+    background : #2b5f9c !important ;
+    color:white !important;
+}
+.girls {
+    background : #ff6725 !important ;
+    color:white !important;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .float-button:hover {
     background-color: #1AB273; /* Darker shade on hover for WhatsApp */
+    transform: scale(1.05); /* Slight scale to indicate interactivity */
 }
 
 .float-button.phone:hover {
     background-color: #0c0c0c; /* Darker shade on hover for call button */
+    transform: scale(1.05); /* Consistent scaling for all buttons */
 }
+
 
 /* Footer Copyright Style */
 .copyright {

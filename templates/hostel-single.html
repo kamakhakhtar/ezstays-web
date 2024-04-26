@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-lg-6 text-lg-end">
                         <div class="d-inline-block md-mt-40">
-                            <div class="price color-dark fw-500">Price: &#8377;{{ hostel.price | round }}*</div>
+                            {% comment %} <div class="price color-dark fw-500">Price: &#8377;{{ hostel.price | round }}*</div> {% endcomment %}
                             <div class="est-price fs-20 mt-25 mb-35 md-mb-30">Est. Payment <span class="fw-500 color-dark">&#8377;{{hostel.price | monthly}}/mo*</span></div>
                             <ul class="style-none d-flex align-items-center action-btns">
                                 <li class="me-auto fw-500 color-dark"><i class="fa-sharp fa-regular fa-share-nodes me-2"></i> Share</li>
@@ -113,7 +113,7 @@
 						<!-- /.property-feature-accordion -->
 						<div class="property-amenities bg-white shadow4 border-20 p-40 mb-50">
 							<h4 class="mb-20">Amenities</h4>
-							<p class="fs-20 lh-lg pb-25">Risk management & compliance, when approached strategically, have the potential</p>
+							<p class="fs-20 lh-lg pb-25">Explore top-notch amenities designed for your comfort and convenience.</p>
 							<ul class="style-none d-flex flex-wrap justify-content-between list-style-two">
 								{% for amenity in hostel.amenities.all %}
 								<li>{{ amenity.name }}</li>
@@ -121,7 +121,8 @@
 							<!-- /.list-style-two -->
 						</div>
 						<!-- /.property-amenities -->
-
+						
+						{% if hostel.video %}
 						<div class="property-video-tour mb-50">
 							<h4 class="mb-40">Video Tour</h4>
 							<div class="bg-white shadow4 border-20 p-15">
@@ -130,22 +131,21 @@
 										<img src="/static/images/lazy.svg" data-src="{{ hostel.video_thumbnail.url }}" alt="" class="lazy-img w-100">
 									
         							{% endif %}
-									{% if hostel.video %}
 									<a class="video-icon tran3s rounded-circle d-flex align-items-center justify-content-center" data-fancybox href="{{ hostel.video.url }}">
 
 										<i class="fa-thin fa-play"></i>
 									</a>
-									{% endif %}
 								</div>
 							</div>
 						</div>
+						{% endif %}
 						<!-- /.property-video-tour -->
 
 						
 
 						<div class="property-nearby bg-white shadow4 border-20 p-40 mb-50">
 							<h4 class="mb-20">What’s Nearby</h4>
-							<p class="fs-20 lh-lg pb-30">Risk management and compliance, when approached strategically, have th potential to go beyond mitigating threats.</p>
+							<p class="fs-20 lh-lg pb-30">Explore local attractions, eateries, and shops close to our hostel!</p>
 							<ul class="style-none d-flex flex-wrap justify-content-between nearby-list-item">
 								{% for place, distance in nearby_context %}
 									<li>{{ place }}: <span class="fw-500 color-dark">{{ distance }}</span></li>

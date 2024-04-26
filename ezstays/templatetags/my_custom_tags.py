@@ -15,9 +15,9 @@ def roundPrice(value):
 @register.filter(name='gender')
 def checkGender(value):
     if(value == "Boys"):
-        return "sale"
+        return "boys"
     else:
-        return ""
+        return "girls"
     
 from bs4 import BeautifulSoup
 @register.filter(name='iframe_src')
