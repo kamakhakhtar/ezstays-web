@@ -61,7 +61,7 @@ def why_us(request):
 def terms(request):
      city = City.objects.filter()
      footer_urls = Blog.objects.filter()
-     seo = SEO.objects.get(name="why")
+     seo = SEO.objects.get(name="terms")
      testimonials = Testimonial.objects.filter()
      context ={
           'seo':seo,
@@ -74,7 +74,7 @@ def terms(request):
 def privacy(request):
      city = City.objects.filter()
      footer_urls = Blog.objects.filter()
-     seo = SEO.objects.get(name="why")
+     seo = SEO.objects.get(name="privacy")
      testimonials = Testimonial.objects.filter()
      context ={
           'seo':seo,
