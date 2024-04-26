@@ -175,7 +175,7 @@
 														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20" alt="...">
 													{% endif %}
 													
-													<a href="/hostel/{{hostel.slug}}/" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-arrow-up-right"></i></a>
+													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
 													
 													<div class="img-slider-btn">
 														{{ hostel.images.count }} <i class="fa-regular fa-image"></i>
@@ -192,11 +192,9 @@
 												<a href="/hostel/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
 												<div class="address m0 pb-5">{{ hostel.address }}</div>
 												<div class="pl-footer m0 d-flex align-items-center justify-content-between">
-													<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | round }}*</strong>
+													<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
 													<ul class="style-none d-flex action-icons">
-														<li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-														<li><a href="#"><i class="fa-light fa-bookmark"></i></a></li>
-														<li><a href="#"><i class="fa-light fa-circle-plus"></i></a></li>
+														<li><a href="#" data-bs-toggle="modal" data-bs-target="#schedule"> Schedule a visit</a></li>
 													</ul>
 												</div>
 											</div>
