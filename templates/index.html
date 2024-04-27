@@ -13,6 +13,30 @@
 	.bg-pink-three{
 		background : #faf1 !important;
 	}
+	.who .row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.who .col-6 {
+		flex: 1 1 50%;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.who .card-style-three {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.who .bg-wrapper {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
 </style>
 {% endblock %}
 {% load my_custom_tags %}
@@ -277,10 +301,10 @@
 							<div class="bg-wrapper">
 								<h4>Who we are?</h4>
 								<p class="fs-22 mt-20">ezstays is a premier hostel network transforming your stay into an experience of unmatched hospitality, luxury and comfort, complemented by our finest amenities.</p>
-								<div class="counter-wrapper ps-xl-3 pb-30 mt-45 mb-50">
+								<div class="counter-wrapper ps-xl-3 pb-30 mt-45 mb-50 who">
 									<div class="row">
 										<div class="col-6">
-											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+											<div class="card-style-three border-20 mt-40 wow fadeInUp " style="visibility: visible; animation-name: fadeInUp;">
 												<div class="bg-wrapper text-center">
 													<h3><span class="counter">5</span>+</h3>
 													<p>Located <br/>in citites</p>
@@ -298,7 +322,7 @@
 											<!-- /.counter-block-one -->
 										</div>
 										<div class="col-6">
-											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+											<div class="card-style-three border-20 mt-40 wow fadeInUp " style="visibility: visible; animation-name: fadeInUp;">
 												<div class="bg-wrapper text-center">
 													<h3><span class="counter">13</span>k+</h3>
 													<p>Happy<br/> Students</p>
@@ -307,7 +331,7 @@
 											<!-- /.counter-block-one -->
 										</div>
 										<div class="col-6">
-											<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+											<div class="card-style-three border-20 mt-40 wow fadeInUp " style="visibility: visible; animation-name: fadeInUp;">
 												<div class="bg-wrapper text-center">
 													<h3>30+</h3>
 													<p>Hostels<br/> amenities</p>
