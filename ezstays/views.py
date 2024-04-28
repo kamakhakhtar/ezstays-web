@@ -172,53 +172,77 @@ def hostel_list(request):
     return render(request, 'hostel-list.html', context)
 
 def blog_list(request):
-     seo = SEO.objects.get(name="blog")
-     footer_urls = Blog.objects.filter()
-     city = City.objects.filter()
-     blog_list = Blog.objects.all()
+    seo = SEO.objects.get(name="blog")
+    footer_urls = Blog.objects.filter()
+    city = City.objects.filter()
 
-     # Set the number of hostels per page
-     per_page = 5
+    # Get tag from the query parameters
+    tag_slug = request.GET.get('tag', None)
 
-     # Create a Paginator object
-     paginator = Paginator(blog_list, per_page)
+    if tag_slug:
+        # Filter blogs by the specified tag
+        blogs = Blog.objects.filter(tags__name=tag_slug)
+    else:
+        # Otherwise, retrieve all blogs
+        blogs = Blog.objects.all()
 
-     # Get the page number from the request GET parameters
-     page = request.GET.get('page')
+    per_page = 2
+    paginator = Paginator(blogs, per_page)
+    page = request.GET.get('page')
 
-     try:
-          # Try to fetch the page number
-          hostels = paginator.page(page)
-     except PageNotAnInteger:
-          # If page is not an integer, deliver first page.
-          blogs = paginator.page(1)
-     except EmptyPage:
-          # If page is out of range, deliver last page of results.
-          blogs = paginator.page(paginator.num_pages)
+    try:
+        blogs = paginator.page(page)
+    except PageNotAnInteger:
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)
 
-     tags = BlogTag.objects.all()
-     context = {
-          'blogs': blogs,
-          'citites':city,
-          'tags':tags,
-          'seo':seo,
-          'footer_urls':footer_urls
-     }
-     return render(request, 'blog-list.html', context)
+    tags = BlogTag.objects.all()
 
-def blog_detail(request,slug):
-     city = City.objects.filter()
-     footer_urls = Blog.objects.filter()
-     blog = get_object_or_404(Blog, slug=slug)
-     tags = BlogTag.objects.all()
-     context = {
-          'blog':blog,
-          'citites':city,
-          'tags':tags,
-          'footer_urls':footer_urls
-     }
 
-     return render(request, 'blog-details.html', context)
+     # Assuming your Blog model has a 'published_date' field
+    recent_blogs = Blog.objects.filter(status='Publish').order_by('-published_date')[:3]
+    
+    # Adding a count of blogs associated with each tag
+    tags_with_count = []
+    for tag in tags:
+        count = tag.blog.count()  # `blog` is the related_name in BlogTag ManyToManyField
+        tags_with_count.append((tag, count))
+
+    context = {
+        'blogs': blogs,
+        'cities': city,
+        'tags': tags_with_count,
+        'recent_blogs': recent_blogs,
+        'seo': seo,
+        'footer_urls': footer_urls
+    }
+    return render(request, 'blog-list.html', context)
+
+def blog_detail(request, slug):
+    blog = get_object_or_404(Blog, slug=slug)
+    city = City.objects.filter()  # Assuming City is a model you have defined elsewhere
+    footer_urls = Blog.objects.filter()  # Assuming this fetches relevant blog entries for the footer
+    tags = BlogTag.objects.all()
+
+     # Assuming your Blog model has a 'published_date' field
+    recent_blogs = Blog.objects.filter(status='Publish').order_by('-published_date')[:3]
+    
+    # Adding a count of blogs associated with each tag
+    tags_with_count = []
+    for tag in tags:
+        count = tag.blog.count()  # `blog` is the related_name in BlogTag ManyToManyField
+        tags_with_count.append((tag, count))
+
+    context = {
+        'tags': tags_with_count,
+        'recent_blogs': recent_blogs,
+        'blog': blog,
+        'cities': city,  # Typo corrected from 'citites' to 'cities'
+        'footer_urls': footer_urls
+    }
+
+    return render(request, 'blog-details.html', context)
 
 def custom_404(request, exception):
     return render(request, '404.html', {}, status=404)

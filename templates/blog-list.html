@@ -15,100 +15,104 @@
    	Inner Banner
    ============================================== 
    -->
-<div class="inner-banner-one inner-banner bg-pink text-center z-1 pt-160 lg-pt-130 pb-160 xl-pb-120 md-pb-80 position-relative">
+
+
+<div class="blog-details mt-130 xl-mt-100 pt-100 xl-pt-80 mb-150 xl-mb-100">
    <div class="container">
-      <h3 class="mb-35 xl-mb-20 pt-15">Our Blogs</h3>
-      <ul class="theme-breadcrumb style-none d-inline-flex align-items-center justify-content-center position-relative z-1 bottom-line">
-         <li><a href="/">Home</a></li>
-         <li>/</li>
-         <li>Blog</li>
-      </ul>
+          
+      <div class="row gx-xl-5">
+         <div class="col-lg-8">
+            {% for blog in blogs %}
+            <article class="blog-meta-three mb-70 lg-mb-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                <figure class="post-img position-relative m0" style="background-image: url('{{ blog.image.url }}');">
+                    <a href="/blog/{{blog.slug}}/" class="stretched-link fw-500 date tran3s">{{ blog.published_date|date:"d M" }}</a>
+                </figure>
+                <div class="post-data">
+                    <div class="post-info"><a href="/blog/{{blog.slug}}/">Admin.</a> </div>
+                    <a href="/blog/{{blog.slug}}/" class="blog-title d-block">
+                        <h4>{{ blog.title }}</h4>
+                    </a>
+                    <p>{{ blog.content|truncatewords:20 }}</p>
+                    <a href="/blog/{{blog.slug}}/" class="btn-eight"><span>Read More</span> <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+            </article>
+            {% empty %}
+            <p>No blogs available.</p>
+            {% endfor %}
+            <!-- Pagination -->
+            <ul class="pagination-one square d-flex align-items-center style-none pt-10">
+                {% if blogs.has_previous %}
+                    <li><a href="?page=1">First</a></li>
+                    <li><a href="?page={{ blogs.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                {% for num in blogs.paginator.page_range %}
+                    {% if blogs.number == num %}
+                        <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+                    {% else %}
+                        <li><a href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if blogs.has_next %}
+                    <li><a href="?page={{ blogs.next_page_number }}">Next</a></li>
+                    <li><a href="?page={{ blogs.paginator.num_pages }}">Last</a></li>
+                {% endif %}
+            </ul>
+        </div>
+              <div class="col-lg-4">
+            <div class="blog-sidebar dot-bg ms-xxl-4 md-mt-60">
+               <div class="search-form bg-white mb-30">
+                          <form action="#" class="position-relative">
+                              <input type="text" placeholder="Search...">
+                              <button><i class="fa-sharp fa-regular fa-magnifying-glass"></i></button>
+                          </form>
+                      </div>
+                      <!-- /.search-form -->
+
+               <div class="categories bg-white bg-wrapper mb-30">
+                  <h5 class="mb-20">Category</h5>
+                  <ul class="style-none">
+                              {% for tag, count in tags %}
+                                  <li><a href="/blogs?tag={{tag.name}}">{{ tag.name }} ({{ count }})</a></li>
+                              {% empty %}
+                                  <li>No tags found.</li>
+                              {% endfor %}
+                          </ul>
+               </div>
+               <!-- /.categories -->
+
+               <div class="recent-news bg-white bg-wrapper mb-30">
+                          <h5 class="mb-20">Recent News</h5>
+                          {% for blog in recent_blogs %}
+                          <div class="news-block d-flex align-items-center pb-25">
+                              <div>
+                                  <!-- Ensure you handle the potential absence of blog.image -->
+                                  <img src="{% if blog.image %}{{ blog.image.url }}{% else %}/static/images/lazy.svg{% endif %}" alt="{{ blog.title }}" class="lazy-img">
+                              </div>
+                              <div class="post ps-4">
+                                  <h4 class="mb-5"><a href="/blog/{{blog.slug}}/" class="title tran3s">{{ blog.title }}</a></h4>
+                                  <div class="date">{{ blog.published_date|date:"d F, Y" }}</div>
+                              </div>
+                          </div>
+                          {% empty %}
+                          <div>No recent news available.</div>
+                          {% endfor %}
+                      </div>
+                      
+               
+            </div>
+            <!-- /.theme-sidebar-one -->
+         </div>
+          </div>
    </div>
-   <img src="images/lazy.svg" data-src="images/assets/ils_07.svg" alt="" class="lazy-img shapes w-100 illustration">
 </div>
+
+
 <!-- /.inner-banner-one -->
 <!--
    =====================================================
    	Blog Section Three
    =====================================================
    -->
-<div class="blog-section-three mt-130 xl-mt-100 mb-150 xl-mb-100">
-   <div class="container">
-      <div class="blog-filter-nav">
-         <ul class="style-none d-flex justify-content-center flex-wrap isotop-menu-wrapper">
-
-            <li class="is-checked" data-filter="*">All</li>
-            {% for tag in tags %}
-            <li data-filter=".{{tag.name}}">{{tag.name}}</li>
-            {%endfor%}
-         </ul>
-      </div>
-      <div id="isotop-gallery-wrapper" class="grid-2column pt-60 lg-pt-40">
-         <div class="grid-sizer"></div>
-         {% for blog in blogs %}
-         <div class="isotop-item {% for tag in blog.tags.all %}{{ tag.name }} {% endfor %}">
-              <article class="blog-meta-one mb-70 lg-mb-40">
-                <figure class="post-img border-25 position-relative m0" style="background-image: url({{blog.image.url}});">
-                    <a href="/blog/{{blog.slug}}/" class="stretched-link date tran3s">{{ blog.published_date|date:"d M" }}
-                    </a>
-                </figure>
-                <div class="post-data">
-                  <div class="post-info"><a href="blog_details.html">By Admin .</a></div>
-                    <div class="d-flex justify-content-between align-items-sm-center flex-wrap">
-                      <a href="/blog/{{blog.slug}}/" class="blog-title">
-                          <h4>{{blog.title}}</h4>
-                      </a>
-                      <a href="/blog/{{blog.slug}}/" class="read-btn rounded-circle d-flex align-items-center justify-content-center tran3s"><i class="bi bi-arrow-up-right"></i></a>
-                    </div>
-                </div>
-              </article>
-              <!-- /.blog-meta-one -->
-          </div>
-       
-          {%endfor%}
-         <!-- /.isotop-item -->
-      </div>
-      <!-- /#isotop-gallery-wrapper -->
-      {% if hostels.paginator.num_pages > 1 %}
-      <div class="pt-20 text-center">
-         <ul class="pagination-two d-inline-flex align-items-center justify-content-center style-none">
-            <li><a href="?page={{ hostels.paginator.num_pages }}"><i class="fa-regular fa-chevron-left"></i></a></li>
-            <{% if hostels.has_previous %}
-            <li><a href="?page=1">1</a></li>
-            {% comment %} <li><a href="?page={{ hostels.previous_page_number }}">Previous</a></li> {% endcomment %}
-        {% endif %}
-        
-        <!-- Current Page Indicator -->
-        <li class="active"><a href="?page={{ hostels.number }}">{{ hostels.number }}</a></li>
-        
-        {% if hostels.has_next %}
-            <li><a href="?page={{ hostels.next_page_number }}">Next</a></li>
-            <li class="ms-2"><a href="?page={{ hostels.paginator.num_pages }}" class="d-flex align-items-center">Last <img src="/static/images/icon/icon_46.svg" alt="" class="ms-2"></a></li>
-        {% endif %}
-         </ul>
-      </div>
-
-      {% endif %}
-
-      {% if hostels.paginator.num_pages > 1 %}
-      <ul class="pagination-one d-flex align-items-center justify-content-center justify-content-sm-start style-none pt-30">
-          {% if hostels.has_previous %}
-              <li><a href="?page=1">1</a></li>
-              <li><a href="?page={{ hostels.previous_page_number }}">Previous</a></li>
-          {% endif %}
-          
-          <!-- Current Page Indicator -->
-          <li class="active"><a href="?page={{ hostels.number }}">{{ hostels.number }}</a></li>
-          
-          {% if hostels.has_next %}
-              <li><a href="?page={{ hostels.next_page_number }}">Next</a></li>
-              <li class="ms-2"><a href="?page={{ hostels.paginator.num_pages }}" class="d-flex align-items-center">Last <img src="/static/images/icon/icon_46.svg" alt="" class="ms-2"></a></li>
-          {% endif %}
-      </ul>
-  {% endif %}
-   </div>
-</div>
-<!-- /.blog-section-three -->
 
 {% include "includes/journey.html" %}
 

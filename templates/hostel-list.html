@@ -174,9 +174,10 @@
                                             <div class="input-box-one mb-35">
 												<div class="label">I’m looking for...</div>
 												<select class="nice-select fw-normal" name="hostel_type">
-													<option value="Boys">Boys Hostels</option>
-                                                    <option value="Girls">Girls Hostels</option>
-												</select>
+                                                    <option value="Boys" {{ request.get_full_path|hostel_type:"Boys" }}>Boys Hostels</option>
+                                                    <option value="Girls" {{ request.get_full_path|hostel_type:"Girls" }}>Girls Hostels</option>
+                                                </select>
+                                                
 											</div>
 											<!-- /.input-box-one -->
                                         </div>
@@ -185,7 +186,7 @@
                                                 <div class="label">Location</div>
                                                 <select class="nice-select location fw-normal" name="location">
                                                     {% for city in citites %}
-													<option value="{{city.pk}}">{{ city.city }}</option>
+													<option value="{{city.pk}}" {{ request.get_full_path|location:city.pk }}>{{ city.city }}</option>
 													{% endfor%}
                                                 </select>
                                             </div>
@@ -195,9 +196,9 @@
                                             <div class="input-box-one mb-40">
                                                 <div class="label">Bedroom</div>
                                                 <select class="nice-select fw-normal" name="bed">
-                                                    <option value="Single">Single</option>
-                                                    <option value="Double">Double</option>
-                                                    <option value="Tripple">Tripple</option>
+                                                    <option value="Single" {{ request.get_full_path|selected_if_matches:"bed:Single" }}>Single</option>
+                                                    <option value="Double" {{ request.get_full_path|selected_if_matches:"bed:Double" }}>Double</option>
+                                                    <option value="Tripple" {{ request.get_full_path|selected_if_matches:"bed:Tripple" }}>Tripple</option>
                                                 </select>
                                             </div>
                                             <!-- /.input-box-one -->
@@ -206,8 +207,8 @@
                                             <div class="input-box-one mb-40">
                                                 <div class="label">Washroom</div>
                                                 <select class="nice-select fw-normal" name="bath">
-                                                    <option value="Attached">Attached</option>
-                                                    <option value="Common">Common</option>
+                                                    <option value="Attached" {{ request.get_full_path|selected_if_matches:"bath:Attached" }}>Attached</option>
+                                                    <option value="Common" {{ request.get_full_path|selected_if_matches:"bath:Common" }}>Common</option>
                                                 </select>
                                             </div>
                                             <!-- /.input-box-one -->
@@ -219,18 +220,7 @@
                                                 <span>Search</span>
                                             </button>
                                         </div>
-                                        <div class="col-12">
-                                            <div class="d-flex justify-content-between form-widget">
-                                                <a href="#" class="tran3s">
-                                                    <i class="fa-regular fa-arrows-rotate"></i>
-                                                    <span>Reset Filter</span>
-                                                </a>
-                                                <a href="#" class="tran3s">
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <span>Save Search</span>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </form>
                             </div>
@@ -313,48 +303,34 @@
         $(this).addClass('btn-ten-black');
 
     });
-    
-document.addEventListener("DOMContentLoaded", function() {
-    function getQueryParam(param) {
-        var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
-
-    function setFormValues() {
-        var hostelType = getQueryParam('hostel_type');
-        var location = getQueryParam('location');
-        var bed = getQueryParam('bed');
-        var bath = getQueryParam('bath');
-
-        console.log(hostelType, location, bed, bath); // Check the values being retrieved
-
-        if (hostelType) {
-            var hostelTypeSelect = document.querySelector('select[name="hostel_type"]');
-            if (hostelTypeSelect) hostelTypeSelect.value = hostelType;
-            else console.error('Hostel type select not found!');
-        }
-        if (location) {
-            var locationSelect = document.querySelector('select[name="location"]');
-            if (locationSelect) locationSelect.value = location;
-            else console.error('Location select not found!');
-        }
-        if (bed) {
-            var bedSelect = document.querySelector('select[name="bed"]');
-            if (bedSelect) bedSelect.value = bed;
-            else console.error('Bed select not found!');
-        }
-        if (bath) {
-            var bathSelect = document.querySelector('select[name="bath"]');
-            if (bathSelect) bathSelect.value = bath;
-            else console.error('Bath select not found!');
-        }
-    }
-
-    setFormValues();
-});
-
+   
     
     
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to get the query parameters from the URL
+        function getQueryParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+    
+        // Function to set the select element value
+        function setSelectValue(selectName, value) {
+            const selectElement = document.querySelector(`select[name="${selectName}"]`);
+            if (selectElement && value) {
+                selectElement.value = value;
+            }
+        }
+    
+        // Set form values from URL parameters
+        setSelectValue('hostel_type', getQueryParam('hostel_type'));
+        setSelectValue('location', getQueryParam('location'));
+        setSelectValue('bed', getQueryParam('bed'));
+        setSelectValue('bath', getQueryParam('bath'));
+    });
+    </script>
+    
 {% comment %} my script here {% endcomment %}
 {% endblock%}

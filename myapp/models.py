@@ -28,11 +28,12 @@ class Blog(models.Model):
     )
     seo = models.OneToOneField(SEO, on_delete=models.CASCADE, related_name='blog')
     slug = models.SlugField(max_length=200, unique=True, null=True)
-    image = models.ImageField(upload_to='blogs/' )
+    image = models.ImageField(upload_to='media/blogs/' )
     title = models.CharField(max_length=255, null=True )
     content = models.TextField(null=True)
     tags = models.ManyToManyField(BlogTag, related_name='blog', blank=True)  # Added blank=True for optional amenities
     published_date = models.DateField(null=True, blank=True)
+    status = models.CharField(choices=STATUS, max_length=50, default='Publish')
     def __str__(self):
         return self.seo.title
 
@@ -77,7 +78,7 @@ class Hostel(models.Model):
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255, default="")
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='hostels/', blank=True)
+    image = models.ImageField(upload_to='media/hostels/', blank=True)
     google_map_location = models.TextField(max_length=2000, default="")
     amenities = models.ManyToManyField(Amenity, related_name='hostels', blank=True)  # Added blank=True for optional amenities
     
@@ -101,18 +102,18 @@ class Hostel(models.Model):
     nearby= models.TextField(max_length=550 , default='Sharda University : 0.2km')
     details = models.TextField(max_length=2055, default="")
 
-    video = models.FileField(upload_to='hostel_videos/', blank=True, null=True)
-    video_thumbnail = models.ImageField(upload_to='hostel_video_thumbnails/', blank=True, null=True)
+    video = models.FileField(upload_to='media/hostel_videos/', blank=True, null=True)
+    video_thumbnail = models.ImageField(upload_to='media/hostel_video_thumbnails/', blank=True, null=True)
 
     def __str__(self):
         return self.name
 
 class Images(models.Model):
-    image = models.ImageField(upload_to="hostel_images/img")
+    image = models.ImageField(upload_to="media/hostel_images/img")
     hostel = models.ForeignKey(Hostel, on_delete=models.CASCADE, related_name='images')  # Added related_name for reverse access
 
 class Testimonial(models.Model):
-    image = models.ImageField(upload_to='testimonials/')
+    image = models.ImageField(upload_to='media/testimonials/')
     student_name = models.CharField(max_length=255)
     student_addr= models.CharField(max_length=255, null=True)
     review = models.TextField()
