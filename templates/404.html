@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Real estate, Property sale, Property buy">
+	<meta name="description" content="Homy is a beautiful website template designed for Real Estate Agency.">
+    <meta property="og:site_name" content="Homy">
+    <meta property="og:url" content="https://creativegigstf.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Homy-Real Estate HTML5 Template & Dashboard">
+	<meta name='og:image' content='images/assets/ogg.png'>
+	{% include "includes/head.html" %}
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="vendor/html5shiv.js"></script>
+			<script src="vendor/respond.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+		<!-- ===================================================
+			Loading Transition
+		==================================================== -->
+		
+
+		
+		<!-- 
+		=============================================
+			Theme Main Menu
+		============================================== 
+		-->
+        {% include "includes/header.html" %}
+		<!-- /.theme-main-menu -->
+
+
+
+		<!-- 
+		=============================================
+			Error Page
+		============================================== 
+		-->
+        <div class="error-section position-relative z-1 bg-pink">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-6 col-lg-7 col-md-8 m-auto">
+                        <div class="title-one text-center mb-75 lg-mb-20 wow fadeInUp">
+                            <h3><span>Oops! <img src="images/lazy.svg" data-src="/static/images/shape/title_shape_02.svg" alt="" class="lazy-img"></span>It looks like you're lost.</h3>
+                            <p class="fs-20 pb-45">The page you're looking for isn't available. Try to search again or use the go to</p>
+                            <a href="/" class="btn-five sm fw-normal text-uppercase">Back to home</a>
+                        </div>
+                        <!-- /.title-one -->
+                    </div>
+                </div>
+            </div>
+            <img src="images/lazy.svg" data-src="/static/images/assets/ils_08.svg" alt="" class="lazy-img w-100 position-absolute bottom-0 start-0 z-n1">
+        </div>
+        <!-- /.error-section -->
+
+
+		<!-- ################### Login Modal ####################### -->
+        <!-- Modal -->
+        {% include "includes/modal.html" %}        
+        {% include "includes/script.html" %}        
+
+
+
+		
+	</div> <!-- /.main-page-wrapper -->
+</body>
+
+</html>
