@@ -92,7 +92,7 @@
                                         </div>
                                         <!-- /.img-gallery -->
                                         <div class="property-info">
-                                            <a href="/hostel/{{hostel.slug}}/" class="title tran3s mb-15">{{hostel.name}}</a>
+                                            <a href="/house/{{hostel.slug}}/" class="title tran3s mb-15">{{hostel.name}}</a>
                                             <div class="address">{{hostel.address}}</div>
                                             <hr/>
                                             <div class=" mt-20 mb-20 pb-5">
@@ -184,11 +184,9 @@
                                             <div class="input-box-one mb-50">
                                                 <div class="label">Location</div>
                                                 <select class="nice-select location fw-normal" name="location">
-                                                    <option value="1">Greater Noida</option>
-													<option value="2">Chaziabad</option>
-													<option value="3">Chandigarh</option>
-													<option value="4">Delhi</option>
-													<option value="5">Bhopal </option>
+                                                    {% for city in citites %}
+													<option value="{{city.pk}}">{{ city.city }}</option>
+													{% endfor%}
                                                 </select>
                                             </div>
                                             <!-- /.input-box-one -->
@@ -316,9 +314,45 @@
 
     });
     
+document.addEventListener("DOMContentLoaded", function() {
+    function getQueryParam(param) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
-   
-    
+    function setFormValues() {
+        var hostelType = getQueryParam('hostel_type');
+        var location = getQueryParam('location');
+        var bed = getQueryParam('bed');
+        var bath = getQueryParam('bath');
+
+        console.log(hostelType, location, bed, bath); // Check the values being retrieved
+
+        if (hostelType) {
+            var hostelTypeSelect = document.querySelector('select[name="hostel_type"]');
+            if (hostelTypeSelect) hostelTypeSelect.value = hostelType;
+            else console.error('Hostel type select not found!');
+        }
+        if (location) {
+            var locationSelect = document.querySelector('select[name="location"]');
+            if (locationSelect) locationSelect.value = location;
+            else console.error('Location select not found!');
+        }
+        if (bed) {
+            var bedSelect = document.querySelector('select[name="bed"]');
+            if (bedSelect) bedSelect.value = bed;
+            else console.error('Bed select not found!');
+        }
+        if (bath) {
+            var bathSelect = document.querySelector('select[name="bath"]');
+            if (bathSelect) bathSelect.value = bath;
+            else console.error('Bath select not found!');
+        }
+    }
+
+    setFormValues();
+});
+
     
     
 </script>
