@@ -219,3 +219,9 @@ def blog_detail(request,slug):
      }
 
      return render(request, 'blog-details.html', context)
+
+def custom_404(request, exception):
+    return render(request, '404.html', {}, status=404)
+
+def _404(request):
+    return render(request, '404.html')

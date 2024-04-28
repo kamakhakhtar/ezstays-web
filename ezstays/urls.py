@@ -40,9 +40,13 @@ urlpatterns = [
     path('blogs/', views.blog_list, name='blogList'),
     path('blog/<slug:slug>/', views.blog_detail, name='blogDetail'),
     
+    path('er/', views._404, name="404"),
+    
+    
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 # handler404 = custom_404
+handler404 = views.custom_404
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
