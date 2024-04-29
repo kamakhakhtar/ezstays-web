@@ -36,6 +36,10 @@
 		flex-direction: column;
 		justify-content: center;
 	}
+	.hostel-img{
+		min-height:285px !important;
+		max-height:285px !important;
+	}
 	
 </style>
 {% endblock %}
@@ -188,8 +192,8 @@
 								<div class="img-gallery p-15">
 									<div class="position-relative border-20 overflow-hidden">
 										<div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>
-										{% if hostel.images.all %}
-														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20" alt="...">
+													{% if hostel.images.all %}
+														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="...">
 													{% endif %}
 													
 													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>

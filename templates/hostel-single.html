@@ -36,51 +36,55 @@
                     </div>
                 </div>
                
-				
-				<div class="media-gallery mt-100 xl-mt-80 lg-mt-60">
-					<div id="media_slider" class="carousel slide row">
-						<div class="col-lg-10">
-							<div class="bg-white shadow4 border-20 p-30 md-mb-20">
-								<div class="position-relative z-1 overflow-hidden border-20">
-									<!-- Assuming we want to keep the "Sell all 37 Photos" as static. Adjust if necessary. -->
-									<div class="img-fancy-btn border-10 fw-500 fs-16 color-dark">
-										Sell all {{hostel.images.count}} Photos
+				<div class="media-gallery bg-white shadow4 p-40 border-20 mt-80 lg-mt-50 mb-60">
+                    <div id="media_slider" class="carousel slide row style-two">
+                        <div class="col-12">
+                            <div class="position-relative z-1 overflow-hidden border-20">
+                                <div class="img-fancy-btn border-10 fw-500 fs-16 color-dark">
+									Sell all {{hostel.images.count}} Photos
 										{% for image in hostel.images.all %}
 											<a href="{{ image.image.url }}" class="d-block" data-fancybox="mainImg" data-caption="{{ hostel.name }}"></a>
 										{% endfor %}
-									</div>
-									<div class="carousel-inner">
-										{% for image in hostel.images.all %}
+                                </div>
+                                
+                                <!-- /.theme-sidebar-one -->
+                                <div class="carousel-inner">
+									{% for image in hostel.images.all %}
 										<div class="carousel-item {% if forloop.first %}active{% endif %}">
 											<img src="{{ image.image.url }}" alt="" class="border-20 w-100">
 										</div>
 										{% endfor %}
-									</div>
-									<!-- Carousel controls -->
-									<button class="carousel-control-prev" type="button" data-bs-target="#media_slider" data-bs-slide="prev">
-										<i class="bi bi-chevron-left"></i>
-										<span class="visually-hidden">Previous</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="position-relative mt-25 xs-mt-10">
+                                <div class="carousel-indicators d-flex justify-content-between justify-content-xl-start position-relative w-100 h-100">
+                                    
+									{% for image in hostel.images.all|slice:":5" %}
+									<button type="button" data-bs-target="#media_slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}">
+										<img src="{{ image.image.url }}" alt="" class="border-10 w-100">
 									</button>
-									<button class="carousel-control-next" type="button" data-bs-target="#media_slider" data-bs-slide="next">
-										<i class="bi bi-chevron-right"></i>
-										<span class="visually-hidden">Next</span>
-									</button>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-2">
-							<div class="carousel-indicators position-relative border-15 bg-white shadow4 p-15 w-100 h-100">
-								{% for image in hostel.images.all %}
-								<button type="button" data-bs-target="#media_slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}">
-									<img src="{{ image.image.url }}" alt="" class="border-10 w-100">
-								</button>
 								{% endfor %}
-							</div>
-						</div>
-					</div>
-				</div>
+                                </div>
+                                <div class="carousel-arrow d-none d-xl-flex">
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#media_slider" data-bs-slide="prev">
+                                        <i class="bi bi-chevron-left"></i>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#media_slider" data-bs-slide="next">
+                                        <i class="bi bi-chevron-right"></i>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <!-- /.carousel-arrow -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!-- /.media-gallery -->
 				
-
+			
 
 				<!-- /.media-gallery -->
 				<div class="property-feature-list bg-white shadow4 border-20 p-40 mt-50 mb-60">
@@ -172,7 +176,7 @@
 													
 													<!-- Assuming the first image is the cover; adjust according to your logic -->
 													{% if hostel.images.all %}
-														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20" alt="...">
+														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="...">
 													{% endif %}
 													
 													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
