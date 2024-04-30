@@ -113,12 +113,20 @@ def hostel_single(request, slug):
     
     similarHostel = Hostel.objects.filter(city=hostel.city)
 
-    imageCount = hostel.images.count()
+    hostels = Hostel.objects.order_by('?')[:5]
+
+    # If the above method does not work or is inefficient on your database, use Python's random.sample
+    # This method fetches all IDs, picks five randomly, and then retrieves these records.
+    # Note: This method can be memory-intensive if the number of Hostel objects is large.
+    hostel_ids = list(Hostel.objects.values_list('id', flat=True))
+    random_ids = random.sample(hostel_ids, min(len(hostel_ids), 5))
+    hostels = Hostel.objects.filter(id__in=random_ids)
+    
     context = {
           'hostel':hostel,
           'citites':city,
           'nearby_context': nearby_context,
-          'similar' : similarHostel,
+          'similar' : hostels,
           'footer_urls':footer_urls
      }
     return render(request, 'hostel-single.html',context)

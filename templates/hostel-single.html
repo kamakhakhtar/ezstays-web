@@ -167,45 +167,46 @@
 							<div class="similar-listing-slider-one">
 								
 								{% for hostel in similar %}
-									<div class="item">
-										<div class="listing-card-one shadow4 style-three border-30 mb-50">
-											<div class="img-gallery p-15">
-												<div class="position-relative border-20 overflow-hidden">
-													<!-- Example tag, adjust if you have a condition to display something similar -->
-													<div class="tag bg-white text-dark fw-500 border-20">FOR {{hostel.hostelType}}</div>
-													
-													<!-- Assuming the first image is the cover; adjust according to your logic -->
-													{% if hostel.images.all %}
-														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="...">
-													{% endif %}
-													
-													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
-													
-													<div class="img-slider-btn">
-														{{ hostel.images.count }} <i class="fa-regular fa-image"></i>
-														<!-- Display links to all images for fancybox -->
-														{% for image in hostel.images.all %}
-															<a href="{{ image.image.url }}" class="d-block" data-fancybox="img{{ hostel.id }}" data-caption="{{ hostel.name }}"></a>
-														{% endfor %}
-													</div>
-												</div>
+								<div class="item">
+									<div class="listing-card-one style-three border-30 mb-50">
+										<div class="img-gallery p-15">
+											<div class="position-relative border-20 overflow-hidden">
+												<div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>
+															{% if hostel.images.all %}
+																<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="...">
+															{% endif %}
+															
+															<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
+															
+															<div class="img-slider-btn">
+																{{ hostel.images.count }} <i class="fa-regular fa-image"></i>
+																<!-- Display links to all images for fancybox -->
+																{% for image in hostel.images.all %}
+																	<a href="{{ image.image.url }}" class="d-block" data-fancybox="img{{ hostel.id }}" data-caption="{{ hostel.name }}"></a>
+																{% endfor %}
+															</div>
 											</div>
-											<!-- /.img-gallery -->
-											
-											<div class="property-info pe-4 ps-4">
-												<a href="/house/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
-												<div class="address m0 pb-5">{{ hostel.address }}</div>
-												<div class="pl-footer m0 d-flex align-items-center justify-content-between">
-													<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
-													<ul class="style-none d-flex action-icons">
-														<li><a href="#" data-bs-toggle="modal" data-bs-target="#schedule"> Schedule a visit</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- /.property-info -->
 										</div>
-										<!-- /.listing-card-one -->
+										<!-- /.img-gallery -->
+										<div class="property-info pe-4 ps-4">
+											<a href="/house/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
+											<div class="address">{{ hostel.address|truncatewords:15 }}</div>
+											<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+												{% comment %} <li class="d-flex align-items-center">
+													<span class="fs-16"><strong class="fw-500 color-dark">{{ hostel.bed }}</strong> bed</span>
+												</li> {% endcomment %}
+											</ul>
+											<div class="pl-footer top-border d-flex align-items-center justify-content-between">
+												<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
+												
+												<a href="#" data-bs-toggle="modal" data-bs-target="#schedule" class="btn-four rounded-circle"><i class="bi bi-calendar-plus"></i></a>
+											</div>
+										</div>
+										
+										<!-- /.property-info -->
 									</div>
+									<!-- /.listing-card-one -->
+								</div>
 								{% endfor %}
 
 							</div>
