@@ -33,32 +33,5 @@
 <script src="/static/js/map-script.js"></script>
 <script src="/static/js/theme.js"></script>
 
-<script>
-    $(document).ready(function() {
-        var sidebar = $(".theme-sidebar-one");
-        var sidebarTop = sidebar.offset().top;
-        var sidebarHeight = sidebar.outerHeight(); // Get the outer height of the sidebar including margin
-        var sidebarWidth = sidebar.width();
-        var parentContainer = sidebar.parent(); // Assuming the immediate parent is the container. Adjust the selector as needed.
-        var parentBottom = parentContainer.offset().top + parentContainer.outerHeight();
-    
-        $(window).scroll(function() {
-            var scrollTop = $(window).scrollTop();
-            var fixedBottomPosition = scrollTop + sidebarHeight; // The bottom position of the sidebar if it were fixed
-    
-            if (scrollTop > sidebarTop && fixedBottomPosition < parentBottom) {
-                sidebar.addClass('sticky-sidebar').css({
-                    width: sidebarWidth,
-                    top: 120px // Adjust if necessary, e.g., to account for a fixed header
-                });
-            } else {
-                sidebar.removeClass('sticky-sidebar').css({
-                    width: 'auto',
-                    top: 'auto'
-                });
-            }
-        });
-    });
-    </script>
-    
+
     

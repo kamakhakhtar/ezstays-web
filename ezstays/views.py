@@ -7,7 +7,7 @@ from myapp.models import Hostel,Testimonial, Blog,BlogTag,SEO,City, BedType,Bath
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import requests
 import random
-
+from django.http import JsonResponse
 from .utlis import send_email_to_client
 
 
@@ -16,6 +16,24 @@ def send_email_fun(request, message):
      return redirect('/')
 
 
+def get_hostels(request):
+    hostel_ids = list(Hostel.objects.values_list('id', flat=True))
+    random_ids = random.sample(hostel_ids, min(len(hostel_ids), 5))
+    hostels = Hostel.objects.filter(id__in=random_ids).prefetch_related('images')
+    
+    data = [{
+        'id': hostel.id,
+        'name': hostel.name,
+        'slug': hostel.slug,
+        'address': hostel.address,
+        'price': hostel.price,
+        'hostelType': hostel.hostelType,
+        'images': [{'url': img.image.url} for img in hostel.images.all()]
+    } for hostel in hostels]
+    
+    return JsonResponse({'hostels': data})
+
+    
 
 def main_page(request):
     #  products = Product.objects.filter(status='Publish').order_by('?')[:10]    

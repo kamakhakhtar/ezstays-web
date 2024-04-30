@@ -39,7 +39,9 @@ urlpatterns = [
     path('our-residences/', views.hostel_list, name='hostelList'),
     path('blogs/', views.blog_list, name='blogList'),
     path('blog/<slug:slug>/', views.blog_detail, name='blogDetail'),
-    
+    path('get-hostels/', views.get_hostels, name='get-hostels'),
+
+
     path('er/', views._404, name="404"),
     
     
