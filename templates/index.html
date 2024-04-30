@@ -169,13 +169,7 @@
 													
 													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
 													
-													<div class="img-slider-btn">
-														{{ hostel.images.count }} <i class="fa-regular fa-image"></i>
-														<!-- Display links to all images for fancybox -->
-														{% for image in hostel.images.all %}
-															<a href="{{ image.image.url }}" class="d-block" data-fancybox="img{{ hostel.id }}" data-caption="{{ hostel.name }}"></a>
-														{% endfor %}
-													</div>
+													
 									</div>
 								</div>
 								<!-- /.img-gallery -->
