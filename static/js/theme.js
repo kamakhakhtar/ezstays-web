@@ -218,7 +218,7 @@
 
 
         // ------------------------ Listing Slider
-        if($(".listing-slider-one").length) {
+        if ($(".listing-slider-one").length) {
           $('.listing-slider-one').slick({
               dots: false,
               arrows: true,
@@ -227,31 +227,40 @@
               lazyLoad: 'ondemand',
               centerPadding: '0px',
               slidesToShow: 4,
-              slidesToScroll: 4,
+              slidesToScroll: 1,  // Changed this from 4 to 1
               autoplay: true,
               autoplaySpeed: 3000,
               responsive: [
-                {
-                  breakpoint: 1400,
-                  settings: {
-                    slidesToShow: 3
+                  {
+                      breakpoint: 1400,
+                      settings: {
+                          slidesToShow: 3
+                      }
+                  },
+                  {
+                      breakpoint: 992,
+                      settings: {
+                          slidesToShow: 2
+                      }
+                  },
+                  {
+                      breakpoint: 768,
+                      settings: {
+                          slidesToShow: 1
+                      }
                   }
-                },
-                {
-                  breakpoint: 992,
-                  settings: {
-                    slidesToShow: 2
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  settings: {
-                    slidesToShow: 1
-                  }
-                }
               ]
-            });
-        }
+          });
+  
+          // Button click events for individual sliding
+          $('.prev_b').on('click', function() {
+              $('.listing-slider-one').slick('slickPrev');
+          });
+  
+          $('.next_b').on('click', function() {
+              $('.listing-slider-one').slick('slickNext');
+          });
+      }
 
         // ------------------------ Listing Details Page Slider
         if($(".media-slider-two").length) {

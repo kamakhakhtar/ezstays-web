@@ -1,6 +1,6 @@
 
 
-
+{% load static %}
 <!-- For IE -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="author" content="Kamran AKhtar">
@@ -19,7 +19,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" media="all">
 <!-- Main style sheet -->
-<link rel="stylesheet" type="text/css" href="/static/css/style.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}" media="all">
 <!-- responsive style sheet -->
 <link rel="stylesheet" type="text/css" href="/static/css/responsive.css" media="all">
 
@@ -142,10 +142,13 @@
     }
 }
 
-.hostel-img{
-    min-height:285px !important;
-    max-height:285px !important;
+
+
+.ez-blue{
+     background-color: #2b5f9c !important;
 }
+
+
 </style>
 
 

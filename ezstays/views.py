@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from myapp.models import Hostel,Testimonial, Blog,BlogTag,SEO,City, BedType,BathType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import requests
+import random
 
 from .utlis import send_email_to_client
 
@@ -18,7 +19,16 @@ def send_email_fun(request, message):
 
 def main_page(request):
     #  products = Product.objects.filter(status='Publish').order_by('?')[:10]    
-     hostels = Hostel.objects.filter()
+    #  hostels = Hostel.objects.filter()
+    # Assuming you are using PostgreSQL, which supports random ordering directly
+     hostels = Hostel.objects.order_by('?')[:5]
+
+    # If the above method does not work or is inefficient on your database, use Python's random.sample
+    # This method fetches all IDs, picks five randomly, and then retrieves these records.
+    # Note: This method can be memory-intensive if the number of Hostel objects is large.
+     hostel_ids = list(Hostel.objects.values_list('id', flat=True))
+     random_ids = random.sample(hostel_ids, min(len(hostel_ids), 5))
+     hostels = Hostel.objects.filter(id__in=random_ids)
      footer_urls = Blog.objects.filter()
      city = City.objects.filter()
      testimonials = Testimonial.objects.filter()

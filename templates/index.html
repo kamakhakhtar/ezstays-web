@@ -9,6 +9,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{seo.title}}">
 <meta name='og:image' content='/static/images/logo/ezstays-logo.png'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <style>
 	.bg-pink-three{
 		background : #faf1 !important;
@@ -36,10 +39,50 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	.hostel-img{
-		min-height:285px !important;
-		max-height:285px !important;
+	
+	
+	.ezz {
+		color: #ff6725 !important;
+		font-family: 'KoHo', sans-serif;
+		font-weight:700;
+		margin-right: -4px; /* Adjust this value if there is still a small gap */
 	}
+	.stays {
+		color: #2b5f9c;
+		font-weight:700;
+		font-family: 'KoHo', sans-serif;
+		
+	}
+	.font-13 {
+		font-size:15px !important;
+		color: #fff !important;
+	}
+	.btn-sc{
+		display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #fff;
+    padding: 0 10px;
+    text-align: center;
+    /*line-height: 53px; */
+    border: 1px solid #ff3f25;
+    background: #ff6725;
+    border-radius: 5px;
+    transition: all .3s ease-in-out 0s;
+	}
+
+	/* Media query for mobile devices */
+	@media (max-width: 768px) {
+    .card-style-eleven .icon img {
+        display: block;
+        margin: 0 auto; /* Center-align the image */
+    }
+    .card-style-eleven h5,
+    .card-style-eleven p {
+        text-align: center; /* Center-align text */
+    }
+}
 	
 </style>
 {% endblock %}
@@ -55,7 +98,7 @@
 			<div class="container position-relative">
 				<div class="row">
 					<div class="col-xxl-10 col-xl-9 col-lg-10 col-md-10 m-auto">
-						<h1 class="hero-heading text-center wow fadeInUp">The Next-Gen  <span class="d-inline-block position-relative">Student Living <img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_01.svg" alt="" class="lazy-img"></span></h1>
+						<h1 class="hero-heading text-center wow fadeInUp">  <span class="d-inline-block position-relative"><span class="ezz">ez</span><span class="stays">stays</span> <img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_01.svg" alt="" class="lazy-img"></span> <br/> The Next-Gen  <span class="d-inline-block position-relative">Student Living </span></h1>
 						<p class="fs-24 color-dark text-center pt-35 pb-35 wow fadeInUp" data-wow-delay="0.1s">Student Housing - PG And Hostels in Greater Noida | Ghaziabad | Chandigarh | Delhi | Bhopal  </p>
 					</div>
 				</div>
@@ -80,7 +123,7 @@
 										
 										<div class="col-xl-2">
 											<div class="input-box-one lg-mt-10">
-												<button class="fw-500 text-uppercase tran3s search-btn">Search</button>
+												<button class="fw-500 text-uppercase tran3s search-btn ez-blue">Search</button>
 											</div>
 											<!-- /.input-box-one -->
 										</div>
@@ -96,89 +139,16 @@
 		</div>
 		<!-- /.hero-banner-one -->
 
-
-		<!-- 
-		=============================================
-			Feedback Section One
-		============================================== 
-		-->
-		<div class="feedback-section-one position-relative z-1 pt-70 md-pt-50 pb-80 md-pb-60">
-			<div class="main-content m-auto">
-				<div class="feedback-slider-one position-static">
-                    <div class="item">
-						<div class="feedback-block-one text-center">
-							<div class="row align-items-center">
-								<div class="col-md-3">
-									<img src="/static/images/media/img_03.jpg" alt="" class="rounded-circle m-auto avatar">
-									<h6 class="fs-20 m0 pt-10">Rashed Kabir</h6>
-									<span class="fs-16">Delhi, IN</span>
-								</div>
-								<div class="col-md-6">
-									<blockquote>They are very strict about themselves and their work, and do not have a carefree attitude to anything in life.</blockquote>
-								</div>
-								<div class="col-md-3">
-									<img src="/static/images/lazy.svg"  data-src="/static/images/assets/rating_01.png" alt="" class="lazy-img m-auto">
-									<p class="text-center m0 pt-10"><span class="fw-500 color-dark">11k rating</span> (4.8 Rating)</p>
-								</div>
-							</div>
-						</div>
-						<!-- /.feedback-block-one -->
-					</div>
-					<div class="item">
-						<div class="feedback-block-one text-center">
-							<div class="row align-items-center">
-								<div class="col-md-3">
-									<img src="/static/images/media/img_01.jpg" alt="" class="rounded-circle m-auto avatar">
-									<h6 class="fs-20 m0 pt-10">Jonathan Harry</h6>
-									<span class="fs-16">Gr. Noida, UP</span>
-								</div>
-								<div class="col-md-6">
-									<blockquote>Efficient, knowledgeable, & made our home search a smooth experience. Highly recommended agency!</blockquote>
-								</div>
-								<div class="col-md-3">
-									<img src="/static/images/lazy.svg"  data-src="/static/images/assets/rating_01.png" alt="" class="lazy-img m-auto">
-									<p class="text-center m0 pt-10"><span class="fw-500 color-dark">13k rating</span> (4.7 Rating)</p>
-								</div>
-							</div>
-						</div>
-						<!-- /.feedback-block-one -->
-					</div>
-					<div class="item">
-						<div class="feedback-block-one text-center">
-							<div class="row align-items-center">
-								<div class="col-md-3">
-									<img src="/static/images/media/img_02.jpg" alt="" class="rounded-circle m-auto avatar">
-									<h6 class="fs-20 m0 pt-10">Sofia Rena</h6>
-									<span class="fs-16">Ambala, Punjab</span>
-								</div>
-								<div class="col-md-6">
-									<blockquote>People who are sentinels are definitely the working very hard now, so that they can enjoy the fruits.</blockquote>
-								</div>
-								<div class="col-md-3">
-									<img src="/static/images/lazy.svg"  data-src="/static/images/assets/rating_01.png" alt="" class="lazy-img m-auto">
-									<p class="text-center m0 pt-10"><span class="fw-500 color-dark">10k rating</span> (4.5 Rating)</p>
-								</div>
-							</div>
-						</div>
-						<!-- /.feedback-block-one -->
-					</div>
-					
-				</div>
-				<!-- /.feedback-slider-one -->
-			</div>
-		</div>
-		<!-- /.feedback-section-one -->
-		
-
+	
  <!-- 
 		=====================================================
 			Property Listing Four
 		=====================================================
 		-->
-		<div class="property-listing-four bg-pink-three position-relative z-1  pt-120 xl-pt-80 pb-110 xl-pb-60 mt-170 xl-mt-140 lg-mt-120">
+		<div class="property-listing-four bg-pink-three position-relative z-1  pt-120 xl-pt-80 pb-110 xl-pb-60  ">
 			<div class="container container-large">
 				<div class="position-relative z-1">
-					<div class="title-one mb-60 lg-mb-40 wow fadeInUp">
+					<div class="title-one mb-60 lg-mb-40 wow fadeInUp mt-170 xl-mt-140 lg-mt-120">
 						<h3>Our <span>Residences <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-img"></span></h3>
 						<p class="fs-22 mt-xs">Discover your ideal home at EzStays, where comfort and convenience converge in a secure setting.<br>
 							Enhance your student life with expert guidance, community engagement, and our easy-to-use app.
@@ -210,7 +180,7 @@
 								<!-- /.img-gallery -->
 								<div class="property-info pe-4 ps-4">
 									<a href="/house/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
-									<div class="address">{{ hostel.address }}</div>
+									<div class="address">{{ hostel.address|truncatewords:15 }}</div>
 									<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
 										{% comment %} <li class="d-flex align-items-center">
 											<span class="fs-16"><strong class="fw-500 color-dark">{{ hostel.bed }}</strong> bed</span>
@@ -218,12 +188,11 @@
 									</ul>
 									<div class="pl-footer top-border d-flex align-items-center justify-content-between">
 										<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
-										<ul class="style-none d-flex action-icons">
-											<li><a href="#" data-bs-toggle="modal" data-bs-target="#schedule"> Schedule a visit</a></li>
-											
-										</ul>
+										
+										<a href="#" data-bs-toggle="modal" data-bs-target="#schedule" class="btn-four rounded-circle"><i class="bi bi-calendar-plus"></i></a>
 									</div>
 								</div>
+								
 								<!-- /.property-info -->
 							</div>
 							<!-- /.listing-card-one -->
@@ -263,7 +232,8 @@
 					<div class="col-md-4">
 						<div class="card-style-one text-center wow fadeInUp mt-40">
 							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/mentor.png" alt="" class="lazy-img m-auto icon">
-							<div class="fs-16 text-uppercase fw-500 fs-text mt-35 md-mt-30 mb-20">Ezmentor</div>
+							
+							<h5>Ezmentor</h5>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">Support and tips to help kickstart your career.</p>
 						</div>
 						<!-- /.card-style-one -->
@@ -271,7 +241,7 @@
 					<div class="col-md-4">
 						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.1s">
 							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/connect.png" alt="" class="lazy-img m-auto icon">
-							<div class="fs-16 text-uppercase fw-500 fs-text mt-35 md-mt-30 mb-20">Ezconnect</div>
+							<h5>Ezconnect</h5>
 							<p class="fs-24 ps-xxl-3 pe-xxl-3">Programs & events to help you achieve greater success.</p>
 						</div>
 						<!-- /.card-style-one -->
@@ -279,7 +249,7 @@
 					<div class="col-md-4">
 						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.2s">
 							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/technology.png" alt="" class="lazy-img m-auto icon">
-							<div class="fs-16 text-uppercase fw-500 fs-text mt-35 md-mt-30 mb-20">Eztechnology</div>
+							<h5>Eztechnology</h5>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">Get round-the-clock access to our world class facilities</p>
 						</div>
 						<!-- /.card-style-one -->
@@ -361,9 +331,9 @@
 							<div class="bg-wrapper">
 							<div class="position-relative z-1 h-100">
 								<h4 class="">Our Mission</h4>
-								<p class="fs-20">To provide affordable, secure and vibrant living spaces. What began as a single property and have grown into a trusted name in student accommodation, with multiple hostels across the country. Each step of our journey has been fueled by our commitment to serving student's needs.</p>
+								<p class="fs-20">To provide affordable, secure and vibrant living spaces. What began as a single property has grown into a trusted name in student accommodation, with multiple hostels across the country. Each step of our journey has been fueled by our commitment to serving student's needs.</p>
 								<h4 class="">Our History</h4>
-								<p class="fs-20">Founded in 2019, we started with a simple vision: to make student living better. What began as a single proprty and have grown into a trusted name in student accommodation, with multiple hostels accross the country. Each step of our journey has been fueled by our commitment to serving students' needs.</p>
+								<p class="fs-20">Founded in 2019, we started with a simple vision: to make student living better. What began as a single property and have grown into a trusted name in student accommodation, with multiple hostels accross the country. Each step of our journey has been fueled by our commitment to serving students' needs.</p>
 								<h4>Our Properties</h4>
 								<p class="fs-20">Each of our hostel is designed keeping students in mind, featuring fully furnished rooms, high-speed internet, communal kitchens, and study lounges.</p>
 								<h4>Our Community</h4>
@@ -534,6 +504,7 @@
 								
 							</div>
 						</div>
+
 					</div>
 			</div>
 			<!-- /.wrapper -->
