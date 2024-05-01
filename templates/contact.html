@@ -135,7 +135,7 @@
     
             // Construct the URL to send the data to
             // Construct the message in a simple table format
-            var formattedMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+            var formattedMessage = `Conatct us enquiry\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
 
             // Encode the message for URL
             var encodedMessage = encodeURIComponent(formattedMessage);
@@ -147,7 +147,11 @@
                 url: url,
                 type: 'GET',
                 success: function(response) {
-                    alert('Email sent successfully!');
+                    
+                    $('#thankyou .thankyou-title').text('Callback request sent successfully!');
+
+                    // Open the thank you modal
+                    $('#thankyou').modal('show');
                     // Optionally clear the form or handle other success actions
                 },
                 error: function(xhr, status, error) {
@@ -157,7 +161,7 @@
             });
         });
     });
-    </script>
+</script>
     
 {% comment %} my script here {% endcomment %}
 {% endblock%}

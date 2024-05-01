@@ -54,7 +54,7 @@
       </button>
 
       {% include "./script.html" %} {% block contentScript %} {% endblock %}
-      <script>
+      {% comment %} <script>
         $(document).ready(function() {
           $('.action-form').on('submit', function(e) {
               e.preventDefault();  // Prevent the default form submission
@@ -88,7 +88,7 @@
               }); 
           });
       });
-      </script>
+      </script> {% endcomment %}
     </div>
     <!-- /.main-page-wrapper -->
   </body>

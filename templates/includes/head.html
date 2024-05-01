@@ -148,6 +148,45 @@
      background-color: #2b5f9c !important;
 }
 
+@keyframes loading {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.progress-bar {
+    background-color: #007BFF; /* Bootstrap primary color, adjust as needed */
+    height: 5px;
+    width: 0%;
+    transition: width 2s;
+}
+
+
+input:invalid {
+    border: 2px solid orange;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translateX(-1px);
+    }
+    
+    20%, 80% {
+        transform: translateX(2px);
+    }
+
+    30%, 50%, 70% {
+        transform: translateX(-4px);
+    }
+
+    40%, 60% {
+        transform: translateX(4px);
+    }
+}
 
 </style>
 

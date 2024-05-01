@@ -121,3 +121,12 @@ class Testimonial(models.Model):
     
     def __str__(self):
         return self.student_name
+    
+class SentEmail(models.Model):
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    recipient = models.EmailField()
+    sent_datetime = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Email to {self.recipient} on {self.sent_datetime}"

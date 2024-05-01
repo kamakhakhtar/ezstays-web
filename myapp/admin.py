@@ -25,4 +25,5 @@ admin.site.register(Testimonial)
 admin.site.register(Comment)
 admin.site.register(BedType)
 admin.site.register(BathType)
+admin.site.register(SentEmail)
 
