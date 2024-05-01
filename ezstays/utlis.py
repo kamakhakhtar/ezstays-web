@@ -11,7 +11,7 @@ def send_email_to_client(message):
     print(subject)
     # message ="This is test message"
     from_email = settings.EMAIL_HOST_USER
-    recipient_list = ["info@ezstays.in"]
+    recipient_list = ["info@ezstays.in","kamakh.akhtar@gmail.com", "mrpratap51@gmail.com "]
     # Define BCC recipient(s)
     bcc_list = ["kamakh.akhtar@gmail.com", "mrpratap51@gmail.com "]  # Add the BCC addresses here
      # Send the email with BCC recipients
@@ -19,8 +19,7 @@ def send_email_to_client(message):
         subject,
         message,
         from_email,
-        recipient_list,
-        bcc_list  # Passing the BCC list to the send_mail function
+        recipient_list
     )
 
 
