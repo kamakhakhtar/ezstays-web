@@ -64,7 +64,7 @@
                 e.preventDefault(); // Prevent form submission if validation fails
             }
             
-            //e.preventDefault();  // Prevent the default form submission
+            e.preventDefault();  // Prevent the default form submission
     
             var $btn = $(this);
             // Disable the button to prevent multiple clicks
@@ -119,6 +119,31 @@
     
         // Handle the submission of the schedule form
         $('.schedule-form').on('submit', function(e) {
+            let isValid = true;
+            const nameInput = this.querySelector('input[name="name"]');
+            const phoneInput = this.querySelector('input[name="phone"]');
+
+            // Validate name to ensure it's not empty and capitalizes the first letter
+            if (nameInput.value.trim() === '') {
+                nameInput.classList.add('invalid');
+                isValid = false;
+            } else {
+                nameInput.value = nameInput.value.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
+                nameInput.classList.remove('invalid');
+            }
+
+            // Validate phone to ensure it's 10 digits long
+            if (phoneInput.value.trim() === '' || phoneInput.value.length != 10) {
+                phoneInput.classList.add('invalid');
+                isValid = false;
+            } else {
+                phoneInput.classList.remove('invalid');
+            }
+
+            if (!isValid) {
+                e.preventDefault(); // Prevent form submission if validation fails
+            }
+            
             e.preventDefault();  // Prevent the default form submission
             var $btn = $(this);
             // Disable the button to prevent multiple clicks

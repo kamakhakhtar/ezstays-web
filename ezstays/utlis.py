@@ -20,7 +20,7 @@ def send_email_to_client(message):
         message,
         from_email,
         recipient_list,
-        bcc=bcc_list  # Passing the BCC list to the send_mail function
+        bcc_list  # Passing the BCC list to the send_mail function
     )
 
 
