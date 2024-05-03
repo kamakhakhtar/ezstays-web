@@ -79,7 +79,7 @@
             var phone = $(this).find('input[name="phone"]').val();  // Get the phone number
     
             // Construct the message in a simple table format
-            var formattedMessage = `Call Back \nName: ${name}\nPhone: ${phone}`;
+            var formattedMessage = `Call Back \nName: ${nameInput.value}\nPhone: ${phoneInput.value}`;
 
             // Encode the message for URL
             var encodedMessage = encodeURIComponent(formattedMessage);
@@ -153,17 +153,17 @@
             $btn.html('<div class="progress-bar"></div>');
             $('.progress-bar').css('animation', 'loading 2s linear forwards');
     
-            var name = $(this).find('input[name="name"]').val();  // Get the name from the input
-            var phone = $(this).find('input[name="phone"]').val();  // Get the phone number
-    
+            var name =  $('#sc-name').val();  // Get the name from the input
+            var phone =  $('#sc-phone').val();  // Get the phone number
+            
         
             // Construct the URL to send the data to
             // Construct the message in a simple table format
-            var formattedMessage = `Schedule a Visit \nName: ${name}\nPhone: ${phone}`;
+            var formattedMessage = `Schedule a Visit \nName: ${nameInput.value}\nPhone: ${phoneInput.value}`;
 
             // Encode the message for URL
             var encodedMessage = encodeURIComponent(formattedMessage);
-
+            
             // Construct the URL to send the data to
             var url = `/send-email/${encodedMessage}`;
             // Make the AJAX request
