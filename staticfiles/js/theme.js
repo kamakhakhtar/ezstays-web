@@ -88,8 +88,6 @@
           });
         }
 
-
-
         // ------------------------ Hero Slider One
         if($(".hero-slider-one").length) {
           $('.hero-slider-one').slick({
@@ -220,14 +218,16 @@
         // ------------------------ Listing Slider
         if($(".listing-slider-one").length) {
           $('.listing-slider-one').slick({
+             
               dots: false,
               arrows: true,
               prevArrow: $('.prev_b'),
               nextArrow: $('.next_b'),
               lazyLoad: 'ondemand',
               centerPadding: '0px',
-              slidesToShow: 4,
-              slidesToScroll: 4,
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              centerMode: true,
               autoplay: true,
               autoplaySpeed: 3000,
               responsive: [
