@@ -22,11 +22,16 @@
 										<div class="col-xl-8 col-lg-8">
 											<div class="input-box-one border-left">
 												<div class="label">Location</div>
-												<select class="nice-select location" name="location">
+												{% comment %} <select class="nice-select location" name="location">
 													{% for city in citites %}
 													<option value="{{city.pk}}">{{ city.city }}</option>
 													{% endfor%}
+												</select> {% endcomment %}
+
+												<select class="nice-select location" name="location">
+													<!-- Options will be dynamically filled here -->
 												</select>
+												
 											</div>
 											<!-- /.input-box-one -->
 										</div>

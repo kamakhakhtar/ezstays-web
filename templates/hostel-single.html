@@ -51,7 +51,7 @@
                                 <div class="carousel-inner">
 									{% for image in hostel.images.all %}
 										<div class="carousel-item {% if forloop.first %}active{% endif %}">
-											<img  src="/static/images/lazy.svg"  data-src="{{ image.image.url }}" alt="" class="lazy-img border-20 w-100">
+											<img  src="/static/images/lazy.svg"  data-src="{{ image.image.url }}" alt="" class="lazy-load border-20 w-100">
 										</div>
 										{% endfor %}
                                 </div>
@@ -63,7 +63,7 @@
                                     
 									{% for image in hostel.images.all|slice:":5" %}
 									<button type="button" data-bs-target="#media_slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}">
-										<img src="/static/images/lazy.svg"  data-src="{{ image.image.url }}" alt="" class="lazy-img border-10 w-100">
+										<img src="/static/images/lazy.svg"  data-src="{{ image.image.url }}" alt="" class="lazy-load border-10 w-100">
 									</button>
 								{% endfor %}
                                 </div>
@@ -92,19 +92,19 @@
 					<ul class="style-none d-flex flex-wrap align-items-center justify-content-between">
 						
 						<li>
-							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_48.svg" alt="" class="lazy-img icon">
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_48.svg" alt="" class="lazy-load icon">
 							<span class="fs-20 color-dark">Occupancy : {% for bed in hostel.beds.all %} {{bed}}  {%endfor%}</span>
 						</li>
 						<li>
-							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_49.svg" alt="" class="lazy-img icon">
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_49.svg" alt="" class="lazy-load icon">
 							<span class="fs-20 color-dark">Bath : {% for b in hostel.bath.all %} {{b}}  {%endfor%}</span>
 						</li>
 						<li>
-							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_50.svg" alt="" class="lazy-img icon">
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_50.svg" alt="" class="lazy-load icon">
 							<span class="fs-20 color-dark">Hostel Type : {{hostel.hostelType}}</span>
 						</li>
 						<li>
-							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_51.svg" alt="" class="lazy-img icon">
+							<img src="/static/images/lazy.svg" data-src="/static/images/icon/icon_51.svg" alt="" class="lazy-load icon">
 							<span class="fs-20 color-dark">Cafeteria : Yes</span>
 						</li>
 					</ul>
@@ -132,7 +132,7 @@
 							<div class="bg-white shadow4 border-20 p-15">
 								<div class="position-relative border-15 image-bg overflow-hidden z-1">
 									{% if hostel.video_thumbnail %}
-										<img src="/static/images/lazy.svg" data-src="{{ hostel.video_thumbnail.url }}" alt="" class="lazy-img w-100">
+										<img src="/static/images/lazy.svg" data-src="{{ hostel.video_thumbnail.url }}" alt="" class="lazy-load w-100">
 									
         							{% endif %}
 									<a class="video-icon tran3s rounded-circle d-flex align-items-center justify-content-center" data-fancybox href="{{ hostel.video.url }}">
@@ -176,7 +176,7 @@
 											<div class="position-relative border-20 overflow-hidden">
 												<div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>
 															{% if hostel.images.all %}
-																<img src="/static/images/lazy.svg"  data-src="{{ hostel.images.all.0.image.url }}" class="lazy-img w-100 border-20 hostel-img" alt="...">
+																<img src="/static/images/lazy.svg"  data-src="{{ hostel.images.all.0.image.url }}" class="lazy-load w-100 border-20 hostel-img" alt="...">
 															{% endif %}
 															
 															<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>

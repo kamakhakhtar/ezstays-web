@@ -197,5 +197,62 @@
         }, 3500); // simulate network delay
         });
     });
-    </script>
+
+		$(document).ready(function() {
+            // Set a timeout to delay execution of the image loading code
+            setTimeout(function() {
+                $('img.lazy-load').each(function() {
+                    // Hold the reference to the current image
+                    var img = $(this);
+                    // Initially hide the image
+                    img.hide();
+                    // Set the src attribute to the value from data-src and remove data-src attribute
+                    img.attr('src', img.attr('data-src')).removeAttr('data-src');
+                    // Set up an event listener for when the image has fully loaded
+                    img.on('load', function() {
+                        // Fade in the image after it's fully loaded
+                        img.fadeIn();
+                    });
+                });
+            }, 500); // Delay in milliseconds (1000ms = 1 second)
+        });
+
+		
+        $(document).ready(function() {
+            $.ajax({
+                url: '/ajax/footer-urls/',  // Make sure this URL matches your Django URL configuration
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $('#footer-url-container').html(data.html);  // Assuming an element with this ID exists in your HTML
+                },
+                error: function() {
+                    console.log('Error loading footer URLs');
+                }
+            });
+        });
+
+        
+            $(document).ready(function() {
+                // Fetch city data from the server
+                $.ajax({
+                    url: '/ajax/get-cities/',  // Use the URL configured in urls.py
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        var select = $('.nice-select.location');
+                        select.empty();  // Clear any existing options
+                        data.cities.forEach(function(city) {
+                            select.append(new Option(city.city, city.pk));  // Append new options
+                        });
+                        select.niceSelect('update');  // Update niceSelect
+                    },
+                    error: function() {
+                        console.error('Failed to load cities');
+                    }
+                });
+            });
+            </script>
+            
+        
     

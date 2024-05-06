@@ -82,6 +82,28 @@
     .card-style-eleven p {
         text-align: center; /* Center-align text */
     }
+	.author__image-wrapper.tilt .author__image {
+		transform: translateX(5%) rotateZ(-8deg) scale(0.87) !important;
+		transition: transform 0.6s ease-out ;
+		border-width: 4px;
+		border-radius: 22px;
+	  }
+	  
+	  .author__image-wrapper.tilt:hover .author__image {
+		transform: translateX(5%) rotateZ(0) scale(0.87) !important;
+		transition-duration: 0.2s;
+	  }
+	  
+	  .author__image-wrapper.tilt .author__image img {
+		transition: transform 0.6s ease-out;
+		transform-origin: 0 100%;
+		transform: scale(1.2) translateX(-16%) translateY(-3%) rotateZ(8deg) !important;
+	  }
+	  
+	  .author__image-wrapper.tilt:hover img {
+		transform: scale(1.2) translateX(-10%) translateY(6%) rotateZ(0) !important;
+		transition-duration: 0.2s;
+	  }
 
 	}
 .address{
@@ -144,7 +166,7 @@ figure:before {
 }
 
 .author__image-wrapper.tilt .author__image {
-  transform: translateX(15%) rotateZ(-11deg) scale(0.87);
+  transform: translateX(15%) rotateZ(-8deg) scale(0.87);
   transition: transform 0.6s ease-out;
   border-width: 4px;
   border-radius: 22px;
@@ -158,7 +180,7 @@ figure:before {
 .author__image-wrapper.tilt .author__image img {
   transition: transform 0.6s ease-out;
   transform-origin: 0 100%;
-  transform: scale(1.2) translateX(-16%) translateY(-3%) rotateZ(11deg);
+  transform: scale(1.2) translateX(-16%) translateY(-3%) rotateZ(8deg);
 }
 
 .author__image-wrapper.tilt:hover img {
@@ -181,7 +203,7 @@ figure:before {
 				<div class="row">
 					<div class="col-xxl-10 col-xl-9 col-lg-10 col-md-10 m-auto">
 						<h4 class="text-center wow fadeInUp"> Welcome to <span class="ezz">ez</span><span class="stays">stays</span></h4>
-						<h3 class="hero-heading text-center wow fadeInUp">  <span class="d-inline-block position-relative">The Next-Gen  <span class="d-inline-block position-relative">Student Living <img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_01.svg" alt="" class="lazy-img"></span></span></h3>
+						<h3 class="hero-heading text-center wow fadeInUp">  <span class="d-inline-block position-relative">The Next-Gen  <span class="d-inline-block position-relative">Student Living <img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_01.svg" alt="" class="lazy-load"></span></span></h3>
 						<p class="fs-24 color-dark text-center pt-35 pb-35 wow fadeInUp" data-wow-delay="0.1s">Student Housing - PG And Hostels in Greater Noida | Ghaziabad | Chandigarh | Delhi | Bhopal  </p>
 					</div>
 				</div>
@@ -196,10 +218,9 @@ figure:before {
 											<div class="input-box-one border-left">
 												<div class="label">Location</div>
 												<select class="nice-select location" name="location">
-													{% for city in citites %}
-													<option value="{{city.pk}}">{{ city.city }}</option>
-													{% endfor%}
+													<!-- Options will be dynamically filled here -->
 												</select>
+												
 											</div>
 											<!-- /.input-box-one -->
 										</div>
@@ -219,7 +240,7 @@ figure:before {
 				</div>
 			</div>
 			
-			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_01.svg" alt="" class="lazy-img shapes w-100 illustration">
+			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_01.svg" alt="" class="lazy-load shapes w-100 illustration">
 		</div>
 		<!-- /.hero-banner-one -->
 
@@ -233,23 +254,21 @@ figure:before {
 			<div class="container container-large">
 				<div class="position-relative z-1">
 					<div class="title-one mb-60 lg-mb-40 wow fadeInUp">
-						<h3>Our <span>Residences <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-img"></span></h3>
+						<h3>Our <span>Residences <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-load"></span></h3>
 						<p class="fs-22 mt-xs">Discover your ideal home at EzStays, where comfort and convenience converge in a secure setting.<br>
 							Enhance your student life with expert guidance, community engagement, and our easy-to-use app.
 							</p>
 					</div>
 					<!-- /.title-one -->
 					<div class="listing-slider-one vw-100 hostel-list">
-						{% for hostel in hostels %}
+						{% comment %} {% for hostel in hostels %}
 						<div class="item">
 							<div class="listing-card-one style-three border-30 mb-50">
 								<div class="img-gallery p-15">
 									<div class="position-relative border-20 overflow-hidden">
 										<div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>
 													{% if hostel.images.all %}
-														<img src="/static/images/lazy.svg" data-src="{{ hostel.images.all.0.image.url }}" alt="{{ hostel.name }}" class="lazy-img">
-
-														{% comment %} <img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="..."> {% endcomment %}
+														<img src="/static/images/lazy.svg" data-src="{{ hostel.images.all.0.image.url }}" alt="{{ hostel.name }}" class="lazy-load">
 													{% endif %}
 													
 													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
@@ -273,7 +292,7 @@ figure:before {
 							<!-- /.listing-card-one -->
 						</div>
 						
-						{% endfor %}
+						{% endfor %} {% endcomment %}
 					</div>
 					
 					<div class="section-btn text-center">
@@ -301,7 +320,7 @@ figure:before {
 				<div class="row gx-lg-5 align-items-center ">
 						<div class="col-lg-3">
 							<!-- <div class="col-lg-3 title-one">
-								<h3>EzStays  <span>Experience <img src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-img" style=""></span></h3>
+								<h3>EzStays  <span>Experience <img src="/static/images/shape/title_shape_03.svg" alt="" class="lazy-load" style=""></span></h3>
 							</div> -->
 							<div class="card-style-three border-20 mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 								<div class="bg-wrapper text-center ">
@@ -315,7 +334,7 @@ figure:before {
 							<div class="row gx-xl-5">
 								<div class="col-md-4">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-										<div class="icon"><img src="/static/images/lazy.svg" data-src="/static/images/icon/meal.png" alt="" class="lazy-img" style=""></div>
+										<div class="icon"><img src="/static/images/lazy.svg" data-src="/static/images/icon/meal.png" alt="" class="lazy-load" style=""></div>
 										<h5 class="mt-35 mb-15">Hygienic Meal</h5>
 										<p>Delicious meals cooked in a neat and clean kitchen.</p>
 									</div>
@@ -324,7 +343,7 @@ figure:before {
 								<div class="col-md-4">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/wifi.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/wifi.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">High Speed WiFi</h5>
 										<p>Dedicated leased line internet.</p>
@@ -334,7 +353,7 @@ figure:before {
 								<div class="col-md-4">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/power.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/power.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Power Backup</h5>
 										<p>24x7 Power Backup without interrupt.</p>
@@ -352,7 +371,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/cctv.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/cctv.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">24x7 Security</h5>
 										<p>Round the clock professional security guards</p>
@@ -362,7 +381,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/library.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/library.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Tech Enable Library</h5>
 										<p>Kindle machines powered Library in select hostels</p>
@@ -372,7 +391,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/clean.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/clean.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">House Keeping</h5>
 										<p>Professional housekeeping team deployed at each hostel</p>
@@ -383,7 +402,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/game.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/game.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Indoor Games</h5>
 										<p>Pool, table tennis,Foosball, Carrom, Playstation and much more</p>
@@ -399,7 +418,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/gym.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/gym.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Gymnasium</h5>
 										<p>Well-equipped gymnasium</p>
@@ -409,7 +428,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/machine.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/machine.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Snack Machine</h5>
 										<p>Special round the clock online payment vending machine.</p>
@@ -419,7 +438,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/biometric.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/biometric.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Biometric Entry</h5>
 										<p>To ensure ease and security on entry</p>
@@ -430,7 +449,7 @@ figure:before {
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/lazy.svg" data-src="/static/images/icon/doctor.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/doctor.png" alt="" class="lazy-load" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Doctor on call</h5>
 										<p>General physician available on call.</p>
@@ -459,14 +478,14 @@ figure:before {
 					<div class="row">
 						<div class="col-xl-6 col-lg-8">
 							<div class="title-one pe-xxl-5 mb-75 xl-mb-50 wow fadeInUp">
-								<h2 class="font-garamond">Don’t Trust Us, Trust <em>our Students</em> <span class="star-shape"><img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_37.svg" alt="" class="lazy-img"></span></h2>
+								<h2 class="font-garamond">Don’t Trust Us, Trust <em>our Students</em> <span class="star-shape"><img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_37.svg" alt="" class="lazy-load"></span></h2>
 								<p class="fs-20 m0">Student satisfaction speaks louder than our words. Hear from them.</p>
 							</div>
 							<!-- /.title-one -->
 						</div>
 					</div>
 	
-					<div class="feedback-slider-two">
+					{% comment %} <div class="feedback-slider-two">
 						{% for testimony in testimonials %}
 						<div class="item">
 							<div class="feedback-block-four">
@@ -487,12 +506,17 @@ figure:before {
 									<li><i class="fa-sharp fa-solid fa-star"></i></li>
 									<li><i class="fa-sharp fa-solid fa-star"></i></li>
 								</ul>
-								<img src="/static/images/lazy.svg"  data-src="/static/images/icon/icon_29.svg" alt="" class="lazy-img icon">
+								<img src="/static/images/lazy.svg"  data-src="/static/images/icon/icon_29.svg" alt="" class="lazy-load icon">
 							</div>
 							<!-- /.feedback-block-four -->
 						</div>
 						{%endfor%}
+					</div> {% endcomment %}
+
+					<div class="feedback-slider-two">
+						<!-- Testimonials will be loaded dynamically here -->
 					</div>
+
 					<ul class="slider-arrows slick-arrow-two d-flex justify-content-center style-none md-mt-30">
 						<li class="prev_c slick-arrow"><i class="bi bi-arrow-left"></i></li>
 						<li class="next_c slick-arrow"><i class="bi bi-arrow-right"></i></li>
@@ -502,8 +526,8 @@ figure:before {
 					</div>
 				</div>
 			</div>
-			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_42.svg" alt="" class="lazy-img shapes shape_01 wow fadeInDown" data-wow-delay="0.2s">
-			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_43.svg" alt="" class="lazy-img shapes shape_02 wow fadeInUp">
+			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_42.svg" alt="" class="lazy-load shapes shape_01 wow fadeInDown" data-wow-delay="0.2s">
+			<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_43.svg" alt="" class="lazy-load shapes shape_02 wow fadeInUp">
 		</div>
 		<!-- /.feedback-section-four -->
 
@@ -519,20 +543,20 @@ figure:before {
 			<div class="container">
 				<div class="title-one text-center mb-50 xl-mb-30 lg-mb-20 wow fadeInUp ">
 					
-					<h3 class="">The EzStays <span>Advantages <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_01.svg" alt="" class="lazy-img"></span></h3>
+					<h3 class="">The EzStays <span>Advantages <img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_01.svg" alt="" class="lazy-load"></span></h3>
 					<p class="fs-24">We provide a variety of affordable living accommodations, as well as networking opportunities, recreational activities, and social events in an effort to provide our residents with a productive environment that thrives on success.</p>
 				</div>
 				<!-- /.title-one -->
 				
 				<div class="row ">
 					<div class="col-md-4">
-						<div class="card-style-one text-center wow fadeInUp mt-40">
+						<div class="card-style-two text-center wow fadeInUp mt-40">
 							<figure class="author author--full">
 								
 								  <div class="author__image-wrapper tilt">
 									<div class="author__image">
 							
-										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/mentor.jpg" alt="" class="lazy-img m-auto">
+										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/mentor.jpg" alt="" class="lazy-load m-auto">
 							
 									</div>
 								  </div>
@@ -544,13 +568,13 @@ figure:before {
 						<!-- /.card-style-one -->
 					</div>
 					<div class="col-md-4">
-						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.1s">
+						<div class="card-style-two text-center wow fadeInUp mt-40" data-wow-delay="0.1s">
 							<figure class="author author--full">
 								
 								  <div class="author__image-wrapper tilt">
 									<div class="author__image">
 							
-										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/connect.jpg" alt="" class="lazy-img m-auto">
+										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/connect.jpg" alt="" class="lazy-load m-auto">
 							
 									</div>
 								  </div>
@@ -562,13 +586,13 @@ figure:before {
 						<!-- /.card-style-one -->
 					</div>
 					<div class="col-md-4">
-						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.2s">
+						<div class="card-style-two text-center wow fadeInUp mt-40" data-wow-delay="0.2s">
 							<figure class="author author--full">
 								
 								  <div class="author__image-wrapper tilt">
 									<div class="author__image">
 							
-										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/technology.jpg" alt="" class="lazy-img m-auto">
+										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/technology.jpg" alt="" class="lazy-load m-auto">
 							
 									</div>
 								  </div>
@@ -704,34 +728,178 @@ figure:before {
 				<div class="row">
 					<div class="col-xl-7 col-md-8 m-auto">
 						<div class="title-one mb-45 md-mb-30">
-							<h2>Need tailored <span>assistance<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_08.svg" alt="" class="lazy-img"></span> ? <br> Get a call back.</h2>
+							<h2>Need tailored <span>assistance<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_08.svg" alt="" class="lazy-load"></span> ? <br> Get a call back.</h2>
 						</div>
 						<!-- /.title-one -->
 						<a href="#"  data-bs-toggle="modal" data-bs-target="#callback"  class="btn-five text-uppercase">get a call back</a>
 					</div>
 				</div>
 			</div>
-			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_02.svg" alt="" class="lazy-img shapes w-100 illustration">
+			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_02.svg" alt="" class="lazy-load shapes w-100 illustration">
 		</div>
 		<!-- /.fancy-banner-three -->
 
 {% endblock %}
 {% block contentScript %}
-	<script>
-		$(document).ready(function() {
-			$('img.lazy-load').each(function() {
-				// Hold the reference to the current image
-				var img = $(this);
-				// Set the src attribute and wait for the image to load
-				img.on('load', function() {
-					// Fade in the image after it's fully loaded
-					img.fadeIn();
-				}).hide() // Initially hide the image
-				  .attr('src', img.attr('data-src')) // Set the actual image
-				  .removeAttr('data-src'); // Clean up data attribute
+<script>
+	
+	$(document).ready(function() {
+		setTimeout(function() {
+		var $slider = $('.listing-slider-one');
+
+		function initializeSlick() {
+			if ($slider.hasClass('slick-initialized')) {
+				$slider.slick('unslick');
+			}
+			$slider.slick({
+				dots: false,
+              arrows: true,
+              prevArrow: $('.prev_b'),
+              nextArrow: $('.next_b'),
+              lazyLoad: 'ondemand',
+              centerPadding: '0px',
+              slidesToShow: 4,
+              slidesToScroll: 1,  // Changed this from 4 to 1
+              autoplay: true,
+              autoplaySpeed: 1000,
+              responsive: [
+                  {
+                      breakpoint: 1400,
+                      settings: {
+                          slidesToShow: 3
+                      }
+                  },
+                  {
+                      breakpoint: 992,
+                      settings: {
+                          slidesToShow: 2
+                      }
+                  },
+                  {
+                      breakpoint: 768,
+                      settings: {
+                          slidesToShow: 1
+                      }
+                  }
+				]
 			});
+		}
+		$.ajax({
+			url: '{% url "get-hostels" %}', // Ensure this URL is set to the correct path to your Django view
+			method: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				var items = '';
+				data.hostels.forEach(function(hostel) {
+					items += `
+						<div class="item">
+							<div class="listing-card-one style-three border-30 mb-50">
+								<div class="img-gallery p-15">
+									<div class="position-relative border-20 overflow-hidden">
+										<div class="tag text-dark fw-500 border-20 ${hostel.hostelType.toLowerCase()}">FOR ${hostel.hostelType}</div>
+										${hostel.image_url ? `<img src="${hostel.image_url}" alt="${hostel.name}" >` : ''}
+										<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
+									</div>
+								</div>
+								<div class="property-info pe-4 ps-4">
+									<a href="/house/${hostel.slug}/" class="title tran3s">${hostel.name}</a>
+									<div class="address">${hostel.address}</div>
+									<div class="pl-footer top-border d-flex align-items-center justify-content-between">
+										<strong class="price fw-500 color-dark">&#8377;${hostel.price}/mo*</strong>
+										<a href="#" data-bs-toggle="modal" data-bs-target="#schedule" class="btn-four rounded-circle"><i class="bi bi-calendar-plus"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>`;
+				});
+	
+				$slider.html(items);
+				initializeSlick();
+				
+			},
+			error: function(error) {
+				console.log('Error fetching and parsing data', error);
+			}
 		});
+	}, 1000); // 1000 milliseconds delay
+	});
+	
+		$(document).ready(function() {
+			setTimeout(function() {
+				var $testimonialSlider = $('.feedback-slider-two');
 		
-	</script>
+				function initializeTestimonialSlick() {
+					if ($testimonialSlider.hasClass('slick-initialized')) {
+						$testimonialSlider.slick('unslick');
+					}
+					$testimonialSlider.slick({
+						dots: false,
+              arrows: true,
+              prevArrow: $('.prev_c'),
+              nextArrow: $('.next_c'),
+              lazyLoad: 'ondemand',
+              centerPadding: '0px',
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              centerMode: true,
+              autoplay: true,
+              autoplaySpeed: 3000,
+              responsive: [
+                {
+                  breakpoint: 1200,
+                  settings: {
+                    slidesToShow: 2
+                  }
+                },
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 1
+                  }
+                }
+						]
+					});
+				}
+		
+				$.ajax({
+					url: '{% url "ajax-get-testimonials" %}',
+					method: 'GET',
+					dataType: 'json',
+					success: function(data) {
+						var items = '';
+						data.testimonials.forEach(function(testimonial) {
+							items += `
+							<div class="item">
+								<div class="feedback-block-four">
+									<div class="d-flex align-items-center">
+										<img src="${testimonial.image_url}" alt="${testimonial.student_name}" class="rounded-circle avatar">
+										<div class="ps-3">
+											<h6 class="fs-20 m0">${testimonial.student_name}</h6>
+											<span class="fs-16">${testimonial.student_addr}</span>
+										</div>
+									</div>
+									<blockquote>"${testimonial.review}"</blockquote>
+									<!-- Remaining structure -->
+								</div>
+							</div>`;
+						});
+						
+		
+						$testimonialSlider.html(items);
+						initializeTestimonialSlick();
+						$("img.lazy-load").each(function() {
+							$(this).attr('src', $(this).data('src'));
+						});
+					},
+					error: function(error) {
+						console.log('Error fetching and parsing testimonials', error);
+					}
+				});
+			}, 1500); // 1000 milliseconds delay
+		});
+
+		</script>
+		
+	
 {% comment %} my script here {% endcomment %}
 {% endblock%}

@@ -60,11 +60,11 @@
                 </div>
             </div>
              <hr class="mt-100" />
-            <div class="row justify-content-between footer-urls">
+            {% comment %} <div class="row justify-content-between footer-urls">
                 {% load my_custom_tags %}
                 <div class="col-lg-12">
                     <div class="d-flex flex-wrap">
-                        {% comment %} {% for i in footer_urls|slice:"0:18"|batch:5 %} {% endcomment %}
+                        
                         {% for i in footer_urls|batch_three%}
                         <div class="footer-nav mt-50 lg-mt-80 xs-mt-30">
                             <ul class="footer-nav-link style-none">
@@ -79,8 +79,14 @@
                         
                     </div>
                 </div>
+            </div> {% endcomment %}
+            <div class="row justify-content-between footer-urls">
+                <div class="col-lg-12">
+                    <div class="d-flex flex-wrap" id="footer-url-container">
+                        <!-- Content to be dynamically loaded here -->
+                    </div>
+                </div>
             </div>
-
             
                
         </div>
