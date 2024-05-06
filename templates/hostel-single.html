@@ -51,7 +51,7 @@
                                 <div class="carousel-inner">
 									{% for image in hostel.images.all %}
 										<div class="carousel-item {% if forloop.first %}active{% endif %}">
-											<img src="{{ image.image.url }}" alt="" class="border-20 w-100">
+											<img  src="/static/images/lazy.svg"  data-src="{{ image.image.url }}" alt="" class="lazy-img border-20 w-100">
 										</div>
 										{% endfor %}
                                 </div>
@@ -63,7 +63,7 @@
                                     
 									{% for image in hostel.images.all|slice:":5" %}
 									<button type="button" data-bs-target="#media_slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}">
-										<img src="{{ image.image.url }}" alt="" class="border-10 w-100">
+										<img src="/static/images/lazy.svg"  data-src="{{ image.image.url }}" alt="" class="lazy-img border-10 w-100">
 									</button>
 								{% endfor %}
                                 </div>
@@ -176,7 +176,7 @@
 											<div class="position-relative border-20 overflow-hidden">
 												<div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>
 															{% if hostel.images.all %}
-																<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="...">
+																<img src="/static/images/lazy.svg"  data-src="{{ hostel.images.all.0.image.url }}" class="lazy-img w-100 border-20 hostel-img" alt="...">
 															{% endif %}
 															
 															<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>

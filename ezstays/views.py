@@ -19,19 +19,22 @@ def send_email_fun(request, message):
 def get_hostels(request):
     hostel_ids = list(Hostel.objects.values_list('id', flat=True))
     random_ids = random.sample(hostel_ids, min(len(hostel_ids), 5))
-    hostels = Hostel.objects.filter(id__in=random_ids).prefetch_related('images')
-    
-    data = [{
-        'id': hostel.id,
-        'name': hostel.name,
-        'slug': hostel.slug,
-        'address': hostel.address,
-        'price': hostel.price,
-        'hostelType': hostel.hostelType,
-        'images': [{'url': img.image.url} for img in hostel.images.all()]
-    } for hostel in hostels]
-    
-    return JsonResponse({'hostels': data})
+    hostels = Hostel.objects.filter(id__in=random_ids).prefetch_related('images')    
+     # Serialize the hostels data into JSON
+    hostels_data = []
+    for hostel in hostels:
+        hostel_dict = {
+            "id": hostel.id,
+            "name": hostel.name,
+            "slug": hostel.slug,
+            "address": hostel.address,
+            "price": hostel.price,
+            "hostelType": hostel.hostelType,
+            "image_url": hostel.images.all()[0].image.url if hostel.images.all() else None
+        }
+        hostels_data.append(hostel_dict)
+
+    return JsonResponse({'hostels': hostels_data})
 
     
 

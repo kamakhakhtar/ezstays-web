@@ -83,11 +83,89 @@
         text-align: center; /* Center-align text */
     }
 
-}
+	}
 .address{
 	min-height:60px !important;
 }
 	
+
+
+figure:after,
+figure:before {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.author__image-wrapper {
+  min-width: 180px;
+  min-height: 180px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 11px;
+  overflow: visible;
+  position: relative;
+  margin: 2rem;
+}
+
+.author__image-wrapper::before {
+  display: block;
+  content: "";
+  height: 90%;
+  width: 120%;
+  position: absolute;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAAASCAYAAABim40OAAACuElEQVRogc1XUZJjIQjEzN7/yMl8ucP0dkNjXrKh6pWAqERaICveR+vD96vo8cazOvoYX54NwOl6Z52ycc907E4C4a45DfKrwHH5vpPgd7aTYKNOyUvYKL7zRZG6WNRP5cne7pxrMwHLEbCqS3aDMglwpcvjMmTGVz4wejQ86lDfjZ0OeSY/az/VMaJ2XQZA/QQQChSKV99N8OpjvuHvUsGt+ErX2bI9q7Hy0dE580pnZ0R1uTi/eSVX2SLrbmKeAeQG34qIL2KDozo/kwosBv4Ouk5WOheMyrfK5t1Z8K++Ak9XVjK/ZRW8LnMgYDZQtpx5lBFoERxI//z40EFmQLgn2R27PZkP0fDVGmaj5thdoE7JEREPBR6nFJ1+CCAFgq9mVF91dhUcBRgGHMWjju0TZN7xi+nVGmaH8wG2IeaUHH+ibyqRTuxZCVGyAhgrZQi0KrtlYgHYAV1JXvET8IjfF7jnb4mPpMtg2TZbr0rpSnwQO9SzjLAauxV83Zj2j1FU9QtX0fQMfD1VM6zWn9D00agz3fOr866OwRF1mUe9EmaDL8d9HflF5jS/M8Yd1rHzsWzt87HMdr0D+sB6HixPXV/EyqH6QvCqBOE9qPXMTsmMqI3TMG9eNc7P9EJYYvK/KdUsZz0raZF06Hu+DCxBD+BZv1L1RKeAcXsZpnNtgtiEmEOeyRHx0zBvchtnHBWAUFa66q86ggltuj5HZU73pVdAcMHhAEX5xHys/Ge/j43IO/IvfZdxmM4FVDdOs1X1Twr3YWciTYPjZopXZILOxgWElVGIjs5V/Yw752QrxU/A1fGdL4yciz551U45qILa+fbsOmeutekud2I7BeJJhmPr3L07KlN0Y/eMzpmb2JzYntgfXfIr9nLWXgl0RuPLO1xzxdqPOPNK8FxJn+rXhP4HON5K31PHDhmjlm6fAAAAAElFTkSuQmCC);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  top: 89%;
+  left: -30%;
+  right: 0;
+  transition: all 0.1s ease-out;
+  transform-origin: 30% 50%;
+  pointer-events: none;
+}
+
+.author--full .author__image-wrapper.tilt:hover::before {
+  opacity: 0;
+  transform: scaleX(0);
+  transition-duration: 0.2s;
+}
+
+.author__image {
+  background: #ff5252;
+  border: 2px solid #ff6725;
+  transform-origin: 0 100%;
+  overflow: hidden;
+}
+
+.author__image img {
+  width: 100%;
+  border-radius: 11px;
+}
+
+.author__image-wrapper.tilt .author__image {
+  transform: translateX(15%) rotateZ(-11deg) scale(0.87);
+  transition: transform 0.6s ease-out;
+  border-width: 4px;
+  border-radius: 22px;
+}
+
+.author__image-wrapper.tilt:hover .author__image {
+  transform: translateX(15%) rotateZ(0) scale(0.87);
+  transition-duration: 0.2s;
+}
+
+.author__image-wrapper.tilt .author__image img {
+  transition: transform 0.6s ease-out;
+  transform-origin: 0 100%;
+  transform: scale(1.2) translateX(-16%) translateY(-3%) rotateZ(11deg);
+}
+
+.author__image-wrapper.tilt:hover img {
+  transform: scale(1.2) translateX(-10%) translateY(6%) rotateZ(0);
+  transition-duration: 0.2s;
+}
+
 </style>
 {% endblock %}
 {% load my_custom_tags %}
@@ -140,6 +218,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<img src="/static/images/lazy.svg"  data-src="/static/images/assets/ils_01.svg" alt="" class="lazy-img shapes w-100 illustration">
 		</div>
 		<!-- /.hero-banner-one -->
@@ -168,11 +247,12 @@
 									<div class="position-relative border-20 overflow-hidden">
 										<div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>
 													{% if hostel.images.all %}
-														<img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="...">
+														<img src="/static/images/lazy.svg" data-src="{{ hostel.images.all.0.image.url }}" alt="{{ hostel.name }}" class="lazy-img">
+
+														{% comment %} <img src="{{ hostel.images.all.0.image.url }}" class="w-100 border-20 hostel-img" alt="..."> {% endcomment %}
 													{% endif %}
 													
 													<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a>
-													
 													
 									</div>
 								</div>
@@ -180,11 +260,7 @@
 								<div class="property-info pe-4 ps-4">
 									<a href="/house/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
 									<div class="address">{{ hostel.address|truncatewords:15 }}</div>
-									<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
-										{% comment %} <li class="d-flex align-items-center">
-											<span class="fs-16"><strong class="fw-500 color-dark">{{ hostel.bed }}</strong> bed</span>
-										</li> {% endcomment %}
-									</ul>
+									
 									<div class="pl-footer top-border d-flex align-items-center justify-content-between">
 										<strong class="price fw-500 color-dark">&#8377;{{ hostel.price | monthly }}/mo*</strong>
 										
@@ -199,6 +275,7 @@
 						
 						{% endfor %}
 					</div>
+					
 					<div class="section-btn text-center">
 						<a href="/our-residences/" class="btn-eleven fst-italic"><span>See all properties</span></a>
 					</div>
@@ -238,7 +315,7 @@
 							<div class="row gx-xl-5">
 								<div class="col-md-4">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-										<div class="icon"><img src="/static/images/icon/meal.png" alt="" class="lazy-img" style=""></div>
+										<div class="icon"><img src="/static/images/lazy.svg" data-src="/static/images/icon/meal.png" alt="" class="lazy-img" style=""></div>
 										<h5 class="mt-35 mb-15">Hygienic Meal</h5>
 										<p>Delicious meals cooked in a neat and clean kitchen.</p>
 									</div>
@@ -247,7 +324,7 @@
 								<div class="col-md-4">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/wifi.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/wifi.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">High Speed WiFi</h5>
 										<p>Dedicated leased line internet.</p>
@@ -257,7 +334,7 @@
 								<div class="col-md-4">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/power.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/power.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Power Backup</h5>
 										<p>24x7 Power Backup without interrupt.</p>
@@ -275,7 +352,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon">
-											<img src="/static/images/icon/cctv.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/cctv.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">24x7 Security</h5>
 										<p>Round the clock professional security guards</p>
@@ -285,7 +362,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/library.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/library.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Tech Enable Library</h5>
 										<p>Kindle machines powered Library in select hostels</p>
@@ -295,7 +372,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/clean.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/clean.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">House Keeping</h5>
 										<p>Professional housekeeping team deployed at each hostel</p>
@@ -306,7 +383,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/game.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/game.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Indoor Games</h5>
 										<p>Pool, table tennis,Foosball, Carrom, Playstation and much more</p>
@@ -322,7 +399,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/gym.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/gym.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Gymnasium</h5>
 										<p>Well-equipped gymnasium</p>
@@ -332,7 +409,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/machine.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/machine.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Snack Machine</h5>
 										<p>Special round the clock online payment vending machine.</p>
@@ -342,7 +419,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/biometric.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/biometric.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Biometric Entry</h5>
 										<p>To ensure ease and security on entry</p>
@@ -353,7 +430,7 @@
 								<div class="col-md-3">
 									<div class="card-style-eleven mt-40 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 										<div class="icon ">
-											<img src="/static/images/icon/doctor.png" alt="" class="lazy-img" style="">
+											<img src="/static/images/lazy.svg" data-src="/static/images/icon/doctor.png" alt="" class="lazy-img" style="">
 										</div>
 										<h5 class="mt-35 mb-15">Doctor on call</h5>
 										<p>General physician available on call.</p>
@@ -394,7 +471,9 @@
 						<div class="item">
 							<div class="feedback-block-four">
 								<div class="d-flex align-items-center">
-									<img src="{{testimony.image.url}}" alt="" class="rounded-circle avatar">
+									<img src="/static/images/lazy.svg" data-src="{{testimony.image.url}}" alt="{{testimony.student_name}}" class="lazy-load rounded-circle avatar">
+
+									
 									<div class="ps-3">
 										<h6 class="fs-20 m0">{{testimony.student_name}}</h6>
 										<span class="fs-16">{{testimony.student_addr}}</span>
@@ -408,7 +487,7 @@
 									<li><i class="fa-sharp fa-solid fa-star"></i></li>
 									<li><i class="fa-sharp fa-solid fa-star"></i></li>
 								</ul>
-								<img src="/static/images/icon/icon_29.svg" alt="" class="icon">
+								<img src="/static/images/lazy.svg"  data-src="/static/images/icon/icon_29.svg" alt="" class="lazy-img icon">
 							</div>
 							<!-- /.feedback-block-four -->
 						</div>
@@ -448,8 +527,17 @@
 				<div class="row ">
 					<div class="col-md-4">
 						<div class="card-style-one text-center wow fadeInUp mt-40">
-							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/mentor.png" alt="" class="lazy-img m-auto icon">
+							<figure class="author author--full">
+								
+								  <div class="author__image-wrapper tilt">
+									<div class="author__image">
 							
+										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/mentor.jpg" alt="" class="lazy-img m-auto">
+							
+									</div>
+								  </div>
+								
+							  </figure>
 							<h5>Ezmentor</h5>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">Support and tips to help kickstart your career.</p>
 						</div>
@@ -457,7 +545,17 @@
 					</div>
 					<div class="col-md-4">
 						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.1s">
-							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/connect.png" alt="" class="lazy-img m-auto icon">
+							<figure class="author author--full">
+								
+								  <div class="author__image-wrapper tilt">
+									<div class="author__image">
+							
+										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/connect.jpg" alt="" class="lazy-img m-auto">
+							
+									</div>
+								  </div>
+								
+							  </figure>
 							<h5>Ezconnect</h5>
 							<p class="fs-24 ps-xxl-3 pe-xxl-3">Programs & events to help you achieve greater success.</p>
 						</div>
@@ -465,7 +563,17 @@
 					</div>
 					<div class="col-md-4">
 						<div class="card-style-one text-center wow fadeInUp mt-40" data-wow-delay="0.2s">
-							<img src="/static/images/lazy.svg"  data-src="/static/images/icon/technology.png" alt="" class="lazy-img m-auto icon">
+							<figure class="author author--full">
+								
+								  <div class="author__image-wrapper tilt">
+									<div class="author__image">
+							
+										<img src="/static/images/lazy.svg"  data-src="/static/images/icon/technology.jpg" alt="" class="lazy-img m-auto">
+							
+									</div>
+								  </div>
+								
+							  </figure>
 							<h5>Eztechnology</h5>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">Get round-the-clock access to our world class facilities</p>
 						</div>
@@ -609,6 +717,21 @@
 
 {% endblock %}
 {% block contentScript %}
-	
+	<script>
+		$(document).ready(function() {
+			$('img.lazy-load').each(function() {
+				// Hold the reference to the current image
+				var img = $(this);
+				// Set the src attribute and wait for the image to load
+				img.on('load', function() {
+					// Fade in the image after it's fully loaded
+					img.fadeIn();
+				}).hide() // Initially hide the image
+				  .attr('src', img.attr('data-src')) // Set the actual image
+				  .removeAttr('data-src'); // Clean up data attribute
+			});
+		});
+		
+	</script>
 {% comment %} my script here {% endcomment %}
 {% endblock%}

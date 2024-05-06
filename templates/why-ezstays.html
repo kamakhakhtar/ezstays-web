@@ -10,6 +10,20 @@
 <meta property="og:title" content="{{seo.title}}">
 <meta name='og:image' content='/static/images/logo/ezstays-logo.png'> 
 
+<style>
+    /* Media query for mobile devices */
+	@media (max-width: 768px) {
+        .card-style-eleven .icon img {
+            display: block;
+            margin: 0 auto; /* Center-align the image */
+        }
+        .card-style-eleven h5,
+        .card-style-eleven p {
+            text-align: center; /* Center-align text */
+        }
+    
+        }
+</style>
 {% endblock %}
 {% block content%}
 
@@ -40,7 +54,7 @@
 			BLock Feature Two
 		=====================================================
 		-->
-		<div class="block-feature-fifteen mt-150 xl-mt-100 mb-140 xl-mb-80">
+		<div class="block-feature-fifteen md-mb-20 xs-mb-20 mt-100 md-mt-100 mb-140 xl-mb-80">
 			<div class="container">
 				<div class="row gx-xl-5">
 					<div class="col-xl-6 col-lg-7 order-lg-last wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
@@ -62,7 +76,6 @@
 					<div class="col-xl-6 col-lg-5 d-lg-flex wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
 						<div class="media-block h-100 w-100 pe-xl-5">
 							<div class="bg-img position-relative" style="background-image: url(/static/images/media/table.jpg);">
-								<img src="/static/images/assets/screen_10.png" alt="" class="lazy-img shapes screen_01" style="">
 							</div>
 						</div>
 						<!-- /.media-block -->
@@ -74,7 +87,7 @@
 		</div>
 		<!-- /.block-feature-two -->
 
-        <div class="block-feature-eight position-relative z-1 mt-170 xl-mt-120">
+        <div class="block-feature-eight position-relative z-1 md-mt-30 xl-mt-120">
 			<div class="container">
 				<div class="position-relative">
 					<div class="row">
@@ -83,19 +96,19 @@
 							<div class="block-two ms-xxl-5 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
 								<div class="bg-wrapper md-mt-60">
                                     <div class="title-one m0">
-                                        <h3>Security at <span>EzStays<img src="/static/images/shape/title_shape_05.svg" alt="" class="lazy-img" style=""></span> <small> Peace of mind. </small></h3>
+                                        <h3>Security at <span>EzStays<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_05.svg" alt="" class="lazy-img" style=""></span> <small> Peace of mind. </small></h3>
                                     </div>
                                     <!-- /.title-one -->
                                     
-									<p class="fs-22 mt-45 mb-60 xl-mb-40 pe-xxl-5">At EzStays, we are conscious of our responsibility towards our EzStays students as well as their parents. We realise that for many of our students, this is their first time away from home and we do everything to give them a safe and happy environment. From metric entry to 24x7 security, we ensure our residents are secure round the clock.</p>
-									<p class="fs-22 mt-45 mb-60 xl-mb-40 pe-xxl-5">As parents, you may want to be involved in choosing your ward’s first independent accommodation. At EzStays, we promise to ease your doubts and answer all queries. We are dedicated to making your child’s experience a comfortable and happy one - a place where you would be secure and satisfied to leave them.</p>
+									<p class="fs-22 mt-45 mb-60 xl-mb-40 pe-xxl-5">At EzStays, we understand the importance of safety and comfort for our students and their parents. We offer 24x7 security and support to ensure a safe environment. We welcome parents to be involved and are here to answer any questions, ensuring a happy stay for your child.
+                                    </p>
 									
                                     <div class="feature-wrapper mt-60 lg-mt-40 mb-65 lg-mb-40">
                                         <div class="bg-wrapper">
                                             <div class="row">
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/cctv-camera.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/cctv-camera.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">CCTV Camera</h5>
                                                         
                                                     </div>
@@ -103,7 +116,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/security.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/security.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">24x7 Security</h5>
                                                         
                                                     </div>
@@ -111,7 +124,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/biometric1.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/biometric1.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">Biometric Entry</h5>
                                                         
                                                     </div>
@@ -131,15 +144,15 @@
 								<div class="row align-items-end">
 									<div class="col-6">
 										<div class="media-block position-relative z-1">
-                                            <img src="/static/images/assets/biometric.jpg" alt="" class="lazy-img screen_03 mb-40" style="">
-											<img src="/static/images/media/camera.jpg" alt="" class="lazy-img main-img w-100" style="">
-											<img src="/static/images/shape/shape_40.svg" alt="" class="lazy-img shapes shape_01" style="">
+                                            <img src="/static/images/lazy.svg"  data-src="/static/images/assets/biometric.jpg" alt="" class="lazy-img screen_03 mb-40" style="">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/camera.jpg" alt="" class="lazy-img main-img w-100" style="">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/shape/shape_40.svg" alt="" class="lazy-img shapes shape_01" style="">
 										</div>
 										<!-- /.media-block -->
 									</div>
 									<div class="col-6">
 										<div class="media-block position-relative z-1">
-											<img src="/static/images/media/guard.jpg" alt="" class="lazy-img main-img w-100" style="">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/guard.jpg" alt="" class="lazy-img main-img w-100" style="">
 										</div>
 										<!-- /.media-block -->
 									</div>
@@ -153,42 +166,17 @@
 
 
 
-        <div class="block-feature-eight position-relative z-1 mt-170 xl-mt-120">
+        <div class="block-feature-eight position-relative z-1 md-mt-30 mt-170 xl-mt-120">
 			<div class="container">
 				<div class="position-relative">
 					<div class="row">
-                        <div class="col-lg-6">
-							<div class="pe-xl-5 wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
-								<div class="row align-items-end">
-									<div class="col-12">
-										<div class="media-block position-relative z-1 mb-20">
-											<img src="/static/images/media/lib.jpg" alt="" class="lazy-img main-img w-100" style="">
-                                            
-										</div>
-										<!-- /.media-block -->
-									</div>
-                                    <div class="col-6">
-										<div class="media-block position-relative z-1">
-                                            <img src="/static/images/media/mentor.jpg" alt="" class="lazy-img screen_03 mb-40" style="">
-											<img src="/static/images/media/workshop.jpg" alt="" class="lazy-img main-img w-100" style="">
-										</div>
-										<!-- /.media-block -->
-									</div>
-									<div class="col-6">
-										<div class="media-block position-relative z-1">
-											<img src="/static/images/media/resume.jpg" alt="" class="lazy-img main-img w-100" style="">
-										</div>
-										<!-- /.media-block -->
-									</div>
-                                    
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="block-two ms-xxl-5 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                        <div class="col-lg-6 order-lg-last">
+							
+
+                            <div class="block-two ms-xxl-5 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
 								<div class="bg-wrapper md-mt-60">
                                     <div class="title-one m0">
-                                        <h3><span>EzMentor<img src="/static/images/shape/title_shape_05.svg" alt="" class="lazy-img" style=""></span> <small> The Career Development Program. </small></h3>
+                                        <h3><span>EzMentor<img src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_05.svg" alt="" class="lazy-img" style=""></span> <small> The Career Development Program. </small></h3>
                                     </div>
                                     <!-- /.title-one -->
                                     
@@ -254,6 +242,33 @@
 								<!-- /.bg-wrapper -->
 							</div>
 						</div>
+						<div class="col-lg-6">
+							<div class="pe-xl-5 wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
+								<div class="row align-items-end">
+									<div class="col-12">
+										<div class="media-block position-relative z-1 mb-20">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/lib.jpg" alt="" class="lazy-img main-img w-100" style="">
+                                            
+										</div>
+										<!-- /.media-block -->
+									</div>
+                                    <div class="col-6">
+										<div class="media-block position-relative z-1">
+                                            <img src="/static/images/lazy.svg"  data-src="/static/images/media/mentor.jpg" alt="" class="lazy-img screen_03 mb-40" style="">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/workshop.jpg" alt="" class="lazy-img main-img w-100" style="">
+										</div>
+										<!-- /.media-block -->
+									</div>
+									<div class="col-6">
+										<div class="media-block position-relative z-1">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/resume.jpg" alt="" class="lazy-img main-img w-100" style="">
+										</div>
+										<!-- /.media-block -->
+									</div>
+                                    
+								</div>
+							</div>
+						</div>
 
                      
 					</div>
@@ -270,7 +285,7 @@
 							<div class="block-two ms-xxl-5 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
 								<div class="bg-wrapper md-mt-60">
                                     <div class="title-one m0">
-                                        <h3><span>EzConnect<img src="/static/images/shape/title_shape_05.svg" alt="" class="lazy-img" style=""></span> <small> Events & networking for your success. </small></h3>
+                                        <h3><span>EzConnect<img  src="/static/images/lazy.svg"  data-src="/static/images/shape/title_shape_05.svg" alt="" class="lazy-img" style=""></span> <small> Events & networking for your success. </small></h3>
                                     </div>
                                     <!-- /.title-one -->
                                     
@@ -282,7 +297,7 @@
                                             <div class="row">
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/sports.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/sports.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">Sports Tournaments</h5>
                                                         
                                                     </div>
@@ -290,7 +305,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/moview.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/moview.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">Movie Screenings</h5>
                                                         
                                                     </div>
@@ -298,7 +313,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/dj.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/dj.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">DJ Night</h5>
                                                         
                                                     </div>
@@ -306,7 +321,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/party.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/party.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">Birthday Parties</h5>
                                                         
                                                     </div>
@@ -314,7 +329,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/comedy.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/comedy.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">Standup Comedy</h5>
                                                         
                                                     </div>
@@ -322,7 +337,7 @@
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-4">
                                                     <div class="card-style-eleven mt-30">
-                                                        <div class="icon"><img src="/static/images/icon/game1.png" alt="" class="lazy-img" style=""></div>
+                                                        <div class="icon"><img src="/static/images/lazy.svg"  data-src="/static/images/icon/game1.png" alt="" class="lazy-img" style=""></div>
                                                         <h5 class="mt-30 mb-20">Gaming Competitions</h5>
                                                         
                                                     </div>
@@ -342,20 +357,20 @@
 								<div class="row align-items-end">
 									<div class="col-6">
 										<div class="media-block position-relative z-1">
-                                            <img src="/static/images/media/mentor-prog.jpg" alt="" class="lazy-img main-img w-100" style="">
+                                            <img src="/static/images/lazy.svg"  data-src="/static/images/media/mentor-prog.jpg" alt="" class="lazy-img main-img w-100" style="">
 										</div>
 										<!-- /.media-block -->
 									</div>
 									<div class="col-6">
 										<div class="media-block position-relative z-1">
-											<img src="/static/images/media/party.jpg" alt="" class="lazy-img main-img w-100" style="">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/party.jpg" alt="" class="lazy-img main-img w-100" style="">
                                             
 										</div>
 										<!-- /.media-block -->
 									</div>
                                     <div class="col-12">
 										<div class="media-block position-relative z-1 mt-20">
-											<img src="/static/images/media/group_party.jpg" alt="" class="lazy-img main-img w-100" style="">
+											<img src="/static/images/lazy.svg"  data-src="/static/images/media/group_party.jpg" alt="" class="lazy-img main-img w-100" style="">
                                             
 										</div>
 										<!-- /.media-block -->
