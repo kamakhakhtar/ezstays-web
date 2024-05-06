@@ -229,7 +229,7 @@
               slidesToShow: 4,
               slidesToScroll: 1,  // Changed this from 4 to 1
               autoplay: true,
-              autoplaySpeed: 3000,
+              autoplaySpeed: 1000,
               responsive: [
                   {
                       breakpoint: 1400,
