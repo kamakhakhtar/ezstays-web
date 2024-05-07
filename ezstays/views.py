@@ -41,7 +41,7 @@ def get_hostels(request):
             "name": hostel.name,
             "slug": hostel.slug,
             "address": hostel.address,
-            "price": round(hostel.price)-1,
+            "price": round(hostel.price/12)-1,
             "hostelType": hostel.hostelType,
             "image_url": hostel.images.all()[0].image.url if hostel.images.all() else None
         }

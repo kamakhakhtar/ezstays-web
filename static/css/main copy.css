@@ -1,0 +1,158 @@
+.block-feature-fourteen * {
+    color: #0000;
+}
+.item {
+width :500px;
+}
+
+
+.sticky-sidebar {
+position: fixed;
+top: 120px; /* Adjust based on your needs, e.g., if you have a fixed header */
+width: auto; /* Adjust based on the original width of your sidebar */
+}
+
+/* General styles for the floating buttons container */
+.floating-buttons {
+position: fixed;
+bottom: 50px;
+right: 20px;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+z-index: 1000; /* Ensures the buttons stay above other content */
+}
+
+/* Styles for each button */
+.float-button {
+background-color: #25D366; /* WhatsApp brand color */
+color: white;
+padding: 15px;
+margin-bottom: 10px;
+border-radius: 50%; /* Circular buttons */
+text-decoration: none; /* Remove underline from links */
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Simple shadow for better visibility */
+transition: transform 0.3s, background-color 0.3s;
+}
+
+.float-button.phone {
+background-color: #ff6725; /* A typical 'phone call' blue */
+}
+
+.float-button i {
+font-size: 20px; /* Adjust icon size */
+}
+
+/* Animation for the WhatsApp button */
+.float-button.whatsapp {
+animation: pulse 2s infinite;
+}
+.boys {
+background : #2b5f9c !important ;
+color:white !important;
+}
+.girls {
+background : #ff6725 !important ;
+color:white !important;
+}
+@keyframes pulse {
+0% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.1);
+}
+100% {
+    transform: scale(1);
+}
+}
+
+.float-button:hover {
+background-color: #1AB273; /* Darker shade on hover for WhatsApp */
+transform: scale(1.05); /* Slight scale to indicate interactivity */
+}
+
+.float-button.phone:hover {
+background-color: #0c0c0c; /* Darker shade on hover for call button */
+transform: scale(1.05); /* Consistent scaling for all buttons */
+}
+
+
+/* Footer Copyright Style */
+.copyright {
+text-align: center; /* Centers the text horizontally */
+color: #ffffff; /* Sets the text color to white */
+padding: 10px 20px; /* Adds padding around the text */
+background-color: #000; /* Dark background for the footer */
+font-size: 14px; /* Sets the font size */
+margin-top: 20px; /* Adds space above the copyright text */
+border-top: 1px solid #444444; /* Adds a subtle line above the text */
+}
+
+.footer-urls a{
+font-size:18spx;
+
+}
+.footer-urls .footer-nav{
+width:50%;
+}
+
+@media only screen and (max-width: 600px) {
+.footer-one .footer-urls .footer-nav{
+    width:100%;
+}
+}
+
+
+
+.ez-blue{
+ background-color: #2b5f9c !important;
+}
+
+@keyframes loading {
+0% {
+    width: 0%;
+}
+100% {
+    width: 100%;
+}
+}
+
+.progress-bar {
+background-color: #007BFF; /* Bootstrap primary color, adjust as needed */
+height: 5px;
+width: 0%;
+transition: width 2s;
+}
+
+
+input:invalid {
+border: 2px solid orange;
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+10%, 90% {
+    transform: translateX(-1px);
+}
+
+20%, 80% {
+    transform: translateX(2px);
+}
+
+30%, 50%, 70% {
+    transform: translateX(-4px);
+}
+
+40%, 60% {
+    transform: translateX(4px);
+}
+}
+
+iframe{
+    height: 100% !important;
+    width: 100% !important;
+}

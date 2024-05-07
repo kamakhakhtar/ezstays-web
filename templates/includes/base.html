@@ -1,95 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    {% block head %} {% endblock %} {% include "./head.html" %}
-  </head>
+    {% block head %}{% endblock %}
+    {% load cache %}
 
-  <body>
+    {% cache 500 head_cache %}
+        {% include './head.html' %}
+    {% endcache %}
+    <!-- Removed old head include comment, as it's redundant -->
+</head>
+
+<body>
     <div class="main-page-wrapper">
-      <!-- ===================================================
-			Loading Transition
-		==================================================== -->
-      <div id="preloader">
-        <div id="ctn-preloader" class="ctn-preloader">
-          <div class="icon">
-            <img
-              src="/static/images/loader.gif"
-              alt=""
-              class="m-auto d-block"
-              width="64"
-            />
-          </div>
+        <!-- Loading Transition -->
+        <div id="preloader">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="icon">
+                    <img src="/static/images/loader.gif" alt="" class="m-auto d-block" width="64" />
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- 
-		=============================================
-			Theme Main Menu
-		============================================== 
-		-->
-      {% include "./header.html" %}
+        <!-- Theme Main Menu -->
+        {% cache 500 header_cache %}
+            {% include "./header.html" %}
+        {% endcache %}
 
-      <!-- /.theme-main-menu -->
+        <!-- Content Block -->
+        {% block content %}{% endblock %}
 
-      {% block content %} {% endblock %}
+        <!-- Footer -->
+        {% cache 500 footer_cache %}
+            {% include "./footer.html" %}
+        {% endcache %}
 
-      <!--
-            =====================================================
-			Footer One
-            =====================================================
-		-->
+        <!-- Login Modal -->
+        {% cache 500 modal_cache %}
+            {% include "./modal.html" %}
+        {% endcache %}
 
-      {% include "./footer.html" %}
+        <button class="scroll-top">
+            <i class="bi bi-arrow-up-short"></i>
+        </button>
 
-      <!-- /.footer-one -->
+        <!-- Scripts -->
+        {% cache 500 scripts_cache %}
+            {% include "./script.html" %}
+        {% endcache %}
 
-      <!-- ################### Login Modal ####################### -->
-      <!-- Modal -->
+        {% block contentScript %}{% endblock %}
 
-      {% include "./modal.html" %}
-
-      <button class="scroll-top">
-        <i class="bi bi-arrow-up-short"></i>
-      </button>
-
-      {% include "./script.html" %} {% block contentScript %} {% endblock %}
-      {% comment %} <script>
-        $(document).ready(function() {
-          $('.action-form').on('submit', function(e) {
-              e.preventDefault();  // Prevent the default form submission
-              
-              var name = $('input[name="name"]').val();  // Get the sender's name
-              var phone = $('input[name="phone"]').val();  // Get the sender's phone number
-      
-              // Construct the message in a simple text format
-              var formattedMessage = `Name: ${name}\nPhone: ${phone}`;
-      
-              // Encode the message for URL
-              var encodedMessage = encodeURIComponent(formattedMessage);
-      
-              // Construct the URL to send the data to
-              var url = `/send-email/${encodedMessage}`;
-              // Make the AJAX request
-               $.ajax({
-                  url: url,
-                  type: 'GET',
-                  success: function(response) {
-                      // Close all Bootstrap modals
-                      $('.modal').modal('hide');
-  
-                      alert('Email sent successfully!');
-                      // Optionally clear the form or handle other success actions
-                  },
-                  error: function(xhr, status, error) {
-                      // Handle any errors here
-                      alert('Error sending email: ' + error);
-                  }
-              }); 
-          });
-      });
-      </script> {% endcomment %}
     </div>
     <!-- /.main-page-wrapper -->
-  </body>
+</body>
 </html>
