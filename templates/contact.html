@@ -121,7 +121,13 @@
 
 {% endblock %}
 {% block contentScript %}
-
+<script src="/static/vendor/gmap.js"></script>
+<!-- isotop -->
+{% comment %}
+<script src="/static/vendor/isotope.pkgd.min.js"></script>
+{% endcomment %}
+<!-- Theme js -->
+<script src="/static/js/map-script.js"></script>
 <script>
 
     $(document).ready(function() {
