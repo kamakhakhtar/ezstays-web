@@ -30,6 +30,7 @@ urlpatterns = [
     path('about-us/', views.about_us, name='about'),
     path('privacy-policy/', views.privacy, name='privacy'),
     path('terms-and-conditions/', views.terms, name='terms'),
+    path('refund-and-cancellation/', views.refund, name='refund'),
     path('why-ezstays/', views.why_us, name='why'),
     path('contact/', views.contact, name='about'),
     path('house/<slug:slug>/', views.hostel_single, name='hostel_single'),
@@ -43,7 +44,6 @@ urlpatterns = [
     path('ajax/get-cities/', views.get_cities, name='ajax-get-cities'),
     path('ajax/get-testimonials/', views.get_testimonials, name='ajax-get-testimonials'),
     path('ajax/get-hostels/', views.get_hostels, name='get-hostels'),
-
 
     path('er/', views._404, name="404"),
     

@@ -70,6 +70,10 @@ def terms(request):
     seo = get_seo_for_page("terms")
     return render(request, 'terms-and-conditions.html', {'seo': seo})
 
+def refund(request):
+    seo = get_seo_for_page("refund")
+    return render(request, 'refund-and-cancellation.html', {'seo': seo})
+
 def privacy(request):
     seo = get_seo_for_page("privacy")
     return render(request, 'privacy-policy.html', {'seo': seo})
