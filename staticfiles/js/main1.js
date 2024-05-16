@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // });
 
         // AJAX call to load SEO footer URLs
+// AJAX call to load SEO footer URLs
 $.ajax({
     url: '/ajax/seofooter-urls/', // Ensure this URL matches your Django URL configuration
     type: 'GET',
@@ -196,14 +197,15 @@ $.ajax({
         $('#seo-footer').empty();
 
         // Iterate over the URLs and append them to the SEO footer
-        $.each(data.footer_urls, function(index, url) {
-            $('#seo-footer').append('<a href="' + url + '">' + url + '</a>');
+        $.each(data.footer_urls, function(index, urlData) {
+            $('#seo-footer').append('<a href="/' + urlData.slug + '">' + urlData.title + '</a>');
         });
     },
     error: function() {
         console.log('Error loading SEO footer URLs');
     }
 });
+
         // AJAX call to fetch city data and populate select element
         $.ajax({
             url: '/ajax/get-cities/', // URL configured in urls.py
