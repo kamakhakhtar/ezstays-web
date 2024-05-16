@@ -215,6 +215,9 @@ def custom_404(request, exception):
 def _404(request):
     return render(request, '404.html')
 
+def sitemap(request):
+    return render(request, 'sitemap.xml')
+
 # ====================================
 
 
@@ -226,6 +229,12 @@ def get_footer_urls(request):
     batched_urls = batch_three(list(footer_urls))
     html = render_to_string('includes/ajax-footer.html', {'batched_urls': batched_urls})
     return JsonResponse({'html': html})
+
+def get_seofooter_urls(request):
+    footer_data = Blog.objects.filter(status='Seo').values('title', 'slug')
+    footer_urls = list(footer_data)
+    return JsonResponse({'footer_urls': footer_urls})
+
 
 def batch_three(value):
     total_len = len(value)

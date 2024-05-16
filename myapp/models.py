@@ -25,6 +25,7 @@ class Blog(models.Model):
     STATUS = (
         ('Publish', 'Publish'),
         ('Draft', 'Draft'),
+        ('Seo', 'Seo'),
     )
     seo = models.OneToOneField(SEO, on_delete=models.CASCADE, related_name='blog')
     slug = models.SlugField(max_length=200, unique=True, null=True)
@@ -33,7 +34,7 @@ class Blog(models.Model):
     content = models.TextField(null=True)
     tags = models.ManyToManyField(BlogTag, related_name='blog', blank=True)  # Added blank=True for optional amenities
     published_date = models.DateField(null=True, blank=True)
-    status = models.CharField(choices=STATUS, max_length=50, default='Publish')
+    status = models.CharField(choices=STATUS, max_length=50, default='Seo')
     def __str__(self):
         return self.seo.title
 
