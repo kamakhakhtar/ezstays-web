@@ -27,7 +27,7 @@
                     <div class="col-lg-8">
                         <article class="blog-post-meta">
                             {% if blog.image %}
-                            <figure class="post-img position-relative m0" style="background-image: url({{blog.image.url}});" alt="{{blog.title}}">
+                            <figure class="post-img position-relative m0" style="background-image: url({% if blog.image %}{{blog.image.url}}{%endif%});" alt="{{blog.title}}">
                                 <div class="fw-500 date d-inline-block">{{ blog.published_date|date:"d M" }}</div>
                             </figure>
                             {%endif%}
