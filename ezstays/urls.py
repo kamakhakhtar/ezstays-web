@@ -25,6 +25,7 @@ from django.conf.urls import handler404
 
 urlpatterns = [
     path('', views.main_page, name='main'),
+    path('landing/', views.landing_page, name='landing'),
     path('admin/', admin.site.urls),
     path('send-email/<str:message>', views.send_email_fun, name='send_email_fun'),
     path('about-us/', views.about_us, name='about'),

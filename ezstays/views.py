@@ -54,6 +54,10 @@ def main_page(request):
     seo = get_seo_for_page("home")
     return render(request, 'index.html', {'seo': seo})
 
+def landing_page(request):
+    seo = get_seo_for_page("home")
+    return render(request, 'landing.html', {'seo': seo})
+
 def about_us(request):
     seo = get_seo_for_page("about")
     testimonials = Testimonial.objects.all()
