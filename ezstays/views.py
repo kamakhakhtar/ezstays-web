@@ -160,8 +160,7 @@ from django.db.models import Count
 
 def get_tags_with_counts():
     tags = BlogTag.objects.all()
-    return [(tag, tag.blog.count()) for tag in tags]  # Use 'blog' instead of 'blog_set'
-
+    return [(tag, tag.blogs.count()) for tag in tags]
 
 
 def get_recent_blogs():
