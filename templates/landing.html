@@ -33,6 +33,12 @@
         background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
         pointer-events: none; /* Ensure the overlay doesn't interfere with interactions */
       }
+
+      @media screen and (min-width: 1200px) {
+        .hero-banner-four .hero-heading {
+          font-size: 90px !important;
+        }
+      }
 </style>
 
 {% endblock %}
@@ -55,7 +61,7 @@
                     <div class="row">
                         <div class="col-lg-6 wow fadeInLeft">
                             <div class="mt-45">
-								<h1 class="hero-heading text-white fw-500" style="font-size: 95px;">
+								<h1 class="hero-heading text-white fw-500">
 									Welcome to Greater Noida's Most Searched Hostel Chain
 									<span class="d-block d-lg-inline-flex">
 										<img src="/static/images/lazy.svg" data-src="/media/media/blogs/Face_Pic.jpg" alt="" class="lazy-img avatar">
