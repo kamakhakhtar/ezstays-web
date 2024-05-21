@@ -26,9 +26,11 @@
 				<div class="row gx-xl-5">
                     <div class="col-lg-8">
                         <article class="blog-post-meta">
+                            {% if blog.image %}
                             <figure class="post-img position-relative m0" style="background-image: url({{blog.image.url}});" alt="{{blog.title}}">
                                 <div class="fw-500 date d-inline-block">{{ blog.published_date|date:"d M" }}</div>
                             </figure>
+                            {%endif%}
                             <div class="post-data pt-50 md-pt-30">
                                 {{blog.content | safe}}
                                 
@@ -61,10 +63,12 @@
                                 <h5 class="mb-20">Recent News</h5>
                                 {% for blog in recent_blogs %}
                                 <div class="news-block d-flex align-items-center pb-25">
+                                   
                                     <div>
                                         <!-- Ensure you handle the potential absence of blog.image -->
                                         <img src="{% if blog.image %}{{ blog.image.url }}{% else %}/static/images/lazy.svg{% endif %}" alt="{{ blog.title }}" class="lazy-img">
                                     </div>
+                                    {
                                     <div class="post ps-4">
                                         <h4 class="mb-5"><a href="/blog/{{blog.slug}}/" class="title tran3s">{{ blog.title }}</a></h4>
                                         <div class="date">{{ blog.published_date|date:"d F, Y" }}</div>
