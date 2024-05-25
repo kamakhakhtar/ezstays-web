@@ -12,7 +12,7 @@ window.onload=function(){setTimeout(function(){var s=$(".listing-slider-one");$.
                                     <a href="/house/${s.slug}/" class="title tran3s">${s.name}</a>
                                     <div class="address">${s.address}</div>
                                     <div class="pl-footer top-border d-flex align-items-center justify-content-between">
-                                        <strong class="price fw-500 color-dark">&#8377;${s.price}/mo*</strong>
+                                        <strong class="price fw-500 color-dark">&#8377;${s.price}/month*</strong>
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#schedule" class="btn-four rounded-circle"><i class="bi bi-calendar-plus"></i></a>
                                     </div>
                                 </div>
