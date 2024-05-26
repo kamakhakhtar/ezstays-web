@@ -186,7 +186,7 @@ $.ajax({
 
         // Iterate over the URLs and append them to the SEO footer
         $.each(data.footer_urls, function(index, urlData) {
-            $('#seo-footer').append('<a href="/' + urlData.slug + '">' + urlData.title + '</a>');
+            $('#seo-footer').append('<a href="/' + urlData.slug + '">' + urlData.title + '<span> | </sapn> </a>');
         });
     },
     error: function() {

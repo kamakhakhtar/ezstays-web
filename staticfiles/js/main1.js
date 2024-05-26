@@ -173,19 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // AJAX call to load footer URLs
-        // $.ajax({
-        //     url: '/ajax/footer-urls/', // Ensure this URL matches your Django URL configuration
-        //     type: 'GET',
-        //     dataType: 'json',
-        //     success: function(data) {
-        //         $('#footer-url-container').html(data.html); // Assuming an element with this ID exists
-        //     },
-        //     error: function() {
-        //         console.log('Error loading footer URLs');
-        //     }
-        // });
-
+      
         // AJAX call to load SEO footer URLs
 // AJAX call to load SEO footer URLs
 $.ajax({
@@ -198,7 +186,7 @@ $.ajax({
 
         // Iterate over the URLs and append them to the SEO footer
         $.each(data.footer_urls, function(index, urlData) {
-            $('#seo-footer').append('<a href="/' + urlData.slug + '">' + urlData.title + '</a>');
+            $('#seo-footer').append('<a href="/' + urlData.slug + '">' + urlData.title + '<span> | </sapn> </a>');
         });
     },
     error: function() {

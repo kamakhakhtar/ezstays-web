@@ -34,8 +34,8 @@
 <style>
 	.seo
 	{
-		display: flex;
-		flex-flow: row wrap;
+		{% comment %} display: flex;
+		flex-flow: row wrap; {% endcomment %}
 		margin-left: -0.5em;
 		margin-right: -0.5em;
 		font-size:15px;	
@@ -45,11 +45,15 @@
 	{
 		padding: 0 0.5em;
 		color:rgba(0, 0, 0, .4);
+		display:contents;
 	}
 	.seo a:hover{
 		color:#2b5f9c;
 	}
 
+	.seo a:hover > span{
+		color:rgba(0, 0, 0, .4) !important;
+	}
 	.seo a:not(:last-child)
 	{
 		border-right: thin solid;
