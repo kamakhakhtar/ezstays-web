@@ -81,7 +81,7 @@ class BedType(models.Model):
     OCCUPANCY = (
         ('Single', 'Single'),
         ('Double', 'Double'),
-        ('Tripple', 'Tripple'),
+        ('Triple', 'Triple'),
         ('Four', 'Four'),
     )
     type = models.CharField(max_length=50, choices=OCCUPANCY, unique=True)
