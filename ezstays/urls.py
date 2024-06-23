@@ -35,6 +35,7 @@ urlpatterns = [
     path('why-ezstays/', views.why_us, name='why'),
     path('contact/', views.contact, name='about'),
     path('sitemap.xml/', views.sitemap, name='about'),
+    path('googleadf5899225f786cc.html', views.googleadf, name='about'),
     path('house/<slug:slug>/', views.hostel_single, name='hostel_single'),
     path('hostel/<slug:slug>/', views.hostel_single, name='hostel_single'),
     path('house/<slug:slug>', views.hostel_single, name='hostel_single'),

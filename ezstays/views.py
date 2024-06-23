@@ -221,6 +221,10 @@ def _404(request):
 def sitemap(request):
     return render(request, 'sitemap.xml')
 
+
+def googleadf(request):
+    return render(request, 'googleadf5899225f786cc.html')
+
 # ====================================
 
 
