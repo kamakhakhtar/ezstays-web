@@ -27,6 +27,23 @@ SECRET_KEY = 'django-insecure--oyvhdhcka=l(99^jo*(&cq%rr$%ztks&*=yz*!%bflhm6m%jj
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ezstays.in']
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Application definition
 
