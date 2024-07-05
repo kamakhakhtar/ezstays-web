@@ -10,6 +10,9 @@ import random
 from django.http import JsonResponse
 from .utlis import send_email_to_client
 
+from django.core.cache import cache
+
+
 from django.template.loader import render_to_string
 
 def get_seo_for_page(page_name):
@@ -129,6 +132,13 @@ def hostel_single(request, slug):
     return render(request, 'hostel-single.html', context)
 
 def hostel_list(request):
+    # Generate a unique cache key based on query parameters
+    cache_key = f"hostel_list_{request.GET.urlencode()}"
+    cached_data = cache.get(cache_key)
+
+    if cached_data:
+        return render(request, 'hostel-list.html', cached_data)
+
     seo = get_seo_for_page("residences")
     hostels_list = Hostel.objects.all()
 
@@ -155,8 +165,9 @@ def hostel_list(request):
         'hostels': hostels,
         'seo': seo,
     }
-    return render(request, 'hostel-list.html', context)
 
+    cache.set(cache_key, context, timeout=60*60*24)  # Cache for 24 hours
+    return render(request, 'hostel-list.html', context)
 
 # ============= Blog ==========
 
@@ -231,41 +242,50 @@ def googleadf(request):
 
 # ======= Footer Link ==============
 
-def get_footer_urls(request):
-    footer_urls = Blog.objects.all()
-    batched_urls = batch_three(list(footer_urls))
-    html = render_to_string('includes/ajax-footer.html', {'batched_urls': batched_urls})
-    return JsonResponse({'html': html})
 
 def get_seofooter_urls(request):
-    footer_data = Blog.objects.filter(status='Seo').values('title', 'slug')
-    footer_urls = list(footer_data)
+    cache_key = 'seo_footer_urls'
+    footer_urls = cache.get(cache_key)
+    
+    if footer_urls is None:
+        footer_data = Blog.objects.filter(status='Seo').values('title', 'slug')
+        footer_urls = list(footer_data)
+        cache.set(cache_key, footer_urls, timeout=60*60*24)  # Cache for 24 hours
+
     return JsonResponse({'footer_urls': footer_urls})
 
 
-def batch_three(value):
-    total_len = len(value)
-    size = (total_len + 2) // 2  # Use integer division rounding up
-    return [value[i:i + size] for i in range(0, total_len, size)]
-
 # =========================================
-
 def get_cities(request):
-    cities = City.objects.all().values('pk', 'city')
-    city_list = list(cities)
+    cache_key = 'city_list'
+    city_list = cache.get(cache_key)
+
+    if city_list is None:
+        cities = City.objects.all().values('pk', 'city')
+        city_list = list(cities)
+        cache.set(cache_key, city_list, timeout=60*60*24)  # Cache for 24 hours
+
     return JsonResponse({'cities': city_list})
 
 # ======== Testimony ============
 def get_testimonials(request):
-    testimonials = Testimonial.objects.all()
-    testimonial_list = [
-        {
-            'pk': testimonial.pk,
-            'image_url': request.build_absolute_uri(testimonial.image.url),
-            'student_name': testimonial.student_name,
-            'student_addr': testimonial.student_addr,
-            'review': testimonial.review,
-        }
-        for testimonial in testimonials
-    ]
+    cache_key = 'testimonial_list'
+    testimonial_list = cache.get(cache_key)
+
+    if testimonial_list is None:
+        testimonials = Testimonial.objects.all()
+        testimonial_list = [
+            {
+                'pk': testimonial.pk,
+                'image_url': request.build_absolute_uri(testimonial.image.url),
+                'student_name': testimonial.student_name,
+                'student_addr': testimonial.student_addr,
+                'review': testimonial.review,
+            }
+            for testimonial in testimonials
+        ]
+        cache.set(cache_key, testimonial_list, timeout=60*60*24)  # Cache for 24 hours
+
     return JsonResponse({'testimonials': testimonial_list})
+
+

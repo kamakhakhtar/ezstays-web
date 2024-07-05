@@ -44,7 +44,6 @@ urlpatterns = [
     path('blogs/', views.blog_list, name='blogList'),
     path('blog/<slug:slug>/', views.blog_detail, name='blogDetail'),
     path('<slug:slug>/', views.blog_detail, name='blogDetail'),
-    path('ajax/footer-urls/', views.get_footer_urls, name='ajax-footer-urls'),
     path('ajax/seofooter-urls/', views.get_seofooter_urls, name='ajax-seofooter-urls'),
     path('ajax/get-cities/', views.get_cities, name='ajax-get-cities'),
     path('ajax/get-testimonials/', views.get_testimonials, name='ajax-get-testimonials'),
