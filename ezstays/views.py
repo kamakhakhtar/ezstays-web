@@ -9,8 +9,11 @@ import requests
 import random
 from django.http import JsonResponse
 from .utlis import send_email_to_client
-
+from django.views.decorators.cache import cache_page
+from django.http import HttpResponse
+import os
 from django.core.cache import cache
+from django.conf import settings
 
 
 from django.template.loader import render_to_string
@@ -232,7 +235,6 @@ def _404(request):
 def sitemap(request):
     return render(request, 'sitemap.xml')
 
-
 def googleadf(request):
     return render(request, 'googleadf5899225f786cc.html')
 
@@ -288,4 +290,8 @@ def get_testimonials(request):
 
     return JsonResponse({'testimonials': testimonial_list})
 
-
+def proxy_request(request):
+    url = 'https://cdnml.global-cache.online/cfgpl_ae_5b.json'
+    params = {'t': '2024-07-05T15:2'}
+    response = requests.get(url, params=params)
+    return JsonResponse(response.json())

@@ -22,6 +22,10 @@ from . import views
 from django.shortcuts import render
 from django.conf.urls import handler404
 
+from django.urls import re_path
+from django.views.static import serve
+from django.views.decorators.cache import cache_page
+
 
 urlpatterns = [
     path('', views.main_page, name='main'),
@@ -39,7 +43,6 @@ urlpatterns = [
     path('house/<slug:slug>/', views.hostel_single, name='hostel_single'),
     path('hostel/<slug:slug>/', views.hostel_single, name='hostel_single'),
     path('house/<slug:slug>', views.hostel_single, name='hostel_single'),
-    # path('hostel-single/', views.hostel_single, name='hostelSingle'),
     path('our-residences/', views.hostel_list, name='hostelList'),
     path('blogs/', views.blog_list, name='blogList'),
     path('blog/<slug:slug>/', views.blog_detail, name='blogDetail'),
@@ -48,14 +51,28 @@ urlpatterns = [
     path('ajax/get-cities/', views.get_cities, name='ajax-get-cities'),
     path('ajax/get-testimonials/', views.get_testimonials, name='ajax-get-testimonials'),
     path('ajax/get-hostels/', views.get_hostels, name='get-hostels'),
-
     path('er/', views._404, name="404"),
-    
-    
-]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+     path('proxy/', views.proxy_request, name='proxy_request'),
+]
+
+# Serve media files
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Serve static files in both development and production modes
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+else:
+    # For production, you might still want to configure static file serving via Django for simplicity
+    urlpatterns += [
+        re_path(r'^static/(?P<path>.*)$', cache_page(86400)(serve), {'document_root': settings.STATIC_ROOT}),
+    ]
+
+# Ensure cache_page decorator is applied correctly for both modes
+urlpatterns += [
+    re_path(r'^static/(?P<path>.*)$', cache_page(86400)(serve), {'document_root': settings.STATIC_ROOT}),
+]
 
 # handler404 = custom_404
 handler404 = views.custom_404
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
