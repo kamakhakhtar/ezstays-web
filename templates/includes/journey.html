@@ -1,57 +1,25 @@
 
 {% load static %}
-	<!--
+	
+
+		<!--
 		=====================================================
-			Fancy Banner Two
+			Fancy Banner Seven
 		=====================================================
 		-->
-		<div class="fancy-banner-two position-relative z-1 pt-90 lg-pt-50 pb-90 lg-pb-50">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6">
-						<div class="title-one text-center text-lg-start md-mb-40 pe-xl-5">
-							<h3 class="text-white m0">Start your <span>Journey<img src="{% static 'images/lazy.svg' %} "  data-src="{% static 'images/shape/title_shape_06.svg' %}" alt="" class="lazy-img"></span> with ezstays.</h3>
+		<div class="fancy-banner-seven mt-110 xl-mt-80 mb-130 xl-mb-100 lg-mb-80">
+			<div class="container container-large">
+				<div class="bg-wrapper position-relative z-1 pt-85 lg-pt-70 pb-100 xl-pb-80 lg-pb-70">
+					<div class="row">
+						<div class="col-xl-7 col-lg-8 col-md-10 m-auto text-center">
+							<h2 class="font-garamond text-white">Start your Journey with ezstays.</h2>
+							<p class="fs-24 text-white mt-30 mb-45 lg-mb-30">We’ve more than 12,000 students.</p>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-two"><span>Get Started</span></a>
 						</div>
-						<!-- /.title-one -->
 					</div>
-					<div class="col-lg-6">
-						
-						<div class="search-wrapper-one ">
-							<div class="bg-wrapper">
-								<form action="{% url 'hostelList' %}">
-									<div class="row gx-0 align-items-center">
-										
-										<div class="col-xl-8 col-lg-8">
-											<div class="input-box-one border-left">
-												<div class="label">Location</div>
-												{% comment %} <select class="nice-select location" name="location">
-													{% for city in citites %}
-													<option value="{{city.pk}}">{{ city.city }}</option>
-													{% endfor%}
-												</select> {% endcomment %}
-
-												<select class="nice-select location" name="location">
-													<!-- Options will be dynamically filled here -->
-												</select>
-												
-											</div>
-											<!-- /.input-box-one -->
-										</div>
-										
-										<div class="col-xl-4">
-											<div class="input-box-one lg-mt-10">
-												<button class="fw-500 text-uppercase tran3s search-btn ez-blue">Search</button>
-											</div>
-											<!-- /.input-box-one -->
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						
-					</div>
+					<img src="images/lazy.svg" data-src="images/shape/shape_44.svg" alt="" class="lazy-img shapes shape_01 wow fadeInLeft" data-wow-delay="0.2s">
+					<img src="images/lazy.svg" data-src="images/shape/shape_45.svg" alt="" class="lazy-img shapes shape_02 wow fadeInRight">
 				</div>
 			</div>
 		</div>
-		<!-- /.fancy-banner-two -->
-
+		<!-- /.fancy-banner-seven -->

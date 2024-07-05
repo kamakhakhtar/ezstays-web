@@ -86,23 +86,23 @@ $(window).on('load', function() {
     }
 
     // Function to load cities data
-    function loadCities() {
-        $.ajax({
-            url: '/ajax/get-cities/',
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                var select = $('.nice-select.location').empty();
-                data.cities.forEach(function(city) {
-                    select.append(new Option(city.city, city.pk));
-                });
-                select.niceSelect('update');
-            },
-            error: function() {
-                console.error('Failed to load cities');
-            }
-        });
-    }
+    // function loadCities() {
+    //     $.ajax({
+    //         url: '/ajax/get-cities/',
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             var select = $('.nice-select.location').empty();
+    //             data.cities.forEach(function(city) {
+    //                 select.append(new Option(city.city, city.pk));
+    //             });
+    //             select.niceSelect('update');
+    //         },
+    //         error: function() {
+    //             console.error('Failed to load cities');
+    //         }
+    //     });
+    // }
 
     // Load SEO footer URLs and cities data
     loadSEOFooter();

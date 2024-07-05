@@ -31,9 +31,14 @@
                 <h4 class="text-center wow fadeInUp"> Welcome to <span class="ezz">ez</span><span class="stays">stays</span></h4>
                 <h3 class="hero-heading text-center wow fadeInUp"> <span class="d-inline-block position-relative">The Next-Gen <span class="d-inline-block position-relative">Student Living <img src="{% static  'images/lazy.svg' %}" data-src="{% static  'images/shape/shape_01.svg' %}" alt="" class="lazy-load"></span></span></h3>
                 <p class="fs-24 color-dark text-center pt-35 pb-35 wow fadeInUp" data-wow-delay="0.1s">Student Housing - PG And Hostels in Greater Noida | Ghaziabad | Chandigarh | Delhi | Bhopal </p>
+                <div class="text-center">
+                    <a href="/our-residences/" class="btn-two rounded-0 border-0 mt-15 me-4"><span>Explore All</span></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-eight mt-15"><span>Request a Callback</span> <i class="fa-sharp fa-light fa-arrow-right-long"></i></a>
+                </div>
             </div>
         </div>
-        <div class="row">
+        
+        {% comment %} <div class="row">
             <div class="col-xxl-10 m-auto">
                 <div class="search-wrapper-one layout-one bg position-relative">
                     <div class="bg-wrapper">
@@ -60,7 +65,7 @@
                 </div>
                 <!-- /.search-wrapper-one -->
             </div>
-        </div>
+        </div> {% endcomment %}
     </div><img src="{% static  'images/lazy.svg' %}" data-src="{% static  'images/assets/ils_01.svg' %}" alt="" class="lazy-load shapes w-100 illustration"></div>{%endcache%}
 <!-- /.hero-banner-one -->
 <!-- =====================================================Property Listing Four=====================================================-->
@@ -393,6 +398,8 @@
     </div>
     <!-- /.wrapper -->
 </div>{%endcache%}
+
+
 <!-- /.block-feature-two -->{% cache 3600 journey_cache %}{% comment %} {% include './head.html' %} {% endcomment %}{% include "includes/journey.html" %}{% endcache %}
 <!--=====================================================Fancy Banner Three=====================================================-->{% cache 3600 call_banner_one %}
 <div class="fancy-banner-three position-relative text-center z-1 pt-200 xl-pt-150 lg-pt-100 pb-250 xl-pb-200 lg-pb-120">
