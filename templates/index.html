@@ -33,7 +33,7 @@
                 <p class="fs-24 color-dark text-center pt-35 pb-35 wow fadeInUp" data-wow-delay="0.1s">Student Housing - PG And Hostels in Greater Noida | Ghaziabad | Chandigarh | Delhi | Bhopal </p>
                 <div class="text-center">
                     <a href="/our-residences/" class="btn-two rounded-0 border-0 mt-15 me-4"><span>Explore All</span></a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-eight mt-15"><span>Request a Callback</span> <i class="fa-sharp fa-light fa-arrow-right-long"></i></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#callback" class="btn-eight mt-15"><span>Request a Callback</span> <i class="fa-sharp fa-light fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -84,12 +84,12 @@
                         <div class="img-gallery p-15">
                             <div class="position-relative border-20 overflow-hidden">
                                 <div class="tag text-dark fw-500 border-20 {{hostel.hostelType | gender}} ">FOR {{hostel.hostelType}}</div>{% if hostel.images.all %}<img src="{% static  'images/lazy.svg' %}" data-src="{{ hostel.images.all.0.image.url }}" alt="{{ hostel.name }}" class="lazy-load">{% endif %}<a href="#" data-bs-toggle="modal"
-                                data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="bi bi-telephone-inbound-fill"></i></a></div>
+                                data-bs-target="#callback" class="btn-four inverse rounded-circle position-absolute"><i class="fa fa-telephone-inbound-fill"></i></a></div>
                         </div>
                         <!-- /.img-gallery -->
                         <div class="property-info pe-4 ps-4"><a href="/house/{{hostel.slug}}/" class="title tran3s">{{ hostel.name }}</a>
                             <div class="address">{{ hostel.address|truncatewords:15 }}</div>
-                            <div class="pl-footer top-border d-flex align-items-center justify-content-between"><a href="#" data-bs-toggle="modal" data-bs-target="#schedule" class="btn-four rounded-circle"><i class="bi bi-calendar-plus"></i></a></div>
+                            <div class="pl-footer top-border d-flex align-items-center justify-content-between"><a href="#" data-bs-toggle="modal" data-bs-target="#schedule" class="btn-four rounded-circle"><i class="fa fa-calendar-plus"></i></a></div>
                         </div>
                         <!-- /.property-info -->
                     </div>
@@ -97,8 +97,8 @@
                 </div>{% endfor %} {% endcomment %}</div>
             <div class="section-btn text-center"><a href="/our-residences/" class="btn-eleven fst-italic"><span>See all properties</span></a></div>
             <ul class="slider-arrows slick-arrow-two d-flex justify-content-center style-none md-mt-30">
-                <li class="prev_b slick-arrow"><i class="bi bi-arrow-left"></i></li>
-                <li class="next_b slick-arrow"><i class="bi bi-arrow-right"></i></li>
+                <li class="prev_b slick-arrow"><i class="fa fa-arrow-left"></i></li>
+                <li class="next_b slick-arrow"><i class="fa fa-arrow-right"></i></li>
             </ul>
         </div>
     </div>
@@ -258,8 +258,8 @@
                 <!-- Testimonials will be loaded dynamically here -->
             </div>
             <ul class="slider-arrows slick-arrow-two d-flex justify-content-center style-none md-mt-30">
-                <li class="prev_c slick-arrow"><i class="bi bi-arrow-left"></i></li>
-                <li class="next_c slick-arrow"><i class="bi bi-arrow-right"></i></li>
+                <li class="prev_c slick-arrow"><i class="fa fa-arrow-left"></i></li>
+                <li class="next_c slick-arrow"><i class="fa fa-arrow-right"></i></li>
             </ul>
             <div class="section-btn text-center md-mt-30"><a href="#" class="btn-eleven fst-italic"><span>See all Feedback</span></a></div>
         </div>
