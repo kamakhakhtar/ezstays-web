@@ -1,10 +1,1 @@
-<!-- partials/footer_urls.html -->
-{% for batch in batched_urls %}
-    <div class="footer-nav">
-        <ul class="footer-nav-link style-none">
-            {% for url in batch %}
-                <li><a href="/blog/{{ url.slug }}/">{{ url.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
-{% endfor %}
+<!-- partials/footer_urls.html -->{% for batch in batched_urls %} <div class="footer-nav"> <ul class="footer-nav-link style-none"> {% for url in batch %} <li><a href="/blog/{{ url.slug }}/">{{ url.title }}</a></li> {% endfor %} </ul> </div>{% endfor %}
