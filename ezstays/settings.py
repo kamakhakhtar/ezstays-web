@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--oyvhdhcka=l(99^jo*(&cq%rr$%ztks&*=yz*!%bflhm6m%jj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ezstays.in']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ezstays.in','184.164.142.211']
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': False,
